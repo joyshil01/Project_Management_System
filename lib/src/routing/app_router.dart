@@ -6,6 +6,7 @@ import 'package:project_management_system/src/features/drawer/presentation/help.
 import 'package:project_management_system/src/features/drawer/presentation/project_list.dart';
 import 'package:project_management_system/src/features/drawer/presentation/project_permission.dart';
 import 'package:project_management_system/src/features/drawer/presentation/todo_list.dart';
+import '../features/dashboard/presentation/project_details_screen.dart';
 
 enum AppRoute {
   home,
@@ -14,6 +15,7 @@ enum AppRoute {
   todo_list,
   project_list,
   help,
+  project_details,
 }
 
 final goRouter = GoRouter(
@@ -66,6 +68,15 @@ final goRouter = GoRouter(
       pageBuilder: (context, state) {
         return MaterialPage(
           child: Help_Screen(),
+        );
+      },
+    ),
+    GoRoute(
+      path: '/project_details',
+      name: AppRoute.project_details.name,
+      pageBuilder: (context, state) {
+        return MaterialPage(
+          child: ProjectDetails_Screen(),
         );
       },
     ),

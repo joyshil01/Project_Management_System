@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'features/dashboard/presentation/home_screen.dart';
 import 'routing/app_router.dart';
 
 class MyApp extends StatelessWidget {
@@ -25,11 +24,13 @@ class MyApp extends StatelessWidget {
           onGenerateTitle: (BuildContext context) => 'PMS',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            highlightColor: Color(0xfffEEEEEE), //list container color
+            hintColor: Colors.white, //text color
             buttonColor: Colors.white,
-            scaffoldBackgroundColor: const Color(0xfffFFFFFF),
+            scaffoldBackgroundColor: const Color(0xfffFFFFFF), // bg color
             primaryColor: const Color(0xfffFFFFFF),
             colorScheme: ColorScheme.fromSwatch().copyWith(
-              secondary: const Color(0xfff0D0336),
+              secondary: const Color(0xfff0D0336), //App bar Color
             ),
             textTheme: const TextTheme(
               bodyLarge: TextStyle(
