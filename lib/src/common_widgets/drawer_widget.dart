@@ -11,15 +11,15 @@ class drawer_widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       width: SizeVariables.getWidth(context) * 0.68,
       child: ListView(
         children: <Widget>[
-          DrawerHeader(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-            ),
+          Container(
+            height: SizeVariables.getHeight(context) * 0.12,
+            color: Color(0xfff130649),
             child: Container(
+              // height: 5,
               padding: EdgeInsets.only(
                 left: SizeVariables.getWidth(context) * 0.01,
               ),
@@ -35,7 +35,7 @@ class drawer_widget extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.only(
-                      top: SizeVariables.getHeight(context) * 0.053,
+                      top: SizeVariables.getHeight(context) * 0.038,
                       left: SizeVariables.getWidth(context) * 0.03,
                     ),
                     child: Column(
@@ -232,6 +232,36 @@ class drawer_widget extends StatelessWidget {
                   Container(
                     child: Text(
                       'Help',
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: const Color(0xfff7B7B7B),
+                          ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          ListTile(
+            onTap: () {
+              context.goNamed(AppRoute.home.name);
+            },
+            title: Container(
+              child: Row(
+                children: [
+                  Container(
+                    child: const Icon(
+                      Icons.logout_outlined,
+                      color: Colors.grey,
+                    )
+                  ),
+                  SizedBox(
+                    width: SizeVariables.getWidth(context) * 0.03,
+                  ),
+                  Container(
+                    child: Text(
+                      'Logout',
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
