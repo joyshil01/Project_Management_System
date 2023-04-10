@@ -16,8 +16,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_launcher_icons:
   flutter_svg: ^2.0.4
-  go_router: ^6.4.1
   fl_chart: ^0.61.0
+  get:
+  syncfusion_flutter_gauges: ^21.1.37
+  analog_clock:
+  smooth_page_indicator: ^1.0.1
 
 
 flutter_icons:
@@ -46,6 +49,7 @@ flutter:
     - assets/
     - assets/drawer/
     - assets/img/
+    - assets/svg/
   
   fonts:
     - family: Poppins
@@ -53,3 +57,13 @@ flutter:
         - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-Medium.ttf
         - asset: assets/fonts/Poppins-Bold.ttf
+
+    - family: PT Serif
+      fonts:
+        - asset: assets/fonts/PTSerif-Bold.ttf
+
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+        - asset: assets/fonts/Roboto-Medium.ttf
+        - asset: assets/fonts/Roboto-Bold.ttf

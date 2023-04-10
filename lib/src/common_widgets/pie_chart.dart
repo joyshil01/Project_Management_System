@@ -30,6 +30,8 @@ class PieChartScreenState extends State {
                       bottom: SizeVariables.getHeight(context) * 0.05,
                     ),
                     child: PieChart(
+                      swapAnimationCurve: Curves.linear,
+                      swapAnimationDuration: const Duration(milliseconds: 500),
                       PieChartData(
                         pieTouchData: PieTouchData(
                           touchCallback:

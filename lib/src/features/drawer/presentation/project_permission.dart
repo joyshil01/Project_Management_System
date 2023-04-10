@@ -1,10 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
+import '../../../../constans.dart';
 import '../../../common_widgets/drawer_widget.dart';
-import '../../../routing/app_router.dart';
-import '../../project_permission/presentation/pro_permission.dart';
 
 class Project_Permission_Screen extends StatefulWidget {
   @override
@@ -30,9 +28,7 @@ class _Project_Permission_ScreenState extends State<Project_Permission_Screen> {
               end: Alignment.topCenter,
             )),
           ),
-          const SafeArea(
-            child: drawer_widget()
-          ),
+          const SafeArea(child: drawer_widget()),
           TweenAnimationBuilder(
             tween: Tween<double>(
               begin: 0,
@@ -47,53 +43,71 @@ class _Project_Permission_ScreenState extends State<Project_Permission_Screen> {
                   ..setEntry(0, 3, 200 * val)
                   ..rotateY((pi / 6) * val),
                 child: Scaffold(
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  appBar: AppBar(
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                    title: Row(
+                  body: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Firstgradient,
+                          Secondgradient,
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                    child: ListView(
                       children: [
-                        IconButton(
-                          onPressed: () {
-                            setState(() {
-                              value == 0 ? value = 1 : value = 0;
-                            });
-                          },
-                          icon: const Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Container(
-                          child: Text(
-                            'Project Permissions',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
+                        SafeArea(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        value == 0 ? value = 1 : value = 0;
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.only(
+                                        left: SizeVariables.getWidth(context) *
+                                            0.01,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/drawer/menu 1.png',
+                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      padding: EdgeInsets.only(
+                                        top: SizeVariables.getHeight(context) *
+                                            0.005,
+                                        right: SizeVariables.getWidth(context) *
+                                            0.02,
+                                      ),
+                                      child: Image.asset(
+                                        'assets/drawer/bell.png',
+                                        height: 30,
+                                        width: 30,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    actions: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.notifications,
-                          color: Theme.of(context).buttonColor,
-                          size: 30,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ],
                   ),
-                  body: ProjectPermission_Screen(),
                 ),
               ));
             },
           ),
-          
         ],
       ),
     );

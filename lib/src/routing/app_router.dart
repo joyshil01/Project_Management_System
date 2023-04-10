@@ -1,84 +1,58 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:project_management_system/src/features/dashboard/presentation/home_screen.dart';
-import 'package:project_management_system/src/features/drawer/presentation/all_project.dart';
-import 'package:project_management_system/src/features/drawer/presentation/help.dart';
-import 'package:project_management_system/src/features/drawer/presentation/project_list.dart';
-import 'package:project_management_system/src/features/drawer/presentation/project_permission.dart';
-import 'package:project_management_system/src/features/drawer/presentation/todo_list.dart';
-import '../features/dashboard/presentation/project_details_screen.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import '../features/all_Project/presentation/projectDetails_Screen.dart';
+import '../features/dashboard/presentation/home_screen.dart';
+import '../features/drawer/presentation/all_project.dart';
+import '../features/drawer/presentation/help.dart';
+import '../features/drawer/presentation/project_list.dart';
+import '../features/drawer/presentation/project_permission.dart';
+import '../features/drawer/presentation/todo_list.dart';
 
-enum AppRoute {
-  home,
-  all_project,
-  project_permission,
-  todo_list,
-  project_list,
-  help,
-  project_details,
+class RoutesClass {
+  static String home = '/';
+  static String getHomeRoute() => home;
+  static String all_project = '/all_project';
+  static String all_projectRoute() => all_project;
+  static String project_permission = '/project_permission';
+  static String project_permissionRoute() => project_permission;
+  static String todo_list = '/todo_list';
+  static String todo_listRoute() => todo_list;
+  static String project_list = '/project_list';
+  static String project_listRoute() => project_list;
+  static String help = '/help';
+  static String helpRoute() => help;
+  static String project_details = '/project_details';
+  static String project_detailsRoute() => project_details;
+
+  static List<GetPage> routes = [
+    GetPage(
+      name: home,
+      page: () => Homepage_Screen(),
+    ),
+    GetPage(
+      name: all_project,
+      page: () => All_Project_Screen(),
+    ),
+    GetPage(
+      name: project_permission,
+      page: () => Project_Permission_Screen(),
+    ),
+    GetPage(
+      name: todo_list,
+      page: () => Todo_List_Screen(),
+    ),
+    GetPage(
+      name: project_list,
+      page: () => Project_List_Screen(),
+    ),
+    GetPage(
+      name: help,
+      page: () => Help_Screen(),
+    ),
+    GetPage(
+      transition: Transition.leftToRight,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: project_details,
+      page: () => projectDetails_Screen(),
+    ),
+  ];
 }
-
-final goRouter = GoRouter(
-  debugLogDiagnostics: true,
-  routes: [
-    GoRoute(
-      path: '/',
-      name: AppRoute.home.name,
-      builder: (context, state) => Homepage_Screen(),
-    ),
-    GoRoute(
-      path: '/all_project',
-      name: AppRoute.all_project.name,
-      pageBuilder: (context, state) {
-        return MaterialPage(
-          child: All_Project_Screen(),
-        );
-      },
-    ),
-    GoRoute(
-      path: '/project_permission',
-      name: AppRoute.project_permission.name,
-      pageBuilder: (context, state) {
-        return MaterialPage(
-          child: Project_Permission_Screen(),
-        );
-      },
-    ),
-    GoRoute(
-      path: '/todo_list',
-      name: AppRoute.todo_list.name,
-      pageBuilder: (context, state) {
-        return MaterialPage(
-          child: Todo_List_Screen(),
-        );
-      },
-    ),
-    GoRoute(
-      path: '/project_list',
-      name: AppRoute.project_list.name,
-      pageBuilder: (context, state) {
-        return MaterialPage(
-          child: Project_List_Screen(),
-        );
-      },
-    ),
-    GoRoute(
-      path: '/help',
-      name: AppRoute.help.name,
-      pageBuilder: (context, state) {
-        return MaterialPage(
-          child: Help_Screen(),
-        );
-      },
-    ),
-    GoRoute(
-      path: '/project_details',
-      name: AppRoute.project_details.name,
-      pageBuilder: (context, state) {
-        return MaterialPage(
-          child: ProjectDetails_Screen(),
-        );
-      },
-    ),
-  ],
-);

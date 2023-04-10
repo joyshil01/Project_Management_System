@@ -1,9 +1,14 @@
 import 'dart:math';
+import 'package:analog_clock/analog_clock.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
 import 'package:project_management_system/src/common_widgets/containerStyle.dart';
+import 'package:project_management_system/src/features/dashboard/presentation/homepage_Card.dart';
+import 'package:project_management_system/src/features/dashboard/presentation/velocity.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
+import 'package:syncfusion_flutter_gauges/gauges.dart';
+import '../../../../constans.dart';
 import '../../../common_widgets/drawer_widget.dart';
 import '../../../common_widgets/pie_chart.dart';
 import '../../../routing/app_router.dart';
@@ -48,164 +53,299 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                   ..setEntry(0, 3, 200 * val)
                   ..rotateY((pi / 6) * val),
                 child: Scaffold(
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  appBar: AppBar(
-                    backgroundColor: Theme.of(context).colorScheme.secondary,
-                    title: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              value == 0 ? value = 1 : value = 0;
-                            });
-                          },
-                        ),
-                        Container(
-                          child: Text(
-                            'Home',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    actions: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.notifications,
-                          color: Theme.of(context).buttonColor,
-                          size: 30,
-                        ),
-                        onPressed: () {},
+                  // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  body: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Firstgradient,
+                          Secondgradient,
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
                       ),
-                    ],
-                  ),
-                  body: ListView(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: BackgroundStyle(
-                          child: Container(
-                            // height: 500,
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        right: SizeVariables.getWidth(context) *
-                                            0.1,
-                                      ),
-                                      child: Container(
-                                        child: Text(
-                                          'Project Tasks Status',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                fontSize: 20,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.more_vert_outlined,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  child: Text(
-                                    'Thursday , March 23',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium!
-                                        .copyWith(
-                                          fontSize: 14,
-                                        ),
+                    ),
+                    padding: EdgeInsets.only(
+                      left: SizeVariables.getWidth(context) * 0.01,
+                      right: SizeVariables.getWidth(context) * 0.01,
+                    ),
+                    child: ListView(
+                      children: [
+                        Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    value == 0 ? value = 1 : value = 0;
+                                  });
+                                },
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                    left:
+                                        SizeVariables.getWidth(context) * 0.01,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/drawer/menu 1.png',
                                   ),
                                 ),
-                                PieChartScreen(),
-                              ],
-                            ),
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Container(
+                                  padding: EdgeInsets.only(
+                                    top: SizeVariables.getHeight(context) *
+                                        0.005,
+                                    right:
+                                        SizeVariables.getWidth(context) * 0.02,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/drawer/bell.png',
+                                    height: 30,
+                                    width: 30,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: BackgroundStyle(
+                        SizedBox(
+                          height: SizeVariables.getHeight(context) * 0.015,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: Container(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
+                                  child: const Text(
+                                    'Hey Joy,',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                      fontFamily: 'PT Serif',
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
                                   height:
-                                      SizeVariables.getHeight(context) * 0.03,
-                                  // color: Colors.amber,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.more_vert_outlined,
-                                          color: Colors.black,
-                                          size: 15,
-                                        ),
+                                      SizeVariables.getHeight(context) * 0.004,
+                                ),
+                                Container(
+                                  child: const Text(
+                                    'How can i help you?',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                      fontFamily: 'PT Serif',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: SizeVariables.getHeight(context) * 0.015,
+                        ),
+                        Container(
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 170,
+                                  height: 180,
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                      colors: [
+                                        Color(0xfff172983),
+                                        Color(0xfff172983),
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.circular(28),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(2, 1),
+                                        blurRadius: 6,
+                                        spreadRadius: 0,
+                                        color: Color(0xfffA0A0A0),
                                       ),
                                     ],
                                   ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(18),
+                                    child: AnalogClock(
+                                      useMilitaryTime: GetPlatform.isIOS,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 5,
+                                            color: Color(0xfff0030AC),
+                                          ),
+                                          color: Color(0xfff172983),
+                                          shape: BoxShape.circle), // decoration
+                                      width: 200.0,
+                                      isLive: true,
+                                      hourHandColor: Colors.white,
+                                      minuteHandColor: Colors.white,
+                                      showSecondHand: true,
+                                      numberColor: Colors.white,
+                                      showNumbers: true,
+                                      textScaleFactor: 1.5,
+                                      showTicks: true,
+                                      showDigitalClock: true,
+                                      digitalClockColor: Colors.white,
+                                      datetime: DateTime(2020, 8, 4, 9, 11, 0),
+                                    ),
+                                  ),
                                 ),
-                                Container(
-                                  height: 197,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: 10,
-                                    itemBuilder: (context, index) => InkWell(
-                                      onTap: () {
-                                        context.pushNamed(
-                                            AppRoute.project_details.name);
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: ContainerCard(
-                                          child: Container(
-                                            width: 130,
-                                            child: Container(
-                                              margin: EdgeInsets.all(10),
+                              ),
+                              const SizedBox(
+                                width: 7,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 170,
+                                  height: 180,
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                      end: Alignment.bottomLeft,
+                                      begin: Alignment.topLeft,
+                                      colors: [
+                                        Color(0xfff55CDE8),
+                                        Color(0xfff2750C0),
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.circular(28),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(2, 1),
+                                        blurRadius: 6,
+                                        spreadRadius: 0,
+                                        color: Color(0xfffA0A0A0),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Container(
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          width: 70,
+                                          // color: Colors.purple,
+                                          child: Image.asset(
+                                            'assets/img/sun.png',
+                                            // height: SizeVariables.getHeight(context)*0.1,
+                                            // width: SizeVariables.getWidth(context) *0.05,
+                                          ),
+                                        ),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              padding: EdgeInsets.only(
+                                                top: SizeVariables.getHeight(
+                                                        context) *
+                                                    0.022,
+                                              ),
                                               child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
                                                 children: [
                                                   Container(
+                                                    child: Text(
+                                                      'Monday',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyMedium!
+                                                          .copyWith(
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .hintColor,
+                                                            fontSize: 20,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    child: Text(
+                                                      'Kolkata',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodyMedium!
+                                                          .copyWith(
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .hintColor,
+                                                            fontSize: 16,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: SizeVariables.getHeight(
+                                                      context) *
+                                                  0.06,
+                                            ),
+                                            Container(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  Container(
+                                                    width: 60,
                                                     child: Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
                                                         Container(
                                                           child: Text(
-                                                            'Pending',
+                                                            '22',
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .bodySmall!
+                                                                .copyWith(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .hintColor,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                            bottom: 10,
+                                                          ),
+                                                          child: Container(
+                                                            child: Text(
+                                                              '0',
+                                                              style: Theme.of(
+                                                                      context)
+                                                                  .textTheme
+                                                                  .bodyMedium!
+                                                                  .copyWith(
+                                                                      color: Theme.of(
+                                                                              context)
+                                                                          .hintColor,
+                                                                      fontSize:
+                                                                          8),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          child: Text(
+                                                            'c',
                                                             style: Theme.of(
                                                                     context)
                                                                 .textTheme
                                                                 .bodyMedium!
                                                                 .copyWith(
-                                                                  color: const Color(
-                                                                      0xfffFEBE39),
-                                                                  fontSize: 8,
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .hintColor,
+                                                                  fontSize: 16,
                                                                 ),
                                                           ),
                                                         ),
@@ -213,228 +353,60 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                                     ),
                                                   ),
                                                   Container(
-                                                    child: Text(
-                                                      'Clamiz',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodySmall!
-                                                          .copyWith(
-                                                            fontSize: 18,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    child: Text(
-                                                      'UI Bug problem is not fix perfectly. Try to fix them.',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodyMedium!
-                                                          .copyWith(
-                                                            fontSize: 12,
-                                                            color: const Color(
-                                                                0xfff7B7B7B),
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 3,
-                                                  ),
-                                                  Container(
-                                                    child: Text(
-                                                      '4 days left',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodySmall!
-                                                          .copyWith(
-                                                            color: const Color(
-                                                                0xfff7B7B7B),
-                                                            fontSize: 13,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  Container(
-                                                    // width: 100,
-                                                    // height: 30,
+                                                    width: 60,
                                                     child: Row(
                                                       mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
+                                                          MainAxisAlignment.end,
                                                       children: [
                                                         Container(
-                                                          height: 30,
-                                                          width: 60,
-                                                          child: Stack(
-                                                            fit: StackFit
-                                                                .passthrough,
-                                                            children: [
-                                                              Positioned(
-                                                                left: 0,
-                                                                top: 0,
-                                                                right: 30,
-                                                                bottom: 0,
-                                                                child:
-                                                                    CircleAvatar(
-                                                                  radius: SizeVariables
-                                                                          .getHeight(
-                                                                              context) *
-                                                                      0.015,
-                                                                  backgroundImage:
-                                                                      const AssetImage(
-                                                                    'assets/img/demo1.png',
-                                                                  ),
+                                                          child: Text(
+                                                            '71.6',
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .bodySmall!
+                                                                .copyWith(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .hintColor,
                                                                 ),
-                                                              ),
-                                                              Positioned(
-                                                                left: 0,
-                                                                top: 0,
-                                                                right: 0,
-                                                                bottom: 0,
-                                                                child:
-                                                                    CircleAvatar(
-                                                                  radius: SizeVariables
-                                                                          .getHeight(
-                                                                              context) *
-                                                                      0.015,
-                                                                  backgroundImage:
-                                                                      const AssetImage(
-                                                                    'assets/img/demo2.png',
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .only(
+                                                            bottom: 10,
+                                                          ),
+                                                          child: Container(
+                                                            child: Text(
+                                                              '0',
+                                                              style: Theme.of(
+                                                                      context)
+                                                                  .textTheme
+                                                                  .bodyMedium!
+                                                                  .copyWith(
+                                                                      color: Theme.of(
+                                                                              context)
+                                                                          .hintColor,
+                                                                      fontSize:
+                                                                          8),
+                                                            ),
                                                           ),
                                                         ),
                                                         Container(
-                                                          height: 30,
-                                                          width: 30,
-                                                          child: Stack(
-                                                            children: [
-                                                              PieChart(
-                                                                PieChartData(
-                                                                  borderData:
-                                                                      FlBorderData(
-                                                                          show:
-                                                                              false),
-                                                                  sectionsSpace:
-                                                                      1,
-                                                                  centerSpaceRadius:
-                                                                      10,
-                                                                  sections: [
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Colors
-                                                                          .grey,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Colors
-                                                                          .grey,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Colors
-                                                                          .grey,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                    PieChartSectionData(
-                                                                      color: Theme.of(
-                                                                              context)
-                                                                          .colorScheme
-                                                                          .secondary,
-                                                                      title: '',
-                                                                      value: 10,
-                                                                      radius: 5,
-                                                                    ),
-                                                                  ],
+                                                          child: Text(
+                                                            'F',
+                                                            style: Theme.of(
+                                                                    context)
+                                                                .textTheme
+                                                                .bodyMedium!
+                                                                .copyWith(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .hintColor,
+                                                                  fontSize: 16,
                                                                 ),
-                                                              ),
-                                                              Positioned(
-                                                                left: 2,
-                                                                top: 10,
-                                                                right: 2,
-                                                                bottom: 0,
-                                                                child: Column(
-                                                                  children: [
-                                                                    FittedBox(
-                                                                      fit: BoxFit
-                                                                          .contain,
-                                                                      child:
-                                                                          Text(
-                                                                        '70%',
-                                                                        style: Theme.of(context)
-                                                                            .textTheme
-                                                                            .bodyMedium!
-                                                                            .copyWith(
-                                                                              fontSize: 6,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
                                                           ),
                                                         ),
                                                       ],
@@ -443,22 +415,217 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                                 ],
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                                SizedBox(
-                                  height:
-                                      SizeVariables.getHeight(context) * 0.02,
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                        Container(
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 170,
+                                  height: 180,
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomLeft,
+                                      colors: [
+                                        Color(0xfff8B10B6),
+                                        Color(0xfff0A0023),
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.circular(28),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(2, 1),
+                                        blurRadius: 6,
+                                        spreadRadius: 0,
+                                        color: Color(0xfffA0A0A0),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          top:
+                                              SizeVariables.getHeight(context) *
+                                                  0.01,
+                                          bottom:
+                                              SizeVariables.getHeight(context) *
+                                                  0.01,
+                                        ),
+                                        child: Container(
+                                          child: Text(
+                                            'Progress',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .copyWith(
+                                                  color: Theme.of(context)
+                                                      .hintColor,
+                                                  fontSize: 18,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                      Center(
+                                        child: Container(
+                                          height: 130,
+                                          width: 130,
+                                          // color: Colors.amber,
+                                          child: SfRadialGauge(
+                                            enableLoadingAnimation: true,
+                                            animationDuration: 2500,
+                                            axes: <RadialAxis>[
+                                              RadialAxis(
+                                                minimum: 0,
+                                                maximum: 100,
+                                                ranges: <GaugeRange>[
+                                                  GaugeRange(
+                                                    label: '50',
+                                                    labelStyle:
+                                                        const GaugeTextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                    startValue: 0,
+                                                    endValue: 50,
+                                                    color: Colors.green,
+                                                  ),
+                                                  GaugeRange(
+                                                    label: '25',
+                                                    labelStyle:
+                                                        const GaugeTextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                    startValue: 50,
+                                                    endValue: 75,
+                                                    color: Colors.orange,
+                                                  ),
+                                                  GaugeRange(
+                                                    label: '25',
+                                                    labelStyle:
+                                                        const GaugeTextStyle(
+                                                      color: Colors.white,
+                                                    ),
+                                                    startValue: 75,
+                                                    endValue: 100,
+                                                    color: Colors.red,
+                                                  )
+                                                ],
+                                                pointers: const <GaugePointer>[
+                                                  NeedlePointer(
+                                                    animationType: AnimationType
+                                                        .easeInCirc,
+                                                    enableAnimation: true,
+                                                    animationDuration: 500,
+                                                    value: 70,
+                                                    needleColor: Colors.red,
+                                                  ),
+                                                ],
+                                                axisLabelStyle:
+                                                    const GaugeTextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 5,
+                                                ),
+                                                majorTickStyle:
+                                                    const MajorTickStyle(
+                                                  color: Colors.amber,
+                                                ),
+                                                endAngle: 40,
+                                                startAngle: 140,
+                                                showLastLabel: true,
+                                                annotations: <GaugeAnnotation>[
+                                                  GaugeAnnotation(
+                                                    widget: Container(
+                                                      child: Text(
+                                                        '11:42',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .hintColor,
+                                                              fontSize: 18,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    angle: 90,
+                                                    positionFactor: 0.8,
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 7,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 170,
+                                  height: 180,
+                                  decoration: BoxDecoration(
+                                    gradient: const LinearGradient(
+                                      colors: [
+                                        Color(0xfff172983),
+                                        Color(0xfff172983),
+                                      ],
+                                    ),
+                                    borderRadius: BorderRadius.circular(28),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        offset: Offset(2, 1),
+                                        blurRadius: 6,
+                                        spreadRadius: 0,
+                                        color: Color(0xfffA0A0A0),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: SizeVariables.getHeight(context) * 0.02,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: SizeVariables.getWidth(context) * 0.03,
+                            right: SizeVariables.getWidth(context) * 0.03,
+                          ),
+                          child: Container(
+                            child: HomepageCard(),
+                          ),
+                        ),
+                        SizedBox(
+                          height: SizeVariables.getHeight(context) * 0.02,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: SizeVariables.getWidth(context) * 0.03,
+                            right: SizeVariables.getWidth(context) * 0.03,
+                          ),
+                          child: Velocitygraph(),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ));

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:get/get.dart';
 import '../routing/app_router.dart';
 import '../utils/media-query.dart';
 
@@ -71,7 +71,8 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.home.name);
+              Get.toNamed(RoutesClass.getHomeRoute());
+              // context.goNamed(AppRoute.home.name);
             },
             title: Container(
               child: Row(
@@ -100,7 +101,8 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.all_project.name);
+              Get.toNamed(RoutesClass.all_projectRoute());
+              // context.goNamed(AppRoute.all_project.name);
             },
             title: Container(
               child: Row(
@@ -129,7 +131,8 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.project_permission.name);
+              Get.toNamed(RoutesClass.project_permissionRoute());
+              // context.goNamed(AppRoute.project_permission.name);
             },
             title: Container(
               child: Row(
@@ -158,7 +161,8 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.todo_list.name);
+              Get.toNamed(RoutesClass.todo_listRoute());
+              // context.goNamed(AppRoute.todo_list.name);
             },
             title: Container(
               child: Row(
@@ -187,7 +191,9 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.project_list.name);
+              Get.toNamed(RoutesClass.project_listRoute());
+              // context.pushNamed(AppRoute.project_list.name);
+              // context.goNamed(AppRoute.project_list.name);
             },
             title: Container(
               child: Row(
@@ -216,7 +222,8 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.help.name);
+              Get.toNamed(RoutesClass.helpRoute());
+              // context.goNamed(AppRoute.help.name);
             },
             title: Container(
               child: Row(
@@ -245,17 +252,17 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.goNamed(AppRoute.home.name);
+              Get.toNamed(RoutesClass.getHomeRoute());
+              // context.goNamed(AppRoute.home.name);
             },
             title: Container(
               child: Row(
                 children: [
                   Container(
-                    child: const Icon(
-                      Icons.logout_outlined,
-                      color: Colors.grey,
-                    )
-                  ),
+                      child: const Icon(
+                    Icons.logout_outlined,
+                    color: Colors.grey,
+                  )),
                   SizedBox(
                     width: SizeVariables.getWidth(context) * 0.03,
                   ),
