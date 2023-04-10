@@ -49,7 +49,7 @@ class RoutesClass {
       page: () => Help_Screen(),
     ),
     GetPage(
-      transition: Transition.leftToRight,
+      transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 500),
       name: project_details,
       page: () => projectDetails_Screen(),

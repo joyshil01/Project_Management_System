@@ -28,12 +28,11 @@ class MyApp extends StatelessWidget {
             highlightColor: Color(0xfffEEEEEE), //list container color
             hintColor: Colors.white, //text color
             buttonColor: Colors.white,
-            scaffoldBackgroundColor: Colors.red,
+            scaffoldBackgroundColor: Color(0xfff3A4D88),
             // const Color(0xfffFFFFFF), // bg color
             primaryColor: const Color(0xfffFFFFFF),
             colorScheme: ColorScheme.fromSwatch().copyWith(
-              secondary: const Color(0xfff0D0336), 
-              //App bar Color
+              secondary: const Color(0xfff0D0336), //App bar Color
             ),
             textTheme: const TextTheme(
               bodyLarge: TextStyle(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../../routing/app_router.dart';
 
 class Project_List extends StatefulWidget {
   @override
@@ -13,6 +15,8 @@ final _doingProjects = PageController();
 final _onHoldProjects = PageController();
 final _doneProjects = PageController();
 int all = 3;
+bool OnDotClicked = true;
+
 
 class _Project_ListState extends State<Project_List> {
   @override
@@ -101,7 +105,9 @@ class _Project_ListState extends State<Project_List> {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(RoutesClass.project_detailsRoute());
+                      },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
@@ -121,7 +127,7 @@ class _Project_ListState extends State<Project_List> {
                     count: 3,
                     effect: const ExpandingDotsEffect(
                       dotColor: Color(0xfffD9D9D9),
-                      activeDotColor: Color(0xfffD9D9D9),
+                      activeDotColor: Colors.blue,
                       dotHeight: 10,
                       dotWidth: 10,
                       strokeWidth: 5,
@@ -170,11 +176,12 @@ class _Project_ListState extends State<Project_List> {
                 ),
               ),
               SmoothPageIndicator(
+                onDotClicked: (index) {},
                 controller: _doingProjects,
                 count: 3,
                 effect: const ExpandingDotsEffect(
                   dotColor: Color(0xfffD9D9D9),
-                  activeDotColor: Color(0xfffD9D9D9),
+                  activeDotColor: Colors.blue,
                   dotHeight: 10,
                   dotWidth: 10,
                   strokeWidth: 5,
@@ -225,7 +232,7 @@ class _Project_ListState extends State<Project_List> {
                 count: 4,
                 effect: const ExpandingDotsEffect(
                   dotColor: Color(0xfffD9D9D9),
-                  activeDotColor: Color(0xfffD9D9D9),
+                  activeDotColor: Colors.blue,
                   dotHeight: 10,
                   dotWidth: 10,
                   strokeWidth: 5,
@@ -277,7 +284,7 @@ class _Project_ListState extends State<Project_List> {
                 count: 3,
                 effect: const ExpandingDotsEffect(
                   dotColor: Color(0xfffD9D9D9),
-                  activeDotColor: Color(0xfffD9D9D9),
+                  activeDotColor: Colors.blue,
                   dotHeight: 10,
                   dotWidth: 10,
                   strokeWidth: 5,
