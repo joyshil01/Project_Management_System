@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/features/all_Project/presentation/projects_Details.dart';
 import '../../../../constans.dart';
@@ -13,11 +14,93 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        // child: Icon(
-        //   icons
-        // ),
+      floatingActionButton: SpeedDial(
+        shape: const CircleBorder(
+          side: BorderSide(
+            color: Colors.white,
+          ),
+        ),
+        overlayOpacity: 0.5,
+        spacing: 12,
+        overlayColor: Colors.black12,
+        animatedIcon: AnimatedIcons.add_event,
+        children: [
+          SpeedDialChild(
+            shape: const CircleBorder(
+              side: BorderSide(
+                color: Colors.white,
+              ),
+            ),
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            labelWidget: Container(
+              padding: EdgeInsets.only(
+                right: SizeVariables.getWidth(context) * 0.03,
+              ),
+              child: Text(
+                'Edit Project',
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Theme.of(context).hintColor,
+                      fontSize: 16,
+                    ),
+              ),
+            ),
+            child: const Icon(
+              Icons.engineering_outlined,
+              color: backiconColor,
+            ),
+            onTap: () {},
+          ),
+          SpeedDialChild(
+            shape: const CircleBorder(
+              side: BorderSide(
+                color: Colors.white,
+              ),
+            ),
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            labelWidget: Container(
+              padding: EdgeInsets.only(
+                right: SizeVariables.getWidth(context) * 0.03,
+              ),
+              child: Text(
+                'Add Member',
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Theme.of(context).hintColor,
+                      fontSize: 16,
+                    ),
+              ),
+            ),
+            child: const Icon(
+              Icons.group,
+              color: backiconColor,
+            ),
+            onTap: () {},
+          ),
+          SpeedDialChild(
+            shape: const CircleBorder(
+              side: BorderSide(
+                color: Colors.white,
+              ),
+            ),
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            labelWidget: Container(
+              padding: EdgeInsets.only(
+                right: SizeVariables.getWidth(context) * 0.03,
+              ),
+              child: Text(
+                'Add Reports',
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Theme.of(context).hintColor,
+                      fontSize: 16,
+                    ),
+              ),
+            ),
+            child: const Icon(
+              Icons.difference_outlined,
+              color: backiconColor,
+            ),
+            onTap: () {},
+          ),
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(

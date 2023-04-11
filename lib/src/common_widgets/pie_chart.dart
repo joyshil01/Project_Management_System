@@ -16,7 +16,7 @@ class PieChartScreenState extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 260,
+      height: 170,
       // color: Colors.amber,
       child: AspectRatio(
         aspectRatio: 3,
@@ -25,43 +25,37 @@ class PieChartScreenState extends State {
             Expanded(
               child: Stack(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: SizeVariables.getHeight(context) * 0.05,
-                    ),
-                    child: PieChart(
-                      swapAnimationCurve: Curves.linear,
-                      swapAnimationDuration: const Duration(milliseconds: 500),
-                      PieChartData(
-                        pieTouchData: PieTouchData(
-                          touchCallback:
-                              (FlTouchEvent event, pieTouchResponse) {
-                            setState(() {
-                              if (!event.isInterestedForInteractions ||
-                                  pieTouchResponse == null ||
-                                  pieTouchResponse.touchedSection == null) {
-                                touchedIndex = -1;
-                                return;
-                              }
-                              touchedIndex = pieTouchResponse
-                                  .touchedSection!.touchedSectionIndex;
-                            });
-                          },
-                        ),
-                        borderData: FlBorderData(
-                          show: false,
-                        ),
-                        // centerSpaceColor: Colors.amber,
-
-                        sectionsSpace: 0.5,
-                        centerSpaceRadius: 60,
-                        sections: showingSections(),
+                  PieChart(
+                    swapAnimationCurve: Curves.linear,
+                    swapAnimationDuration: const Duration(milliseconds: 500),
+                    PieChartData(
+                      pieTouchData: PieTouchData(
+                        touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                          setState(() {
+                            if (!event.isInterestedForInteractions ||
+                                pieTouchResponse == null ||
+                                pieTouchResponse.touchedSection == null) {
+                              touchedIndex = -1;
+                              return;
+                            }
+                            touchedIndex = pieTouchResponse
+                                .touchedSection!.touchedSectionIndex;
+                          });
+                        },
                       ),
+                      borderData: FlBorderData(
+                        show: false,
+                      ),
+                      // centerSpaceColor: Colors.amber,
+
+                      sectionsSpace: 0.5,
+                      centerSpaceRadius: 50,
+                      sections: showingSections(),
                     ),
                   ),
                   Positioned(
                     left: 0,
-                    top: 76,
+                    top: 59,
                     right: 0,
                     bottom: 0,
                     child: Column(
@@ -69,64 +63,66 @@ class PieChartScreenState extends State {
                         FittedBox(
                           fit: BoxFit.contain,
                           child: Text(
-                            '20%',
+                            '200',
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      fontSize: 25,
+                                      fontSize: 26,
+                                      color: Theme.of(context).hintColor,
                                     ),
                           ),
                         ),
                         Text(
-                          'Total Projects',
+                          'Employee list',
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 10,
+                                    color: Theme.of(context).hintColor,
                                   ),
                         )
                       ],
                     ),
                   ),
-                  Positioned(
-                    left: 10,
-                    top: 197,
-                    right: 0,
-                    bottom: 0,
-                    child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.end,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const <Widget>[
-                        Indicator(
-                          color: Color(0xfff5350A2),
-                          text: 'To Do',
-                          isSquare: true,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Indicator(
-                          color: Color(0xfffFEBE39),
-                          text: 'In Progress',
-                          isSquare: true,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Indicator(
-                          color: Color(0xfffF47F5A),
-                          text: 'In Review',
-                          isSquare: true,
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Indicator(
-                          color: Color(0xfff48B869),
-                          text: 'Complete',
-                          isSquare: true,
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Positioned(
+                  //   left: 10,
+                  //   top: 197,
+                  //   right: 0,
+                  //   bottom: 0,
+                  //   child: Row(
+                  //     // mainAxisAlignment: MainAxisAlignment.end,
+                  //     // crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: const <Widget>[
+                  //       Indicator(
+                  //         color: Color(0xfff5350A2),
+                  //         text: 'To Do',
+                  //         isSquare: true,
+                  //       ),
+                  //       SizedBox(
+                  //         width: 10,
+                  //       ),
+                  //       Indicator(
+                  //         color: Color(0xfffFEBE39),
+                  //         text: 'In Progress',
+                  //         isSquare: true,
+                  //       ),
+                  //       SizedBox(
+                  //         width: 10,
+                  //       ),
+                  //       Indicator(
+                  //         color: Color(0xfffF47F5A),
+                  //         text: 'In Review',
+                  //         isSquare: true,
+                  //       ),
+                  //       SizedBox(
+                  //         width: 10,
+                  //       ),
+                  //       Indicator(
+                  //         color: Color(0xfff48B869),
+                  //         text: 'Complete',
+                  //         isSquare: true,
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -145,28 +141,28 @@ class PieChartScreenState extends State {
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: Color(0xfffF47F5A),
+            color: Color(0xfffFDBE39),
             value: 40,
             title: '',
             radius: radius,
           );
         case 1:
           return PieChartSectionData(
-            color: Color(0xfff48B869),
+            color: Color(0xfffF47F5A),
             value: 40,
             title: '',
             radius: radius,
           );
         case 2:
           return PieChartSectionData(
-            color: Color(0xfff5350A2),
+            color: Color(0xfff235695),
             value: 40,
             title: '',
             radius: radius,
           );
         case 3:
           return PieChartSectionData(
-            color: Color(0xfffFEBE39),
+            color: Color(0xfff19BCB0),
             value: 40,
             title: '',
             radius: radius,

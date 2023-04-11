@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import '../features/all_Project/presentation/projectDetails_Screen.dart';
+import '../features/create_Project/presentation/createProject_Screen.dart';
 import '../features/dashboard/presentation/home_screen.dart';
 import '../features/drawer/presentation/all_project.dart';
 import '../features/drawer/presentation/help.dart';
@@ -22,6 +23,8 @@ class RoutesClass {
   static String helpRoute() => help;
   static String project_details = '/project_details';
   static String project_detailsRoute() => project_details;
+  static String Createproject = '/create_project';
+  static String CreateprojectRoute() => Createproject;
 
   static List<GetPage> routes = [
     GetPage(
@@ -49,10 +52,16 @@ class RoutesClass {
       page: () => Help_Screen(),
     ),
     GetPage(
-      transition: Transition.downToUp,
+      transition: Transition.leftToRight,
       transitionDuration: const Duration(milliseconds: 500),
       name: project_details,
       page: () => projectDetails_Screen(),
+    ),
+    GetPage(
+      transition: Transition.downToUp,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: Createproject,
+      page: () => Createproject_Screen(),
     ),
   ];
 }

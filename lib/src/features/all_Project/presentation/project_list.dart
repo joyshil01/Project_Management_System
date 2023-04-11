@@ -17,7 +17,6 @@ final _doneProjects = PageController();
 int all = 3;
 bool OnDotClicked = true;
 
-
 class _Project_ListState extends State<Project_List> {
   @override
   Widget build(BuildContext context) {
@@ -163,7 +162,9 @@ class _Project_ListState extends State<Project_List> {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(RoutesClass.project_detailsRoute());
+                      },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
@@ -215,7 +216,9 @@ class _Project_ListState extends State<Project_List> {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(RoutesClass.project_detailsRoute());
+                      },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
@@ -267,7 +270,9 @@ class _Project_ListState extends State<Project_List> {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(RoutesClass.project_detailsRoute());
+                      },
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
