@@ -3,6 +3,7 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/features/all_Project/presentation/projects_Details.dart';
 import '../../../../constans.dart';
+import '../../../routing/app_router.dart';
 import '../../../utils/media-query.dart';
 
 class projectDetails_Screen extends StatefulWidget {
@@ -98,7 +99,9 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
               Icons.difference_outlined,
               color: backiconColor,
             ),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(RoutesClass.addreportRoute());
+            },
           ),
         ],
       ),
