@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../constans.dart';
 import '../utils/media-query.dart';
 
 class SubmitButton extends StatelessWidget {
@@ -80,7 +81,7 @@ class AppButtonStyle extends StatelessWidget {
               label,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     color: Color(0xfff50BFE3),
-                    fontSize: 21,
+                    fontSize: 16,
                   ),
             ),
             const SizedBox(
@@ -88,7 +89,62 @@ class AppButtonStyle extends StatelessWidget {
             ),
             const Icon(
               Icons.arrow_circle_right,
+              size: 14,
               color: Color(0xfff50BFE3),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class AddButton extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+  final double width;
+  final double height;
+  AddButton({
+    required this.label,
+    required this.onPressed,
+    required this.width,
+    required this.height,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xfff51C3E5),
+              Color(0xfff2D5FC5),
+            ],
+          ),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: Theme.of(context).hintColor,
+                    fontSize: 18,
+                  ),
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+            const Icon(
+              Icons.add_circle,
+              size: 16,
+              color: addbuttonColor,
             )
           ],
         ),

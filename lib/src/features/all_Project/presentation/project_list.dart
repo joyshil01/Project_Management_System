@@ -67,6 +67,12 @@ class _Project_ListState extends State<Project_List> {
                           Icons.search,
                         ),
                         prefixIconColor: Colors.grey,
+                        suffixIcon: InkWell(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.mic,
+                          ),
+                        ),
                         hintText: 'Search Project List',
                         hintStyle:
                             Theme.of(context).textTheme.bodyMedium!.copyWith(

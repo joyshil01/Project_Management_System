@@ -1,5 +1,6 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import '../features/add_Report/presentation/addReport_Screen.dart';
+import '../features/add_member/presentation/addMember_Screen.dart';
 import '../features/all_Project/presentation/projectDetails_Screen.dart';
 import '../features/create_Project/presentation/createProject_Screen.dart';
 import '../features/dashboard/presentation/home_screen.dart';
@@ -28,6 +29,8 @@ class RoutesClass {
   static String CreateprojectRoute() => Createproject;
   static String addreport = '/add_report';
   static String addreportRoute() => addreport;
+  static String addmember = '/add_member';
+  static String addmemberRoute() => addmember;
 
   static List<GetPage> routes = [
     GetPage(
@@ -71,6 +74,12 @@ class RoutesClass {
       transitionDuration: const Duration(milliseconds: 500),
       name: addreport,
       page: () => AddReport_Screen(),
+    ),
+    GetPage(
+      transition: Transition.downToUp,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: addmember,
+      page: () => Addmember_Screen(),
     ),
   ];
 }

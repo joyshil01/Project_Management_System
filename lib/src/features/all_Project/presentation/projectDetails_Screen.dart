@@ -74,7 +74,9 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
               Icons.group,
               color: backiconColor,
             ),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed(RoutesClass.addmemberRoute());
+            },
           ),
           SpeedDialChild(
             shape: const CircleBorder(

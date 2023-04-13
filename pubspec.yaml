@@ -26,6 +26,7 @@ dependencies:
   flutter_speed_dial:
   flutter_quill:
   file_picker:
+  timeline_tile:
 
 
 flutter_icons:
