@@ -27,6 +27,7 @@ dependencies:
   flutter_quill:
   file_picker:
   timeline_tile:
+  flutter_expanded_tile:
 
 
 flutter_icons:
