@@ -45,13 +45,6 @@ class _Todo_List_ScreenState extends State<Todo_List_Screen> {
                   ..setEntry(0, 3, 200 * val)
                   ..rotateY((pi / 6) * val),
                 child: Scaffold(
-                  floatingActionButton: FloatingActionButton(
-                    onPressed: () {},
-                    child: const Icon(
-                      Icons.add,
-                      size: 25,
-                    ),
-                  ),
                   body: Container(
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(

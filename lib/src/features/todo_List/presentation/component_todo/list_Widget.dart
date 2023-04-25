@@ -11,6 +11,11 @@ class List_widget extends StatefulWidget {
 }
 
 class _List_widgetState extends State<List_widget> {
+  GlobalKey<FormState> _key = GlobalKey<FormState>();
+  String add = '';
+  DateTime? _dateTimeStart;
+  DateTime? _dateTimeEnd;
+  // DateFormat dateFormat = DateFormat('yyyy-MM-dd');
   ExpandedTileController _recentlyAssigned = new ExpandedTileController();
   ExpandedTileController _Dolater = new ExpandedTileController();
   ExpandedTileController _doNext = new ExpandedTileController();
@@ -47,6 +52,7 @@ class _List_widgetState extends State<List_widget> {
   TextEditingController _taskName = new TextEditingController();
   TextEditingController _startDate = new TextEditingController();
   TextEditingController _endDate = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -177,18 +183,35 @@ class _List_widgetState extends State<List_widget> {
                                       ),
                                     ),
                                     PopupMenuButton(
-                                      color: backiconColor,
+                                      color: Color(0xfff374A83),
+                                      icon: const Icon(
+                                        Icons.more_vert,
+                                        color: backiconColor,
+                                        size: 18,
+                                      ),
                                       itemBuilder: (context) => [
                                         PopupMenuItem(
                                           value: 1,
                                           // row with 2 children
                                           child: Row(
-                                            children: const [
-                                              Icon(Icons.star),
-                                              SizedBox(
-                                                width: 10,
+                                            children: [
+                                              const Icon(
+                                                Icons.edit,
+                                                color: backiconColor,
                                               ),
-                                              Text("Get The App")
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Edit Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -196,30 +219,56 @@ class _List_widgetState extends State<List_widget> {
                                           value: 2,
                                           // row with two children
                                           child: Row(
-                                            children: const [
-                                              Icon(Icons.chrome_reader_mode),
-                                              SizedBox(
-                                                width: 10,
+                                            children: [
+                                              const Icon(
+                                                Icons.add_business,
+                                                color: backiconColor,
                                               ),
-                                              Text("About")
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Duplicate Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        PopupMenuItem(
+                                          value: 2,
+                                          // row with two children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.task_outlined,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Uncomplete Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
                                             ],
                                           ),
                                         ),
                                       ],
-                                      offset: Offset(-30, 30),
+                                      offset: Offset(-30, 20),
                                       elevation: 2,
                                     ),
-
-                                    // Container(
-                                    //   child: IconButton(
-                                    //     onPressed: () {},
-                                    //     icon: const Icon(
-                                    //       Icons.more_vert,
-                                    //       color: backiconColor,
-                                    //       size: 16,
-                                    //     ),
-                                    //   ),
-                                    // ),
                                   ],
                                 ),
                               ),
@@ -390,16 +439,93 @@ class _List_widgetState extends State<List_widget> {
                                         ],
                                       ),
                                     ),
-                                    Container(
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.more_vert,
-                                          color: backiconColor,
-                                          size: 16,
-                                        ),
+                                    PopupMenuButton(
+                                      color: Color(0xfff374A83),
+                                      icon: const Icon(
+                                        Icons.more_vert,
+                                        color: backiconColor,
+                                        size: 18,
                                       ),
-                                    )
+                                      itemBuilder: (context) => [
+                                        PopupMenuItem(
+                                          value: 1,
+                                          // row with 2 children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.edit,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Edit Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        PopupMenuItem(
+                                          value: 2,
+                                          // row with two children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.add_business,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Duplicate Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        PopupMenuItem(
+                                          value: 2,
+                                          // row with two children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.task_outlined,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Uncomplete Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                      offset: Offset(-30, 20),
+                                      elevation: 2,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -570,16 +696,93 @@ class _List_widgetState extends State<List_widget> {
                                         ],
                                       ),
                                     ),
-                                    Container(
-                                      child: IconButton(
-                                        onPressed: () {},
-                                        icon: const Icon(
-                                          Icons.more_vert,
-                                          color: backiconColor,
-                                          size: 16,
-                                        ),
+                                    PopupMenuButton(
+                                      color: Color(0xfff374A83),
+                                      icon: const Icon(
+                                        Icons.more_vert,
+                                        color: backiconColor,
+                                        size: 18,
                                       ),
-                                    )
+                                      itemBuilder: (context) => [
+                                        PopupMenuItem(
+                                          value: 1,
+                                          // row with 2 children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.edit,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Edit Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        PopupMenuItem(
+                                          value: 2,
+                                          // row with two children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.add_business,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Duplicate Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        PopupMenuItem(
+                                          value: 2,
+                                          // row with two children
+                                          child: Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.task_outlined,
+                                                color: backiconColor,
+                                              ),
+                                              const SizedBox(
+                                                width: 5,
+                                              ),
+                                              Text(
+                                                "Uncomplete Task",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                      offset: Offset(-30, 20),
+                                      elevation: 2,
+                                    ),
                                   ],
                                 ),
                               ),
@@ -838,7 +1041,36 @@ class _List_widgetState extends State<List_widget> {
                                       width: SizeVariables.getWidth(context) *
                                           0.27,
                                       child: TextFormField(
-                                        onTap: () {},
+                                        onTap: () {
+                                          showDatePicker(
+                                            builder: (context, child) => Theme(
+                                              data: ThemeData().copyWith(
+                                                colorScheme:
+                                                    const ColorScheme.dark(
+                                                  primary: calSclectColors,
+                                                  surface: calThemeColor,
+                                                  onSurface: Colors.white,
+                                                ),
+                                                dialogBackgroundColor:
+                                                    calThemeColor,
+                                              ),
+                                              child: child!,
+                                            ),
+                                            context: context,
+                                            initialDate: DateTime.now(),
+                                            firstDate: DateTime(2015),
+                                            lastDate: DateTime.now().add(
+                                              const Duration(days: 365),
+                                            ),
+                                          ).then((value) {
+                                            setState(() {
+                                              _dateTimeStart = value;
+                                            });
+                                            print(
+                                              'DATE START: $_dateTimeStart',
+                                            );
+                                          });
+                                        },
                                         readOnly: true,
                                         controller: _startDate,
                                         style: Theme.of(context)
@@ -881,7 +1113,36 @@ class _List_widgetState extends State<List_widget> {
                                       width: SizeVariables.getWidth(context) *
                                           0.27,
                                       child: TextFormField(
-                                        onTap: () {},
+                                        onTap: () {
+                                          showDatePicker(
+                                            builder: (context, child) => Theme(
+                                              data: ThemeData().copyWith(
+                                                colorScheme:
+                                                    const ColorScheme.dark(
+                                                  primary: calSclectColors,
+                                                  surface: calThemeColor,
+                                                  onSurface: Colors.white,
+                                                ),
+                                                dialogBackgroundColor:
+                                                    calThemeColor,
+                                              ),
+                                              child: child!,
+                                            ),
+                                            context: context,
+                                            initialDate: DateTime.now(),
+                                            firstDate: DateTime(2015),
+                                            lastDate: DateTime.now().add(
+                                              const Duration(days: 365),
+                                            ),
+                                          ).then((value) {
+                                            setState(() {
+                                              _dateTimeStart = value;
+                                            });
+                                            print(
+                                              'DATE START: $_dateTimeStart',
+                                            );
+                                          });
+                                        },
                                         controller: _endDate,
                                         readOnly: true,
                                         style: Theme.of(context)

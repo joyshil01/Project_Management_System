@@ -28,6 +28,7 @@ dependencies:
   file_picker:
   timeline_tile:
   flutter_expanded_tile:
+  syncfusion_flutter_calendar:
 
 
 flutter_icons:
