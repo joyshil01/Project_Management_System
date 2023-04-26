@@ -126,6 +126,47 @@ class ContainerNewStyle extends StatelessWidget {
   }
 }
 
+class TabviewCard extends StatelessWidget {
+  final Widget child;
+  final double? width;
+  TabviewCard({
+    required this.child,
+    this.width,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return Container(
+      // width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        color: Color(0xfff000000).withAlpha(30),
+        border: const Border(
+          bottom: BorderSide(width: 0.06),
+          top: BorderSide(width: 0.06),
+          right: BorderSide(width: 0.06),
+          left: BorderSide(width: 0.06),
+        ),
+        // boxShadow: const [
+        //   BoxShadow(
+        //     blurStyle: BlurStyle.inner,
+        //     color: Color(0xfffCBCBCB),
+        //     offset: Offset(
+        //       2.0,
+        //       2.0,
+        //     ),
+        //     blurRadius: 2.0,
+        //     spreadRadius: 1.1,
+        //   ),
+        // ],
+      ),
+      child: child,
+    );
+  }
+}
+
 class VelocityCard extends StatelessWidget {
   final Widget child;
   final double? width;
