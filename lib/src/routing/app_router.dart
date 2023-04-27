@@ -9,6 +9,8 @@ import '../features/drawer/presentation/help.dart';
 import '../features/drawer/presentation/project_list.dart';
 import '../features/drawer/presentation/project_permission.dart';
 import '../features/drawer/presentation/todo_list.dart';
+import '../features/task_detalis/presentation/component/chatBox_Screen.dart';
+import '../features/task_detalis/presentation/taskDetails_Screen.dart';
 
 class RoutesClass {
   static String home = '/';
@@ -31,6 +33,10 @@ class RoutesClass {
   static String addreportRoute() => addreport;
   static String addmember = '/add_member';
   static String addmemberRoute() => addmember;
+  static String taskdetails = '/taskdetails';
+  static String taskdetailsRoute() => taskdetails;
+  static String chatbox = '/chatbox';
+  static String chatboxRoute() => chatbox;
 
   static List<GetPage> routes = [
     GetPage(
@@ -80,6 +86,18 @@ class RoutesClass {
       transitionDuration: const Duration(milliseconds: 500),
       name: addmember,
       page: () => Addmember_Screen(),
+    ),
+    GetPage(
+      transition: Transition.zoom,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: taskdetails,
+      page: () => TaskDetails_Screen(),
+    ),
+    GetPage(
+      transition: Transition.downToUp,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: chatbox,
+      page: () => chatBox_Screen(),
     ),
   ];
 }

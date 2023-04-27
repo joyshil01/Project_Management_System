@@ -73,22 +73,19 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                           top: 4,
                           bottom: 4,
                         ),
-                        child: ElevatedButton(
+                        child: TextButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: _selection == 0
                                   ? BorderRadius.circular(20)
                                   : BorderRadius.circular(10),
-                              side: _selection == 0
-                                  ? BorderSide.none
-                                  : const BorderSide(
-                                      color: Color(0xfff4EBDE2),
-                                      width: 1,
-                                    ),
+                              side: const BorderSide(
+                                color: Color(0xfff4EBDE2),
+                                width: 1,
+                              ),
                             ),
-                            primary: _selection == 0
-                                ? Color(0xfff4EBDE2)
-                                : Firstgradient,
+                            primary:
+                                _selection == 0 ? Color(0xfff4EBDE2) : null,
                           ),
                           child: Container(
                             width: SizeVariables.getWidth(context) * 0.15,
@@ -127,22 +124,19 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: ElevatedButton(
+                        child: TextButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: _selection == 1
                                   ? BorderRadius.circular(20)
                                   : BorderRadius.circular(10),
-                              side: _selection == 1
-                                  ? BorderSide.none
-                                  : const BorderSide(
-                                      color: Color(0xfff4EBDE2),
-                                      width: 1,
-                                    ),
+                              side: const BorderSide(
+                                color: Color(0xfff4EBDE2),
+                                width: 1,
+                              ),
                             ),
-                            primary: _selection == 1
-                                ? Color(0xfff4EBDE2)
-                                : Firstgradient,
+                            primary:
+                                _selection == 1 ? Color(0xfff4EBDE2) : null,
                           ),
                           child: Container(
                             width: SizeVariables.getWidth(context) * 0.17,
@@ -181,22 +175,19 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: ElevatedButton(
+                        child: TextButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: _selection == 2
                                   ? BorderRadius.circular(20)
                                   : BorderRadius.circular(10),
-                              side: _selection == 2
-                                  ? BorderSide.none
-                                  : const BorderSide(
-                                      color: Color(0xfff4EBDE2),
-                                      width: 1,
-                                    ),
+                              side: const BorderSide(
+                                color: Color(0xfff4EBDE2),
+                                width: 1,
+                              ),
                             ),
-                            primary: _selection == 2
-                                ? Color(0xfff4EBDE2)
-                                : Firstgradient,
+                            primary:
+                                _selection == 2 ? Color(0xfff4EBDE2) : null,
                           ),
                           child: Container(
                             width: SizeVariables.getWidth(context) * 0.22,
@@ -235,22 +226,19 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
-                        child: ElevatedButton(
+                        child: TextButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: _selection == 3
                                   ? BorderRadius.circular(20)
                                   : BorderRadius.circular(10),
-                              side: _selection == 3
-                                  ? BorderSide.none
-                                  : const BorderSide(
-                                      color: Color(0xfff4EBDE2),
-                                      width: 1,
-                                    ),
+                              side: const BorderSide(
+                                color: Color(0xfff4EBDE2),
+                                width: 1,
+                              ),
                             ),
-                            primary: _selection == 3
-                                ? Color(0xfff4EBDE2)
-                                : Firstgradient,
+                            primary:
+                                _selection == 3 ? Color(0xfff4EBDE2) : null,
                           ),
                           child: Container(
                             width: SizeVariables.getWidth(context) * 0.15,
