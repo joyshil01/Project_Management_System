@@ -29,6 +29,7 @@ dependencies:
   timeline_tile:
   flutter_expanded_tile:
   syncfusion_flutter_calendar:
+  permission_handler:
 
 
 flutter_icons:

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +13,8 @@ class Createproject_Screen extends StatefulWidget {
   State<Createproject_Screen> createState() => _Createproject_ScreenState();
 }
 
-class _Createproject_ScreenState extends State<Createproject_Screen> {
+class _Createproject_ScreenState extends State<Createproject_Screen>
+    with SingleTickerProviderStateMixin {
   TextEditingController projectName = new TextEditingController();
   TextEditingController prijectWebsite = new TextEditingController();
   TextEditingController projectType = new TextEditingController();
@@ -22,6 +24,29 @@ class _Createproject_ScreenState extends State<Createproject_Screen> {
   TextEditingController status = new TextEditingController();
   TextEditingController projectPriority = new TextEditingController();
   bool isChecked = false;
+  late AnimationController loadingController;
+  File? _file;
+  PlatformFile? _platformFile;
+  File? image;
+  bool isLoading = true;
+  bool? isGallery;
+
+  selectFile() async {
+    final file = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['png', 'jpg', 'jpeg', 'pdf'],
+    );
+
+    if (file != null) {
+      setState(() {
+        _file = File(file.files.single.path!);
+        _platformFile = file.files.first;
+      });
+    }
+
+    loadingController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -451,9 +476,9 @@ class _Createproject_ScreenState extends State<Createproject_Screen> {
                                 ),
                                 Container(
                                   child: ElevatedButton(
-                                    onPressed: () async {
-                                      final result =
-                                          await FilePicker.platform.pickFiles();
+                                    onPressed: () {
+                                      selectFile();
+                                      print('joyyyyyyyyyyyyyyyyyyyyyyy');
                                     },
                                     style: ElevatedButton.styleFrom(
                                       primary: Color(0xfff000000).withAlpha(12),
