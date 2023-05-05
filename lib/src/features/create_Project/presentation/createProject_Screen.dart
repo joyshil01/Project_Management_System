@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/buttonStyle.dart';
 import '../../../common_widgets/quillText.dart';
@@ -25,26 +25,18 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
   TextEditingController projectPriority = new TextEditingController();
   bool isChecked = false;
   late AnimationController loadingController;
-  File? _file;
-  PlatformFile? _platformFile;
-  File? image;
-  bool isLoading = true;
-  bool? isGallery;
-
-  selectFile() async {
-    final file = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['png', 'jpg', 'jpeg', 'pdf'],
-    );
-
-    if (file != null) {
+  File? pickedImage;
+  pickImage(ImageSource imageType) async {
+    try {
+      final photo = await ImagePicker().pickImage(source: imageType);
+      if (photo == null) return;
+      final tempimage = File(photo.path);
       setState(() {
-        _file = File(file.files.single.path!);
-        _platformFile = file.files.first;
+        pickedImage = tempimage;
       });
+    } catch (error) {
+      debugPrint(error.toString());
     }
-
-    loadingController.forward();
   }
 
   @override
@@ -477,8 +469,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                 Container(
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      selectFile();
-                                      print('joyyyyyyyyyyyyyyyyyyyyyyy');
+                                      pickImage(ImageSource.gallery);
                                     },
                                     style: ElevatedButton.styleFrom(
                                       primary: Color(0xfff000000).withAlpha(12),
@@ -681,7 +672,27 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(20),
                               child: Container(
-                                child: Projects_Text(),
+                                height: SizeVariables.getHeight(context) * 0.13,
+                                color: Color(0xfff000000).withAlpha(35),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 8,
+                                  ),
+                                  child: TextFormField(
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(
+                                          color: Theme.of(context).hintColor,
+                                          fontSize: 14,
+                                        ),
+                                    maxLines: 10,
+                                    // textInputAction: TextInputAction.next,
+                                    decoration: InputDecoration(
+                                      border: InputBorder.none,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),

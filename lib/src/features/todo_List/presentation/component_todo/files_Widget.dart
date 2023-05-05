@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:project_management_system/constans.dart';
 
 import '../../../../utils/media-query.dart';
@@ -61,6 +65,21 @@ class _Files_WidgetState extends State<Files_Widget> {
   }
 
   Future bottomsheetUpload(BuildContext context) {
+    File? pickedImage;
+    pickImage(ImageSource imageType) async {
+      try {
+        final photo = await ImagePicker().pickImage(source: imageType);
+        if (photo == null) return;
+        final tempimage = File(photo.path);
+        setState(() {
+          pickedImage = tempimage;
+        });
+        Get.back();
+      } catch (error) {
+        debugPrint(error.toString());
+      }
+    }
+
     return showModalBottomSheet(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -103,7 +122,9 @@ class _Files_WidgetState extends State<Files_Widget> {
                         fontSize: 18,
                       ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  pickImage(ImageSource.camera);
+                },
               ),
               ListTile(
                 leading: const Icon(
@@ -117,7 +138,9 @@ class _Files_WidgetState extends State<Files_Widget> {
                         fontSize: 18,
                       ),
                 ),
-                onTap: () {},
+                onTap: () {
+                  pickImage(ImageSource.gallery);
+                },
               ),
             ],
           ),
