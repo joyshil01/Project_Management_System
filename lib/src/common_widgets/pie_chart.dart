@@ -63,22 +63,15 @@ class PieChartScreenState extends State {
                         FittedBox(
                           fit: BoxFit.contain,
                           child: Text(
-                            '200',
+                            '70 %',
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      fontSize: 26,
+                                      fontSize: 10,
                                       color: Theme.of(context).hintColor,
                                     ),
                           ),
                         ),
-                        Text(
-                          'Employee list',
-                          style:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontSize: 10,
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                        )
+                        
                       ],
                     ),
                   ),
@@ -133,7 +126,7 @@ class PieChartScreenState extends State {
   }
 
   List<PieChartSectionData> showingSections() {
-    return List.generate(4, (i) {
+    return List.generate(2, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 25.0 : 16.0;
       final radius = isTouched ? 40.0 : 25.0;
@@ -142,31 +135,19 @@ class PieChartScreenState extends State {
         case 0:
           return PieChartSectionData(
             color: Color(0xfffFDBE39),
-            value: 40,
+            value: 10,
             title: '',
             radius: radius,
           );
         case 1:
           return PieChartSectionData(
-            color: Color(0xfffF47F5A),
-            value: 40,
+            color: Colors.grey,
+            value: 10,
             title: '',
             radius: radius,
           );
-        case 2:
-          return PieChartSectionData(
-            color: Color(0xfff235695),
-            value: 40,
-            title: '',
-            radius: radius,
-          );
-        case 3:
-          return PieChartSectionData(
-            color: Color(0xfff19BCB0),
-            value: 40,
-            title: '',
-            radius: radius,
-          );
+        
+        
         default:
           throw Error();
       }

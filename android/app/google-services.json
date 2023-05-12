@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "61536074189",
+    "project_id": "loign-test",
+    "storage_bucket": "loign-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61536074189:android:6f52bd3caa9e2b77556c84",
+        "android_client_info": {
+          "package_name": "com.example.project_management_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61536074189-ipfkn8a9mkjas6bp784qiotrip0f7v9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnz83BYUAKSxG-x0DNX0JZtp9I9cba8ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61536074189-ipfkn8a9mkjas6bp784qiotrip0f7v9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

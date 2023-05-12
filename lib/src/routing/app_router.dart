@@ -9,11 +9,17 @@ import '../features/drawer/presentation/help.dart';
 import '../features/drawer/presentation/project_list.dart';
 import '../features/drawer/presentation/project_permission.dart';
 import '../features/drawer/presentation/todo_list.dart';
+import '../features/login/presentation/login_Screen.dart';
+import '../features/signup/presentation/signup_Screen.dart';
 import '../features/task_detalis/presentation/component/chatBox_Screen.dart';
 import '../features/task_detalis/presentation/taskDetails_Screen.dart';
 
 class RoutesClass {
-  static String home = '/';
+  static String login = '/';
+  static String loginRoute() => login;
+  static String signup = '/signup';
+  static String signupRoute() => signup;
+  static String home = '/home';
   static String getHomeRoute() => home;
   static String all_project = '/all_project';
   static String all_projectRoute() => all_project;
@@ -39,6 +45,16 @@ class RoutesClass {
   static String chatboxRoute() => chatbox;
 
   static List<GetPage> routes = [
+    GetPage(
+      name: login,
+      page: () => Login_Screen(),
+    ),
+    GetPage(
+      transition: Transition.size,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: signup,
+      page: () => Signup_Screen(),
+    ),
     GetPage(
       name: home,
       page: () => Homepage_Screen(),

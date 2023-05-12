@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
               );
         return GetMaterialApp(
           getPages: RoutesClass.routes,
-          initialRoute: RoutesClass.home,
+          initialRoute: RoutesClass.login,
           onGenerateTitle: (BuildContext context) => 'PMS',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(

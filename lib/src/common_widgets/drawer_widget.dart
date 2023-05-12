@@ -5,7 +5,7 @@ import '../utils/media-query.dart';
 
 class drawer_widget extends StatelessWidget {
   const drawer_widget({
-    super.key,
+    super.key,  
   });
 
   @override
@@ -252,8 +252,7 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Get.toNamed(RoutesClass.getHomeRoute());
-              // context.goNamed(AppRoute.home.name);
+              Get.toNamed(RoutesClass.loginRoute());
             },
             title: Container(
               child: Row(
@@ -276,6 +275,7 @@ class drawer_widget extends StatelessWidget {
                           ),
                     ),
                   ),
+                  
                 ],
               ),
             ),

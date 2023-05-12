@@ -1,17 +1,14 @@
 import 'dart:math';
 import 'package:analog_clock/analog_clock.dart';
-import 'package:fl_chart/fl_chart.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_management_system/src/common_widgets/containerStyle.dart';
 import 'package:project_management_system/src/features/dashboard/presentation/homepage_Card.dart';
 import 'package:project_management_system/src/features/dashboard/presentation/velocity.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/drawer_widget.dart';
-import '../../../common_widgets/pie_chart.dart';
-import '../../../routing/app_router.dart';
 
 class Homepage_Screen extends StatefulWidget {
   @override
@@ -116,22 +113,30 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
+                            // color: Colors.amber,
+
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  child: const Text(
-                                    'Hey Joy,',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 22,
-                                      fontFamily: 'PT Serif',
-                                    ),
+                                DefaultTextStyle(
+                                  // textWidthBasis: TextWidthBasis.longestLine,
+                                  textAlign: TextAlign.start,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 22,
+                                    fontFamily: 'PT Serif',
                                   ),
-                                ),
-                                SizedBox(
-                                  height:
-                                      SizeVariables.getHeight(context) * 0.004,
+                                  child: AnimatedTextKit(
+                                    totalRepeatCount: 1,
+                                    animatedTexts: [
+                                      // FlickerAnimatedText(),
+                                      WavyAnimatedText(
+                                        'Hey Joy,',
+                                        textAlign: TextAlign.left,
+                                        // speed: Duration(milliseconds: 300),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Container(
                                   child: const Text(
@@ -151,13 +156,20 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                           height: SizeVariables.getHeight(context) * 0.015,
                         ),
                         Container(
-                          child: Row(
+                          height: SizeVariables.getHeight(context) * 0.47,
+                          child: GridView(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 10,
+                              mainAxisSpacing: 10,
+                            ),
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  width: 170,
-                                  height: 180,
                                   decoration: BoxDecoration(
                                     gradient: const LinearGradient(
                                       colors: [
@@ -202,14 +214,9 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: 7,
-                              ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
-                                  width: 170,
-                                  height: 180,
                                   decoration: BoxDecoration(
                                     gradient: const LinearGradient(
                                       end: Alignment.bottomLeft,
@@ -422,17 +429,9 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          child: Row(
-                            children: [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Container(
-                                  width: 170,
-                                  height: 180,
                                   decoration: BoxDecoration(
                                     gradient: const LinearGradient(
                                       begin: Alignment.topLeft,
@@ -572,9 +571,6 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                width: 7,
-                              ),
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
@@ -602,9 +598,9 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: SizeVariables.getHeight(context) * 0.02,
-                        ),
+                        // SizedBox(
+                        //   height: SizeVariables.getHeight(context) * 0.02,
+                        // ),
                         Padding(
                           padding: EdgeInsets.only(
                             left: SizeVariables.getWidth(context) * 0.03,
