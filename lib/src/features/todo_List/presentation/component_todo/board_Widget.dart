@@ -15,6 +15,7 @@ class _Board_WidgetState extends State<Board_Widget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.transparent,
       height: SizeVariables.getHeight(context) * 0.8,
       child: DefaultTabController(
         length: 4,

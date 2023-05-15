@@ -292,7 +292,7 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
               top: Radius.circular(20),
             ),
           ),
-          height: SizeVariables.getHeight(context) * 0.49,
+          height: SizeVariables.getHeight(context) * 0.44,
           child: Padding(
             padding: EdgeInsets.only(
               top: SizeVariables.getHeight(context) * 0.03,
@@ -344,10 +344,45 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                   SizedBox(
                     height: SizeVariables.getHeight(context) * 0.03,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: AddProjects_Text(),
+                  Container(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          height: SizeVariables.getHeight(context) * 0.2,
+                          // color: Color(0xfff000000).withAlpha(35),
+                          decoration: BoxDecoration(
+                            color: Color(0xfff000000).withAlpha(35),
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                              left: 8,
+                            ),
+                            child: TextFormField(
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                    fontSize: 14,
+                                  ),
+                              maxLines: 10,
+                              // textInputAction: TextInputAction.next,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(8.0),
+                  //   child: AddProjects_Text(),
+                  // ),
                   SizedBox(
                     height: SizeVariables.getHeight(context) * 0.02,
                   ),

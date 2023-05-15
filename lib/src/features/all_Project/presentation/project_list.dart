@@ -7,6 +7,26 @@ import '../../../routing/app_router.dart';
 class Project_List extends StatefulWidget {
   @override
   State<Project_List> createState() => _Project_ListState();
+  List<Map<String, dynamic>> images = [
+    {
+      "image": "assets/img/Group 6.png",
+    },
+    {
+      "image": "assets/img/logo.png",
+    },
+    {
+      "image": "assets/img/vitwoAi.jpg",
+    },
+    {
+      "image": "assets/img/logo.png",
+    },
+    {
+      "image": "assets/img/Group 6.png",
+    },
+    {
+      "image": "assets/img/logo.png",
+    },
+  ];
 }
 
 TextEditingController _searchProject = new TextEditingController();
@@ -106,7 +126,7 @@ class _Project_ListState extends State<Project_List> {
                 child: ListView.builder(
                   controller: _controller,
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: widget.images.length,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
@@ -116,7 +136,7 @@ class _Project_ListState extends State<Project_List> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
-                          'assets/img/Group 6.png',
+                          widget.images[index]["image"],
                           // width: SizeVariables.getWidth(context)*0.5,
                         ),
                       ),
@@ -164,7 +184,7 @@ class _Project_ListState extends State<Project_List> {
                 child: ListView.builder(
                   controller: _doingProjects,
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: widget.images.length,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
@@ -174,7 +194,7 @@ class _Project_ListState extends State<Project_List> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
-                          'assets/img/Group 6.png',
+                          widget.images[index]["image"],
                           // width: SizeVariables.getWidth(context)*0.5,
                         ),
                       ),
@@ -272,7 +292,7 @@ class _Project_ListState extends State<Project_List> {
                 child: ListView.builder(
                   controller: _doneProjects,
                   scrollDirection: Axis.horizontal,
-                  itemCount: 6,
+                  itemCount: widget.images.length,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: InkWell(
@@ -282,7 +302,7 @@ class _Project_ListState extends State<Project_List> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(18),
                         child: Image.asset(
-                          'assets/img/Group 6.png',
+                          widget.images[2]["image"]
                           // width: SizeVariables.getWidth(context)*0.5,
                         ),
                       ),

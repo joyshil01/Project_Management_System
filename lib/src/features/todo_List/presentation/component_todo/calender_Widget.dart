@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+
+import '../calendar/meeting.dart';
+import '../calendar/meeting_Data.dart';
 
 class Calender_Widget extends StatefulWidget {
   @override
@@ -9,6 +13,31 @@ class Calender_Widget extends StatefulWidget {
 }
 
 class _Calender_WidgetState extends State<Calender_Widget> {
+  List<Meeting> _getDataSource() {
+    final List<Meeting> meetings = <Meeting>[];
+    final DateTime today = DateTime.now();
+    final DateTime before = DateTime.now();
+    final DateTime startTime =
+        DateTime(today.year, today.month, today.day, 9, 0, 0);
+    final DateTime endTime = startTime.add(
+      const Duration(hours: 2),
+    );
+    meetings.add(
+      Meeting('Claimz', startTime, endTime, Colors.amber, false),
+    );
+    final DateTime startTime1 =
+        DateTime(today.year, before.month, before.day, 9, 0, 0);
+    final DateTime endTime1 = startTime.add(
+      const Duration(hours: 2),
+    );
+    meetings.add(
+      Meeting('alpha.ai', startTime, endTime, Colors.blue, false),
+    );
+    return meetings;
+  }
+
+  CalendarController datacalendar = new CalendarController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,10 +51,14 @@ class _Calender_WidgetState extends State<Calender_Widget> {
                   bottom: SizeVariables.getHeight(context) * 0.17,
                 ),
                 child: SfCalendar(
+                  controller: datacalendar,
                   viewHeaderHeight: -1,
                   headerHeight: SizeVariables.getHeight(context) * 0.07,
                   view: CalendarView.month,
+                  dataSource: MeetingDataSource(_getDataSource()),
                   monthViewSettings: MonthViewSettings(
+                    appointmentDisplayMode:
+                        MonthAppointmentDisplayMode.appointment,
                     agendaItemHeight: 20,
                     monthCellStyle: MonthCellStyle(
                       textStyle:
@@ -45,19 +78,7 @@ class _Calender_WidgetState extends State<Calender_Widget> {
                               ),
                     ),
                   ),
-                  // allowDragAndDrop: true,
-                  // allowedViews: const [
-                  //   CalendarView.day,
-                  //   CalendarView.schedule,
-                  //   CalendarView.week,
-                  //   CalendarView.month,
-                  //   CalendarView.workWeek,
-                  //   CalendarView.timelineDay,
-                  //   CalendarView.timelineWeek,
-                  //   CalendarView.timelineWorkWeek,
-                  // ],
-
-                  cellBorderColor: null,
+                  cellBorderColor: Colors.transparent,
                   todayTextStyle:
                       Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
