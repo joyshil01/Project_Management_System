@@ -187,31 +187,6 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                       ),
                                     ],
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(18),
-                                    child: AnalogClock(
-                                      useMilitaryTime: GetPlatform.isIOS,
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                            width: 5,
-                                            color: Color(0xfff0030AC),
-                                          ),
-                                          color: Color(0xfff172983),
-                                          shape: BoxShape.circle), // decoration
-                                      width: 200.0,
-                                      isLive: true,
-                                      hourHandColor: Colors.white,
-                                      minuteHandColor: Colors.white,
-                                      showSecondHand: true,
-                                      numberColor: Colors.white,
-                                      showNumbers: true,
-                                      textScaleFactor: 1.5,
-                                      showTicks: true,
-                                      showDigitalClock: true,
-                                      digitalClockColor: Colors.white,
-                                      datetime: DateTime(2020, 8, 4, 9, 11, 0),
-                                    ),
-                                  ),
                                 ),
                               ),
                               Padding(
@@ -592,6 +567,31 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                         color: Color(0xfffA0A0A0),
                                       ),
                                     ],
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(18),
+                                    child: AnalogClock(
+                                      useMilitaryTime: GetPlatform.isIOS,
+                                      decoration: BoxDecoration(
+                                          border: Border.all(
+                                            width: 5,
+                                            color: Color(0xfff0030AC),
+                                          ),
+                                          color: Color(0xfff172983),
+                                          shape: BoxShape.circle), // decoration
+                                      width: 200.0,
+                                      isLive: true,
+                                      hourHandColor: Colors.white,
+                                      minuteHandColor: Colors.white,
+                                      showSecondHand: true,
+                                      numberColor: Colors.white,
+                                      showNumbers: true,
+                                      textScaleFactor: 1.5,
+                                      showTicks: true,
+                                      showDigitalClock: true,
+                                      digitalClockColor: Colors.white,
+                                      datetime: DateTime(2020, 8, 4, 9, 11, 0),
+                                    ),
                                   ),
                                 ),
                               ),

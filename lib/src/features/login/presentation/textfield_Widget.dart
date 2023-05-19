@@ -77,6 +77,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 Container(
                   child: TextFormField(
                     controller: userName,
+                    enableSuggestions: true,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "please enter email";
@@ -132,7 +133,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                           fontSize: 16,
                         ),
                     textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.visiblePassword,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "Please Enter Password";

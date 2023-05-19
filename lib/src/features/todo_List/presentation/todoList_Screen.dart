@@ -42,7 +42,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                         : Container(),
         body: Container(
           padding: EdgeInsets.only(
-            // left: SizeVariables.getWidth(context) * 0.035,
+            left: SizeVariables.getWidth(context) * 0.035,
             right: SizeVariables.getWidth(context) * 0.025,
           ),
           decoration: const BoxDecoration(

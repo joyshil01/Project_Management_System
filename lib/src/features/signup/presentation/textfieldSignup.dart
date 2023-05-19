@@ -13,23 +13,23 @@ class TextFieldSignup extends StatefulWidget {
 }
 
 class _TextFieldSignupState extends State<TextFieldSignup> {
-  late String email, password;
+  late String semail, spassword;
   TextEditingController _email = new TextEditingController();
   TextEditingController _password = new TextEditingController();
   TextEditingController _c_password = new TextEditingController();
   var confirmPass;
-  final GlobalKey<FormState> _formkey = new GlobalKey<FormState>();
+  final GlobalKey<FormState> _sformkey = new GlobalKey<FormState>();
   static Future<User?> signupUsingEmailPassword({
-    required String email,
-    required String password,
+    required String semail,
+    required String spassword,
     required BuildContext context,
   }) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
+        email: semail,
+        password: spassword,
       );
       user = userCredential.user;
     } on FirebaseAuthException catch (e) {
@@ -73,7 +73,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
             height: SizeVariables.getHeight(context) * 0.05,
           ),
           Form(
-            key: _formkey,
+            key: _sformkey,
             child: Column(
               children: [
                 Container(
@@ -90,7 +90,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                       return null;
                     },
                     onSaved: (value) {
-                      email = value!;
+                      semail = value!;
                     },
                     cursorHeight: SizeVariables.getHeight(context) * 0.034,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
@@ -233,7 +233,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                     width: SizeVariables.getWidth(context) * 0.78,
                     label: 'Sign Up',
                     onPressed: () {
-                      if (_formkey.currentState!.validate()) {
+                      if (_sformkey.currentState!.validate()) {
                         FirebaseAuth.instance
                             .createUserWithEmailAndPassword(
                           email: _email.text,
