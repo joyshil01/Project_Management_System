@@ -4,8 +4,11 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/buttonStyle.dart';
-import '../../../common_widgets/quillText.dart';
 import '../../../utils/media-query.dart';
+import 'component/client_Textfeild.dart';
+import 'component/department_Textfeild.dart';
+import 'component/project_Priority.dart';
+import 'component/ststus_Textfield.dart';
 import 'custom_dailog.dart';
 
 class Createproject_Screen extends StatefulWidget {
@@ -306,134 +309,11 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.015,
                     ),
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text(
-                              'Clients',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize: 16,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            child: TextFormField(
-                              controller: client,
-                              readOnly: true,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                              decoration: InputDecoration(
-                                enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                suffixIcon: const Icon(
-                                  Icons.arrow_drop_down,
-                                  color: Colors.grey,
-                                ),
-                                hintText: 'Choose clients',
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Color(0xfff7B7B7B),
-                                    ),
-                                icon: const Icon(
-                                  Icons.person,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    clients_Textfeild(client: client),
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.015,
                     ),
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text(
-                              'Department',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize: 16,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            child: TextFormField(
-                              onTap: () {
-                                showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return CustomDialog();
-                                  },
-                                );
-                              },
-                              controller: department,
-                              readOnly: true,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                              decoration: InputDecoration(
-                                enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                suffixIcon: const Icon(
-                                  Icons.arrow_drop_down,
-                                  color: Colors.grey,
-                                ),
-                                hintText: 'Choose department',
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Color(0xfff7B7B7B),
-                                    ),
-                                icon: const Icon(
-                                  Icons.grid_view,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    department_Textfield(department: department),
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.015,
                     ),
@@ -527,125 +407,11 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.015,
                     ),
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text(
-                              'Status',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize: 16,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            child: TextFormField(
-                              controller: status,
-                              readOnly: true,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                              decoration: InputDecoration(
-                                enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                suffixIcon: const Icon(
-                                  Icons.arrow_drop_down,
-                                  color: Colors.grey,
-                                ),
-                                hintText: 'Choose status',
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Color(0xfff7B7B7B),
-                                    ),
-                                icon: const Icon(
-                                  Icons.stream,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    status_Textfield(status: status),
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.015,
                     ),
-                    Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            child: Text(
-                              'Project Priority',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize: 16,
-                                  ),
-                            ),
-                          ),
-                          Container(
-                            child: TextFormField(
-                              controller: client,
-                              readOnly: true,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                              decoration: InputDecoration(
-                                enabledBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                focusedBorder: const UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0xfff7B7B7B),
-                                  ),
-                                ),
-                                suffixIcon: const Icon(
-                                  Icons.arrow_drop_down,
-                                  color: Colors.grey,
-                                ),
-                                hintText: 'Choose priority',
-                                hintStyle: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Color(0xfff7B7B7B),
-                                    ),
-                                icon: const Icon(
-                                  Icons.priority_high_rounded,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                    project_Priority(client: client),
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.02,
                     ),
@@ -688,7 +454,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                         ),
                                     maxLines: 10,
                                     // textInputAction: TextInputAction.next,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       border: InputBorder.none,
                                     ),
                                   ),

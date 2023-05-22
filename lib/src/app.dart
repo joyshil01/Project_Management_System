@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           onGenerateTitle: (BuildContext context) => 'PMS',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            unselectedWidgetColor: Colors.grey,
             highlightColor: Color(0xfffEEEEEE), //list container color
             hintColor: Colors.white, //text color
             buttonColor: Colors.white,
