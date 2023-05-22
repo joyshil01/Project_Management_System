@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,7 +10,6 @@ import 'component/client_Textfeild.dart';
 import 'component/department_Textfeild.dart';
 import 'component/project_Priority.dart';
 import 'component/ststus_Textfield.dart';
-import 'custom_dailog.dart';
 
 class Createproject_Screen extends StatefulWidget {
   @override
@@ -29,6 +29,8 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
   bool isChecked = false;
   late AnimationController loadingController;
   File? pickedImage;
+  File? _file;
+  PlatformFile? _platformFile;
   pickImage(ImageSource imageType) async {
     try {
       final photo = await ImagePicker().pickImage(source: imageType);
@@ -42,8 +44,25 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
     }
   }
 
+  selectFile() async {
+    final file = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['png', 'jpg', 'jpeg', 'pdf'],
+    );
+
+    if (file != null) {
+      setState(() {
+        _file = File(file.files.single.path!);
+        _platformFile = file.files.first;
+      });
+    }
+
+    loadingController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // companyLogo.text = _platformFile!.name;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -349,7 +368,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                 Container(
                                   child: ElevatedButton(
                                     onPressed: () {
-                                      pickImage(ImageSource.gallery);
+                                      selectFile();
                                     },
                                     style: ElevatedButton.styleFrom(
                                       primary: Color(0xfff000000).withAlpha(12),
@@ -366,9 +385,12 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                   ),
                                 ),
                                 Container(
+                                  padding: EdgeInsets.only(
+                                    left:
+                                        SizeVariables.getWidth(context) * 0.02,
+                                  ),
                                   width: SizeVariables.getWidth(context) * 0.57,
                                   child: TextFormField(
-                                    // onTap: () {},
                                     controller: companyLogo,
                                     readOnly: true,
                                     style: Theme.of(context)
@@ -388,13 +410,23 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                           color: Color(0xfff7B7B7B),
                                         ),
                                       ),
-                                      hintText: '  No file choosen',
-                                      hintStyle: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color: Color(0xfff7B7B7B),
-                                          ),
+                                      hintText: _platformFile != null
+                                          ? _platformFile?.name
+                                          : 'No file choosen',
+                                      hintStyle: _platformFile != null
+                                          ? Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium!
+                                              .copyWith(
+                                                color:
+                                                    Theme.of(context).hintColor,
+                                              )
+                                          : Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium!
+                                              .copyWith(
+                                                color: Color(0xfff7B7B7B),
+                                              ),
                                     ),
                                   ),
                                 ),
