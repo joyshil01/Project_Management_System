@@ -1,9 +1,11 @@
 import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:project_management_system/constans.dart';
 import '../../../../utils/media-query.dart';
+import 'uploadImage.dart';
 
 class Files_Widget extends StatefulWidget {
   @override
@@ -11,6 +13,30 @@ class Files_Widget extends StatefulWidget {
 }
 
 class _Files_WidgetState extends State<Files_Widget> {
+  File? _file;
+  PlatformFile? _platformFile;
+  File? image;
+  bool isLoading = true;
+  bool? isGallery;
+
+  late AnimationController loadingController;
+
+  selectFile() async {
+    final file = await FilePicker.platform.pickFiles(
+      type: FileType.any,
+      // allowedExtensions: ['png', 'jpg', 'jpeg', 'pdf'],
+    );
+
+    if (file != null) {
+      setState(() {
+        _file = File(file.files.single.path!);
+        _platformFile = file.files.first;
+      });
+    }
+
+    loadingController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,6 +46,8 @@ class _Files_WidgetState extends State<Files_Widget> {
         right: SizeVariables.getWidth(context) * 0.03,
       ),
       child: ListView(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,6 +85,12 @@ class _Files_WidgetState extends State<Files_Widget> {
               ),
             ],
           ),
+          SizedBox(
+            height: SizeVariables.getHeight(context) * 0.02,
+          ),
+          _platformFile != null
+              ? uploadImage(file: _file, platformFile: _platformFile)
+              : Container(),
         ],
       ),
     );
@@ -137,7 +171,8 @@ class _Files_WidgetState extends State<Files_Widget> {
                       ),
                 ),
                 onTap: () {
-                  pickImage(ImageSource.gallery);
+                  selectFile();
+                  Get.back();
                 },
               ),
             ],
