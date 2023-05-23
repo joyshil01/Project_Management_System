@@ -12,7 +12,73 @@ class Addmember_Screen extends StatefulWidget {
 
 class _Addmember_ScreenState extends State<Addmember_Screen> {
   TextEditingController _searchAddmember = new TextEditingController();
-  bool isChecked = false;
+  final List<bool> isChecked = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+  final List<String> _texts = [
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+    "Joy Shil",
+    "Rachhel Sekh",
+  ];
+
+  final List<String> _designation = [
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Backend Developer",
+  ];
   Color getColor(Set<MaterialState> states) {
     const Set<MaterialState> interactiveStates = <MaterialState>{
       MaterialState.pressed,
@@ -185,7 +251,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
               child: Container(
                 height: SizeVariables.getHeight(context) * 0.76,
                 child: ListView.builder(
-                  itemCount: 20,
+                  itemCount: _texts.length,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: GestureDetector(
@@ -227,7 +293,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                           children: [
                                             Container(
                                               child: Text(
-                                                'Joy Shil',
+                                                _texts[index],
                                                 style: Theme.of(context)
                                                     .textTheme
                                                     .bodySmall!
@@ -243,7 +309,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                             ),
                                             Container(
                                               child: Text(
-                                                'Frontend Developer',
+                                                _designation[index],
                                                 style: Theme.of(context)
                                                     .textTheme
                                                     .bodyMedium!
@@ -269,11 +335,11 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                   checkColor: Colors.white,
                                   fillColor: MaterialStateProperty.resolveWith(
                                       getColor),
-                                  value: isChecked,
+                                  value: isChecked[index],
                                   shape: CircleBorder(),
                                   onChanged: (bool? value) {
                                     setState(() {
-                                      isChecked = value!;
+                                      isChecked[index] = value!;
                                     });
                                   },
                                 ),
