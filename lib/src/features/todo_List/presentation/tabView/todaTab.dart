@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
-
 import '../../../../../constans.dart';
 import '../../../../common_widgets/containerStyle.dart';
 import '../../../../routing/app_router.dart';
@@ -12,6 +11,80 @@ class TodoTabview extends StatefulWidget {
 }
 
 class _TodoTabviewState extends State<TodoTabview> {
+  List<Map<String, dynamic>> datatodo = [
+    {
+      'projectName': 'Claimz Admin Panel',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '8 hr ago',
+      'tile': 'Onboarding',
+    },
+    {
+      'projectName': 'Claimz',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. claimz',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '1 day ago',
+      'tile': 'Location',
+    },
+    {
+      'projectName': 'Vitwo ai',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. vitwo ai',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '7 hr ago',
+      'tile': 'Todo',
+    },
+    {
+      'projectName': 'PMS',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. pms',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '9 hr ago',
+      'tile': 'Task design',
+    },
+    {
+      'projectName': 'Claimz Admin Panel 1',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. claimz admin panel 1',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '6 hr ago',
+      'tile': 'Login Api',
+    },
+    {
+      'projectName': 'Claimz 1',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. claimz 1',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '2 hr ago',
+      'tile': 'Report api',
+    },
+    {
+      'projectName': 'Vitwo ai 1',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. vitwo ai 1',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '1 hr ago',
+      'tile': 'Dashboard api',
+    },
+    {
+      'projectName': 'PMS 1',
+      'details':
+          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Pms 1',
+      'image1': 'assets/img/taskdemo.jpeg',
+      'image2': 'assets/img/taskdemo1.jpg',
+      'time': '3 hr ago',
+      'tile': 'Ui not fix',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +99,7 @@ class _TodoTabviewState extends State<TodoTabview> {
         ),
       ),
       child: ListView.builder(
-        itemCount: 15,
+        itemCount: datatodo.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
@@ -46,26 +119,28 @@ class _TodoTabviewState extends State<TodoTabview> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: SizeVariables.getHeight(context) * 0.02,
-                      width: SizeVariables.getWidth(context) * 0.15,
+                      padding: EdgeInsets.only(
+                        left: SizeVariables.getWidth(context) * 0.015,
+                        right: SizeVariables.getWidth(context) * 0.015,
+                        top: SizeVariables.getHeight(context) * 0.005,
+                        bottom: SizeVariables.getHeight(context) * 0.005,
+                      ),
                       decoration: BoxDecoration(
                         color: Color(0xfffD2D5F5),
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Center(
-                        child: Text(
-                          'Ui not fix',
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                fontSize: 10,
-                              ),
-                        ),
+                      child: Text(
+                        datatodo[index]['tile'],
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 10,
+                            ),
                       ),
                     ),
                     SizedBox(
                       height: SizeVariables.getHeight(context) * 0.01,
                     ),
                     Text(
-                      'Claimz PI - II',
+                      datatodo[index]['projectName'],
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Color(0xfffFFFFFF),
                             fontSize: 20,
@@ -75,7 +150,7 @@ class _TodoTabviewState extends State<TodoTabview> {
                       height: SizeVariables.getHeight(context) * 0.01,
                     ),
                     Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                      datatodo[index]['details'],
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Color(0xfffFFFFFF),
                             fontSize: 14,
@@ -93,18 +168,20 @@ class _TodoTabviewState extends State<TodoTabview> {
                             children: [
                               Positioned(
                                 child: CircleAvatar(
-                                  radius: SizeVariables.getHeight(context) * 0.02,
-                                  backgroundImage: const AssetImage(
-                                    'assets/img/taskdemo.jpeg',
+                                  radius:
+                                      SizeVariables.getHeight(context) * 0.02,
+                                  backgroundImage: AssetImage(
+                                    datatodo[index]['image1'],
                                   ),
                                 ),
                               ),
                               Positioned(
                                 left: 18,
                                 child: CircleAvatar(
-                                  radius: SizeVariables.getHeight(context) * 0.02,
-                                  backgroundImage: const AssetImage(
-                                    'assets/img/taskdemo1.jpg',
+                                  radius:
+                                      SizeVariables.getHeight(context) * 0.02,
+                                  backgroundImage: AssetImage(
+                                    datatodo[index]['image2'],
                                   ),
                                 ),
                               ),
@@ -112,11 +189,12 @@ class _TodoTabviewState extends State<TodoTabview> {
                           ),
                         ),
                         Text(
-                          '3 hr ago',
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                color: Color(0xfffFFFFFF),
-                                fontSize: 10,
-                              ),
+                          datatodo[index]['time'],
+                          style:
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                    color: Color(0xfffFFFFFF),
+                                    fontSize: 10,
+                                  ),
                         ),
                       ],
                     ),

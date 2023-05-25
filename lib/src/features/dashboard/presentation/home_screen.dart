@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:analog_clock/analog_clock.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/features/dashboard/presentation/homepage_Card.dart';
@@ -118,24 +117,12 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                DefaultTextStyle(
-                                  // textWidthBasis: TextWidthBasis.longestLine,
-                                  textAlign: TextAlign.start,
-                                  style: const TextStyle(
+                                const Text(
+                                  'Hey Joy,',
+                                  style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 22,
                                     fontFamily: 'PT Serif',
-                                  ),
-                                  child: AnimatedTextKit(
-                                    totalRepeatCount: 1,
-                                    animatedTexts: [
-                                      // FlickerAnimatedText(),
-                                      WavyAnimatedText(
-                                        'Hey Joy,',
-                                        textAlign: TextAlign.left,
-                                        // speed: Duration(milliseconds: 300),
-                                      ),
-                                    ],
                                   ),
                                 ),
                                 Container(
