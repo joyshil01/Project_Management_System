@@ -75,6 +75,7 @@ class _List_widgetState extends State<List_widget> {
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum',
       'progressColor': Color(0xfff5350A2),
       'changeProgressColor': Colors.green,
+      'maxValue': '100',
       'backgroundColor': Colors.white,
       'startDate': '07-Mar-2023',
       'endDate': '15-Sep-2023',
@@ -83,7 +84,7 @@ class _List_widgetState extends State<List_widget> {
       'projectName': 'Claimz',
       'details':
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum claimz',
-      'maxValue': 75,
+      'maxValue': '75',
       'progressColor': Color(0xfff5350A2),
       'changeProgressColor': Colors.green,
       'backgroundColor': Colors.white,
@@ -94,7 +95,7 @@ class _List_widgetState extends State<List_widget> {
       'projectName': 'Vitwo ai',
       'details':
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum vitwo ai',
-      'maxValue': 45,
+      'maxValue': '45',
       'progressColor': Color(0xfff5350A2),
       'changeProgressColor': Colors.green,
       'backgroundColor': Colors.white,
@@ -105,7 +106,7 @@ class _List_widgetState extends State<List_widget> {
       'projectName': 'PMS',
       'details':
           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum project management system',
-      'maxValue': 25,
+      'maxValue': '25',
       'progressColor': Color(0xfff5350A2),
       'changeProgressColor': Colors.green,
       'backgroundColor': Colors.white,
@@ -454,7 +455,8 @@ class _List_widgetState extends State<List_widget> {
                                               progressColor: dataTask[index]
                                                   ['progressColor'],
                                               animatedDuration: const Duration(
-                                                  milliseconds: 300),
+                                                milliseconds: 300,
+                                              ),
                                               direction: Axis.horizontal,
                                               verticalDirection:
                                                   VerticalDirection.up,

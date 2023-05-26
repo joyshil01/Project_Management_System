@@ -5,7 +5,7 @@ import '../utils/media-query.dart';
 
 class drawer_widget extends StatelessWidget {
   const drawer_widget({
-    super.key,  
+    super.key,
   });
 
   @override
@@ -72,7 +72,6 @@ class drawer_widget extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.toNamed(RoutesClass.getHomeRoute());
-              // context.goNamed(AppRoute.home.name);
             },
             title: Container(
               child: Row(
@@ -102,7 +101,6 @@ class drawer_widget extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.toNamed(RoutesClass.all_projectRoute());
-              // context.goNamed(AppRoute.all_project.name);
             },
             title: Container(
               child: Row(
@@ -132,7 +130,6 @@ class drawer_widget extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.toNamed(RoutesClass.project_permissionRoute());
-              // context.goNamed(AppRoute.project_permission.name);
             },
             title: Container(
               child: Row(
@@ -162,7 +159,6 @@ class drawer_widget extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.toNamed(RoutesClass.todo_listRoute());
-              // context.goNamed(AppRoute.todo_list.name);
             },
             title: Container(
               child: Row(
@@ -192,8 +188,6 @@ class drawer_widget extends StatelessWidget {
           ListTile(
             onTap: () {
               Get.toNamed(RoutesClass.project_listRoute());
-              // context.pushNamed(AppRoute.project_list.name);
-              // context.goNamed(AppRoute.project_list.name);
             },
             title: Container(
               child: Row(
@@ -252,7 +246,7 @@ class drawer_widget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Get.toNamed(RoutesClass.loginRoute());
+              // Get.toNamed(RoutesClass.loginRoute());
             },
             title: Container(
               child: Row(
@@ -275,7 +269,6 @@ class drawer_widget extends StatelessWidget {
                           ),
                     ),
                   ),
-                  
                 ],
               ),
             ),

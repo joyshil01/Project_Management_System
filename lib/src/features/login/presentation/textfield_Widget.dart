@@ -3,9 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
+import 'package:provider/provider.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/buttonStyle.dart';
 import '../../../routing/app_router.dart';
+import '../data/google_signin.dart';
 
 class TextFieldLogin extends StatefulWidget {
   @override
@@ -296,8 +298,17 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/img/google.png',
+                  InkWell(
+                    onTap: () {
+                      final provider = Provider.of<GoogleSignInProvider>(
+                        context,
+                        listen: false,
+                      );
+                      provider.googleLogIn();
+                    },
+                    child: Image.asset(
+                      'assets/img/google.png',
+                    ),
                   ),
                   SizedBox(
                     width: SizeVariables.getWidth(context) * 0.01,

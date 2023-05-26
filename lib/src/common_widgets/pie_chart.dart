@@ -1,7 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:project_management_system/src/common_widgets/indicator.dart';
-import 'package:project_management_system/src/utils/media-query.dart';
 
 class PieChartScreen extends StatefulWidget {
   const PieChartScreen({super.key});
@@ -46,8 +44,6 @@ class PieChartScreenState extends State {
                       borderData: FlBorderData(
                         show: false,
                       ),
-                      // centerSpaceColor: Colors.amber,
-
                       sectionsSpace: 0.5,
                       centerSpaceRadius: 50,
                       sections: showingSections(),
@@ -55,7 +51,7 @@ class PieChartScreenState extends State {
                   ),
                   Positioned(
                     left: 0,
-                    top: 59,
+                    top: 70,
                     right: 0,
                     bottom: 0,
                     child: Column(
@@ -66,56 +62,14 @@ class PieChartScreenState extends State {
                             '70 %',
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      fontSize: 10,
+                                      fontSize: 20,
                                       color: Theme.of(context).hintColor,
                                     ),
                           ),
                         ),
-                        
                       ],
                     ),
                   ),
-                  // Positioned(
-                  //   left: 10,
-                  //   top: 197,
-                  //   right: 0,
-                  //   bottom: 0,
-                  //   child: Row(
-                  //     // mainAxisAlignment: MainAxisAlignment.end,
-                  //     // crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: const <Widget>[
-                  //       Indicator(
-                  //         color: Color(0xfff5350A2),
-                  //         text: 'To Do',
-                  //         isSquare: true,
-                  //       ),
-                  //       SizedBox(
-                  //         width: 10,
-                  //       ),
-                  //       Indicator(
-                  //         color: Color(0xfffFEBE39),
-                  //         text: 'In Progress',
-                  //         isSquare: true,
-                  //       ),
-                  //       SizedBox(
-                  //         width: 10,
-                  //       ),
-                  //       Indicator(
-                  //         color: Color(0xfffF47F5A),
-                  //         text: 'In Review',
-                  //         isSquare: true,
-                  //       ),
-                  //       SizedBox(
-                  //         width: 10,
-                  //       ),
-                  //       Indicator(
-                  //         color: Color(0xfff48B869),
-                  //         text: 'Complete',
-                  //         isSquare: true,
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -146,8 +100,7 @@ class PieChartScreenState extends State {
             title: '',
             radius: radius,
           );
-        
-        
+
         default:
           throw Error();
       }

@@ -33,6 +33,8 @@ dependencies:
   firebase_auth: ^4.5.0
   another_flushbar: ^1.12.30
   file_picker:
+  google_sign_in:
+  provider:
 
 flutter_icons:
   image_path: "assets/logo/pmsLogo.png"
