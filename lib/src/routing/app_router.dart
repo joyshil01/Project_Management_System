@@ -1,4 +1,5 @@
 import 'package:get/get_navigation/get_navigation.dart';
+import '../common_widgets/drawerMain/mainPage.dart';
 import '../features/add_Report/presentation/addReport_Screen.dart';
 import '../features/add_member/presentation/addMember_Screen.dart';
 import '../features/all_Project/presentation/projectDetails_Screen.dart';
@@ -19,6 +20,8 @@ class RoutesClass {
   static String loginRoute() => login;
   static String signup = '/signup';
   static String signupRoute() => signup;
+  static String drawer = '/login/drawer';
+  static String drawerRoute() => drawer;
   static String home = '/home';
   static String getHomeRoute() => home;
   static String all_project = '/all_project';
@@ -31,7 +34,7 @@ class RoutesClass {
   static String project_listRoute() => project_list;
   static String help = '/help';
   static String helpRoute() => help;
-  static String project_details = '/project_details';
+  static String project_details = '/all_project/project_details';
   static String project_detailsRoute() => project_details;
   static String Createproject = '/create_project';
   static String CreateprojectRoute() => Createproject;
@@ -56,28 +59,8 @@ class RoutesClass {
       page: () => Signup_Screen(),
     ),
     GetPage(
-      name: home,
-      page: () => Homepage_Screen(),
-    ),
-    GetPage(
-      name: all_project,
-      page: () => All_Project_Screen(),
-    ),
-    GetPage(
-      name: project_permission,
-      page: () => Project_Permission_Screen(),
-    ),
-    GetPage(
-      name: todo_list,
-      page: () => Todo_List_Screen(),
-    ),
-    GetPage(
-      name: project_list,
-      page: () => Project_List_Screen(),
-    ),
-    GetPage(
-      name: help,
-      page: () => Help_Screen(),
+      name: drawer,
+      page: () => MainPage(),
     ),
     GetPage(
       transition: Transition.leftToRight,

@@ -1,5 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../constans.dart';
@@ -19,26 +19,26 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
   TextEditingController _c_password = new TextEditingController();
   var confirmPass;
   final GlobalKey<FormState> _sformkey = new GlobalKey<FormState>();
-  static Future<User?> signupUsingEmailPassword({
-    required String semail,
-    required String spassword,
-    required BuildContext context,
-  }) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
-    try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-        email: semail,
-        password: spassword,
-      );
-      user = userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == "user not found") {
-        print("No user not for that the email");
-      }
-    }
-    return user;
-  }
+  // static Future<User?> signupUsingEmailPassword({
+  //   required String semail,
+  //   required String spassword,
+  //   required BuildContext context,
+  // }) async {
+  //   FirebaseAuth auth = FirebaseAuth.instance;
+  //   User? user;
+  //   try {
+  //     UserCredential userCredential = await auth.signInWithEmailAndPassword(
+  //       email: semail,
+  //       password: spassword,
+  //     );
+  //     user = userCredential.user;
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == "user not found") {
+  //       print("No user not for that the email");
+  //     }
+  //   }
+  //   return user;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -233,34 +233,34 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                     width: SizeVariables.getWidth(context) * 0.78,
                     label: 'Sign Up',
                     onPressed: () {
-                      if (_sformkey.currentState!.validate()) {
-                        FirebaseAuth.instance
-                            .createUserWithEmailAndPassword(
-                          email: _email.text,
-                          password: _password.text,
-                        )
-                            .then((value) {
-                          print("Created New Account");
-                          Get.toNamed(RoutesClass.loginRoute());
-                          Flushbar(
-                            backgroundColor: Firstgradient,
-                            duration: const Duration(seconds: 4),
-                            flushbarPosition: FlushbarPosition.BOTTOM,
-                            borderRadius: BorderRadius.circular(10),
-                            icon: const Icon(Icons.done, color: Colors.green),
-                            // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
-                            // title: 'Create Account Successful',
-                            message: 'Create Account Successful',
-                            barBlur: 20,
-                          ).show(context);
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => HomeScreen()));
-                        }).onError((error, stackTrace) {
-                          print("Error ${error.toString()}");
-                        });
-                      } else {
-                        print("UnSuccessfull");
-                      }
+                      // if (_sformkey.currentState!.validate()) {
+                      //   FirebaseAuth.instance
+                      //       .createUserWithEmailAndPassword(
+                      //     email: _email.text,
+                      //     password: _password.text,
+                      //   )
+                      //       .then((value) {
+                      //     print("Created New Account");
+                      //     Get.toNamed(RoutesClass.loginRoute());
+                      //     Flushbar(
+                      //       backgroundColor: Firstgradient,
+                      //       duration: const Duration(seconds: 4),
+                      //       flushbarPosition: FlushbarPosition.BOTTOM,
+                      //       borderRadius: BorderRadius.circular(10),
+                      //       icon: const Icon(Icons.done, color: Colors.green),
+                      //       // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
+                      //       // title: 'Create Account Successful',
+                      //       message: 'Create Account Successful',
+                      //       barBlur: 20,
+                      //     ).show(context);
+                      //     // Navigator.push(context,
+                      //     //     MaterialPageRoute(builder: (context) => HomeScreen()));
+                      //   }).onError((error, stackTrace) {
+                      //     print("Error ${error.toString()}");
+                      //   });
+                      // } else {
+                      //   print("UnSuccessfull");
+                      // }
                     },
                   ),
                 ],

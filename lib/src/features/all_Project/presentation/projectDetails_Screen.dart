@@ -33,7 +33,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.secondary,
-            labelWidget: Container(
+            labelWidget: Padding(
               padding: EdgeInsets.only(
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
@@ -58,7 +58,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.secondary,
-            labelWidget: Container(
+            labelWidget: Padding(
               padding: EdgeInsets.only(
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
@@ -85,7 +85,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
               ),
             ),
             backgroundColor: Theme.of(context).colorScheme.secondary,
-            labelWidget: Container(
+            labelWidget: Padding(
               padding: EdgeInsets.only(
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
@@ -123,75 +123,67 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(4),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          padding: EdgeInsets.only(
-                            left: SizeVariables.getWidth(context) * 0.01,
-                          ),
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.arrow_back_ios_new_outlined,
-                                color: backiconColor,
-                                size: 18,
-                              ),
-                              Text(
-                                'Back',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      color: Theme.of(context).hintColor,
-                                      fontSize: 16,
-                                    ),
-                              ),
-                            ],
-                          ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.arrow_back_ios_new_outlined,
+                              color: backiconColor,
+                              size: 18,
+                            ),
+                            Text(
+                              'Back',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                    fontSize: 16,
+                                  ),
+                            ),
+                          ],
                         ),
                       ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          padding: EdgeInsets.only(
-                            top: SizeVariables.getHeight(context) * 0.005,
-                            right: SizeVariables.getWidth(context) * 0.02,
-                          ),
-                          child: Image.asset(
-                            'assets/drawer/bell.png',
-                            height: 30,
-                            width: 30,
-                          ),
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: SizeVariables.getHeight(context) * 0.005,
+                          right: SizeVariables.getWidth(context) * 0.02,
+                        ),
+                        child: Image.asset(
+                          'assets/drawer/bell.png',
+                          height: 30,
+                          width: 30,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      child: Text(
-                        'Project Diagram',
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              color: Theme.of(context).hintColor,
-                              fontSize: 23,
-                            ),
-                      ),
-                    ),
-                  ],
-                ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Project Diagram',
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: Theme.of(context).hintColor,
+                          fontSize: 23,
+                        ),
+                  ),
+                ],
               ),
             ),
             Projects_Detalis(),

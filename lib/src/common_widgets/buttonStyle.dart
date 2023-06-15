@@ -189,7 +189,7 @@ class LoginButton extends StatelessWidget {
               label,
               style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     color: Theme.of(context).hintColor,
-                    fontSize: 18,
+                    fontSize: MediaQuery.of(context).size.width*0.045,
                   ),
             ),
             // const SizedBox(

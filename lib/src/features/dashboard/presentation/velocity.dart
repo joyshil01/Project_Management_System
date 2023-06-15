@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:project_management_system/src/common_widgets/containerStyle.dart';
@@ -22,160 +20,150 @@ class Velocitygraph extends StatefulWidget {
 }
 
 class _VelocitygraphState extends State<Velocitygraph> {
-  BarChartGroupData generateBarGroup(
-    int x,
-    Color color,
-    double value,
-    double shadowValue,
-  ) {
-    return BarChartGroupData(
-      x: x,
-      barRods: [
-        BarChartRodData(
-          toY: value,
-          color: color,
-          width: 6,
-        ),
-        BarChartRodData(
-          toY: shadowValue,
-          color: Velocitygraph.shadowColor,
-          width: 6,
-        ),
-      ],
-      showingTooltipIndicators: touchedGroupIndex == x ? [0] : [],
-    );
-  }
-
   int touchedGroupIndex = -1;
 
   @override
   Widget build(BuildContext context) {
-    return VelocityCard(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AspectRatio(
-              aspectRatio: 1.4,
-              child: BarChart(
-                BarChartData(
-                  alignment: BarChartAlignment.spaceBetween,
-                  borderData: FlBorderData(
-                    show: true,
-                    border: const Border.symmetric(
-                      horizontal: BorderSide(
-                        color: Color(0xfff50BFE3),
+    return LayoutBuilder(builder: (ctx, constraints) {
+      final width = constraints.maxWidth;
+      return VelocityCard(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AspectRatio(
+                aspectRatio: 1.4,
+                child: BarChart(
+                  BarChartData(
+                    alignment: BarChartAlignment.spaceBetween,
+                    borderData: FlBorderData(
+                      show: true,
+                      border: const Border.symmetric(
+                        horizontal: BorderSide(
+                          color: Color(0xfff50BFE3),
+                        ),
                       ),
                     ),
-                  ),
-                  titlesData: FlTitlesData(
-                    show: true,
-                    leftTitles: AxisTitles(
-                      drawBehindEverything: true,
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        reservedSize: 30,
-                        getTitlesWidget: (value, meta) {
-                          return Text(
-                            value.toInt().toString(),
-                            style: const TextStyle(
-                              color: Color(0xfff2B5CC4),
-                            ),
-                            textAlign: TextAlign.left,
-                          );
-                        },
+                    titlesData: FlTitlesData(
+                      show: true,
+                      leftTitles: AxisTitles(
+                        drawBehindEverything: true,
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          reservedSize: 30,
+                          getTitlesWidget: (value, meta) {
+                            return Text(
+                              value.toInt().toString(),
+                              style: const TextStyle(
+                                color: Color(0xfff2B5CC4),
+                              ),
+                              textAlign: TextAlign.left,
+                            );
+                          },
+                        ),
+                      ),
+                      bottomTitles: AxisTitles(
+                        sideTitles: SideTitles(
+                          showTitles: true,
+                          reservedSize: 36,
+                          getTitlesWidget: (value, meta) {
+                            final index = value.toInt();
+                            return SideTitleWidget(
+                              axisSide: meta.axisSide,
+                              child: _IconWidget(
+                                color: Velocitygraph.dataList[index].color,
+                                isSelected: touchedGroupIndex == index,
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                      rightTitles: AxisTitles(),
+                      topTitles: AxisTitles(),
+                    ),
+                    gridData: FlGridData(
+                      show: true,
+                      drawVerticalLine: false,
+                      getDrawingHorizontalLine: (value) => FlLine(
+                        color: const Color(0xfff50BFE3),
+                        strokeWidth: 1,
                       ),
                     ),
-                    bottomTitles: AxisTitles(
-                      sideTitles: SideTitles(
-                        showTitles: true,
-                        reservedSize: 36,
-                        getTitlesWidget: (value, meta) {
-                          final index = value.toInt();
-                          return SideTitleWidget(
-                            axisSide: meta.axisSide,
-                            child: _IconWidget(
-                              color: Velocitygraph.dataList[index].color,
-                              isSelected: touchedGroupIndex == index,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    rightTitles: AxisTitles(),
-                    topTitles: AxisTitles(),
-                  ),
-                  gridData: FlGridData(
-                    show: true,
-                    drawVerticalLine: false,
-                    getDrawingHorizontalLine: (value) => FlLine(
-                      color: const Color(0xfff50BFE3),
-                      strokeWidth: 1,
-                    ),
-                  ),
-                  barGroups: Velocitygraph.dataList.asMap().entries.map((e) {
-                    final index = e.key;
-                    final data = e.value;
-                    return generateBarGroup(
-                      index,
-                      data.color,
-                      data.value,
-                      data.shadowValue,
-                    );
-                  }).toList(),
-                  maxY: 20,
-                  barTouchData: BarTouchData(
-                    enabled: true,
-                    handleBuiltInTouches: false,
-                    touchTooltipData: BarTouchTooltipData(
-                      tooltipBgColor: Colors.transparent,
-                      tooltipMargin: 0,
-                      getTooltipItem: (
-                        BarChartGroupData group,
-                        int groupIndex,
-                        BarChartRodData rod,
-                        int rodIndex,
-                      ) {
-                        return BarTooltipItem(
-                          rod.toY.toString(),
-                          TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: rod.color,
-                            fontSize: 18,
-                            shadows: const [
-                              Shadow(
-                                color: Colors.black26,
-                                blurRadius: 12,
-                              )
-                            ],
+                    barGroups: Velocitygraph.dataList.asMap().entries.map((e) {
+                      final index = e.key;
+                      final data = e.value;
+                      return BarChartGroupData(
+                        x: index,
+                        barRods: [
+                          BarChartRodData(
+                            toY: data.value,
+                            color: data.color,
+                            width: width < 600 ? 7 : 20,
                           ),
-                        );
+                          BarChartRodData(
+                            toY: data.shadowValue,
+                            color: Velocitygraph.shadowColor,
+                            width: width < 600 ? 7 : 20,
+                          ),
+                        ],
+                        showingTooltipIndicators:
+                            touchedGroupIndex == index ? [0] : [],
+                      );
+                    }).toList(),
+                    maxY: 20,
+                    barTouchData: BarTouchData(
+                      enabled: true,
+                      handleBuiltInTouches: false,
+                      touchTooltipData: BarTouchTooltipData(
+                        tooltipBgColor: Colors.transparent,
+                        tooltipMargin: 0,
+                        getTooltipItem: (
+                          BarChartGroupData group,
+                          int groupIndex,
+                          BarChartRodData rod,
+                          int rodIndex,
+                        ) {
+                          return BarTooltipItem(
+                            rod.toY.toString(),
+                            TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: rod.color,
+                              fontSize: 18,
+                              shadows: const [
+                                Shadow(
+                                  color: Colors.black26,
+                                  blurRadius: 12,
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                      touchCallback: (event, response) {
+                        if (event.isInterestedForInteractions &&
+                            response != null &&
+                            response.spot != null) {
+                          setState(() {
+                            touchedGroupIndex =
+                                response.spot!.touchedBarGroupIndex;
+                          });
+                        } else {
+                          setState(() {
+                            touchedGroupIndex = -1;
+                          });
+                        }
                       },
                     ),
-                    touchCallback: (event, response) {
-                      if (event.isInterestedForInteractions &&
-                          response != null &&
-                          response.spot != null) {
-                        setState(() {
-                          touchedGroupIndex =
-                              response.spot!.touchedBarGroupIndex;
-                        });
-                      } else {
-                        setState(() {
-                          touchedGroupIndex = -1;
-                        });
-                      }
-                    },
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
 
@@ -205,14 +193,12 @@ class _IconWidgetState extends AnimatedWidgetBaseState<_IconWidget> {
   @override
   Widget build(BuildContext context) {
     final scale = 1 + _rotationTween!.evaluate(animation) * 0.5;
-    return Container(
-      child: Text(
-        '01-05',
-        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              color: Color(0xfff2B5CC4),
-              fontSize: 10,
-            ),
-      ),
+    return Text(
+      '01-05',
+      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            color: const Color(0xfff2B5CC4),
+            fontSize: 10,
+          ),
     );
   }
 

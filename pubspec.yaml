@@ -29,8 +29,8 @@ dependencies:
   timeline_tile:
   flutter_expanded_tile:
   syncfusion_flutter_calendar:
-  firebase_core: ^2.11.0
-  firebase_auth: ^4.5.0
+  # firebase_core: ^2.11.0
+  # firebase_auth: ^4.5.0
   another_flushbar: ^1.12.30
   file_picker:
   google_sign_in:

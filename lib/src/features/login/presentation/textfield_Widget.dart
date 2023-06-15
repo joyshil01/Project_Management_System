@@ -1,13 +1,11 @@
-import 'package:another_flushbar/flushbar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:another_flushbar/flushbar.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
-import 'package:provider/provider.dart';
-import '../../../../constans.dart';
 import '../../../common_widgets/buttonStyle.dart';
 import '../../../routing/app_router.dart';
-import '../data/google_signin.dart';
+// import '../data/google_signin.dart';
 
 class TextFieldLogin extends StatefulWidget {
   @override
@@ -15,34 +13,34 @@ class TextFieldLogin extends StatefulWidget {
 }
 
 class _TextFieldLoginState extends State<TextFieldLogin> {
-  TextEditingController userName = new TextEditingController();
-  TextEditingController passWord = new TextEditingController();
+  TextEditingController userName = TextEditingController();
+  TextEditingController passWord = TextEditingController();
   late String email;
-  final GlobalKey<FormState> _formkey = new GlobalKey<FormState>();
-  static Future<User?> loginUsingEmailPassword({
-    required String email,
-    required String password,
-    required BuildContext context,
-  }) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
-    try {
-      UserCredential userCredential = await auth.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      user = userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      if (e.code == "user not found") {
-        print("No user not for that the email");
-      }
-    }
-    return user;
-  }
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  // static Future<User?> loginUsingEmailPassword({
+  //   required String email,
+  //   required String password,
+  //   required BuildContext context,
+  // }) async {
+  //   FirebaseAuth auth = FirebaseAuth.instance;
+  //   User? user;
+  //   try {
+  //     UserCredential userCredential = await auth.signInWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     user = userCredential.user;
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == "user not found") {
+  //       print("No user not for that the email");
+  //     }
+  //   }
+  //   return user;
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final Widget _loginScreen = Container(
       padding: EdgeInsets.only(
         left: SizeVariables.getWidth(context) * 0.05,
         right: SizeVariables.getWidth(context) * 0.05,
@@ -56,7 +54,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
                   fontFamily: 'PT Serif',
-                  fontSize: 34,
+                  fontSize: MediaQuery.of(context).size.width * 0.085,
                 ),
           ),
           SizedBox(
@@ -66,7 +64,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
             'Sign in to continue',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
-                  fontSize: 18,
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
                 ),
           ),
           SizedBox(
@@ -76,95 +74,93 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
             key: _formkey,
             child: Column(
               children: [
-                Container(
-                  child: TextFormField(
-                    controller: userName,
-                    enableSuggestions: true,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "please enter email";
-                      }
-                      if (!RegExp("^[a-zA-z0-9+_.-]+@[a-zA-z0-9.-]+.[a-z]")
-                          .hasMatch(value)) {
-                        return "Please enter a vaild email";
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      email = value!;
-                    },
-                    cursorHeight: SizeVariables.getHeight(context) * 0.034,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).hintColor,
-                          fontSize: 16,
-                        ),
-                    textInputAction: TextInputAction.next,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xfffD9D9D9),
-                        ),
+                TextFormField(
+                  controller: userName,
+                  enableSuggestions: true,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "please enter email";
+                    }
+                    if (!RegExp("^[a-zA-z0-9+_.-]+@[a-zA-z0-9.-]+.[a-z]")
+                        .hasMatch(value)) {
+                      return "Please enter a vaild email";
+                    }
+                    return null;
+                  },
+                  onSaved: (value) {
+                    email = value!;
+                  },
+                  // cursorHeight: SizeVariables.getHeight(context) * 0.034,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                       ),
-                      focusedBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xfffD9D9D9),
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0xfffD9D9D9),
+                      ),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0xfffD9D9D9),
+                      ),
+                    ),
+                    hintText: 'ex@gmail.com',
+                    hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: const Color(0xfff7B7B7B),
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                         ),
-                      ),
-                      hintText: 'ex@gmail.com',
-                      hintStyle:
-                          Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                color: Color(0xfff7B7B7B),
-                              ),
-                      prefixIcon: const Icon(
-                        Icons.email,
-                        color: Colors.white,
-                      ),
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Colors.white,
+                      size: MediaQuery.of(context).size.width*0.062,
                     ),
                   ),
                 ),
                 SizedBox(
                   height: SizeVariables.getHeight(context) * 0.06,
                 ),
-                Container(
-                  child: TextFormField(
-                    controller: passWord,
-                    cursorHeight: SizeVariables.getHeight(context) * 0.034,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).hintColor,
-                          fontSize: 16,
-                        ),
-                    textInputAction: TextInputAction.done,
-                    keyboardType: TextInputType.visiblePassword,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please Enter Password";
-                      } else if (value!.length < 8) {
-                        return "Password must be atleast 8 characters long";
-                      } else {
-                        return null;
-                      }
-                    },
-                    decoration: InputDecoration(
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xfffD9D9D9),
-                        ),
+                TextFormField(
+                  controller: passWord,
+                  // cursorHeight: SizeVariables.getHeight(context) * 0.034,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                       ),
-                      focusedBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Color(0xfffD9D9D9),
+                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.visiblePassword,
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Please Enter Password";
+                    } else if (value!.length < 8) {
+                      return "Password must be atleast 8 characters long";
+                    } else {
+                      return null;
+                    }
+                  },
+                  decoration: InputDecoration(
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color(0xfffD9D9D9),
+                      ),
+                    ),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(
+                        color: const Color(0xfffD9D9D9),
+                      ),
+                    ),
+                    hintText: 'password',
+                    hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: const Color(0xfff7B7B7B),
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                         ),
-                      ),
-                      hintText: 'password',
-                      hintStyle:
-                          Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                color: Color(0xfff7B7B7B),
-                              ),
-                      prefixIcon: const Icon(
-                        Icons.lock,
-                        color: Colors.white,
-                      ),
+                    prefixIcon: Icon(
+                      Icons.lock,
+                      color: Colors.white,
+                      size: MediaQuery.of(context).size.width*0.062,
                     ),
                   ),
                 ),
@@ -181,68 +177,53 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   LoginButton(
-                    height: SizeVariables.getHeight(context) * 0.04,
-                    width: SizeVariables.getWidth(context) * 0.78,
+                    height: MediaQuery.of(context).orientation ==
+                            Orientation.portrait
+                        ? SizeVariables.getHeight(context) * 0.04
+                        : SizeVariables.getHeight(context) * 0.09,
+                    width: MediaQuery.of(context).orientation ==
+                            Orientation.portrait
+                        ? SizeVariables.getWidth(context) * 0.78
+                        : SizeVariables.getWidth(context) * 0.83,
                     label: 'Login',
                     onPressed: () async {
-                      // Get.toNamed(RoutesClass.getHomeRoute());
-                      if (_formkey.currentState!.validate()) {
-                        // User? user = await loginUsingEmailPassword(
-                        //   email: userName.text,
-                        //   password: passWord.text,
-                        //   context: context,
-                        // );
-                        // print(user);
-                        // if (user != null) {
-                        //   Get.toNamed(RoutesClass.getHomeRoute());
-                        //   Flushbar(
-                        //     backgroundColor: Firstgradient,
-                        //     duration: const Duration(seconds: 4),
-                        //     flushbarPosition: FlushbarPosition.BOTTOM,
-                        //     borderRadius: BorderRadius.circular(10),
-                        //     icon: const Icon(Icons.done, color: Colors.white),
-                        //     leftBarIndicatorColor: Colors.green,
-                        //     // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
-                        //     // title: 'Email',
-                        //     message: 'Login Successfully',
-                        //     barBlur: 20,
-                        //   );
-                        // }
+                      Get.toNamed(RoutesClass.drawerRoute());
+                      // if (_formkey.currentState!.validate()) {
 
-                        FirebaseAuth.instance
-                            .signInWithEmailAndPassword(
-                                email: userName.text, password: passWord.text)
-                            .then((value) {
-                          Get.toNamed(RoutesClass.getHomeRoute());
-                          Flushbar(
-                            backgroundColor: Firstgradient,
-                            duration: const Duration(seconds: 4),
-                            flushbarPosition: FlushbarPosition.BOTTOM,
-                            borderRadius: BorderRadius.circular(10),
-                            icon: const Icon(Icons.done, color: Colors.white),
-                            leftBarIndicatorColor: Colors.green,
-                            // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
-                            // title: 'Email',
-                            message: 'Login Successfully',
-                            barBlur: 20,
-                          ).show(context);
-                        }).onError((error, stackTrace) {
-                          Flushbar(
-                            backgroundColor: Firstgradient,
-                            duration: const Duration(seconds: 4),
-                            flushbarPosition: FlushbarPosition.BOTTOM,
-                            borderRadius: BorderRadius.circular(10),
-                            icon: const Icon(Icons.error, color: Colors.white),
-                            leftBarIndicatorColor: Colors.red,
-                            // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
-                            // title: 'Email',
-                            message: 'Not found username',
-                            barBlur: 20,
-                          ).show(context);
-                          print("Error ${error.toString()}");
-                        });
-                      }
-                      return;
+                      //   FirebaseAuth.instance
+                      //       .signInWithEmailAndPassword(
+                      //           email: userName.text, password: passWord.text)
+                      //       .then((value) {
+                      //     Get.toNamed(RoutesClass.getHomeRoute());
+                      //     Flushbar(
+                      //       backgroundColor: Firstgradient,
+                      //       duration: const Duration(seconds: 4),
+                      //       flushbarPosition: FlushbarPosition.BOTTOM,
+                      //       borderRadius: BorderRadius.circular(10),
+                      //       icon: const Icon(Icons.done, color: Colors.white),
+                      //       leftBarIndicatorColor: Colors.green,
+                      //       // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
+                      //       // title: 'Email',
+                      //       message: 'Login Successfully',
+                      //       barBlur: 20,
+                      //     ).show(context);
+                      //   }).onError((error, stackTrace) {
+                      //     Flushbar(
+                      //       backgroundColor: Firstgradient,
+                      //       duration: const Duration(seconds: 4),
+                      //       flushbarPosition: FlushbarPosition.BOTTOM,
+                      //       borderRadius: BorderRadius.circular(10),
+                      //       icon: const Icon(Icons.error, color: Colors.white),
+                      //       leftBarIndicatorColor: Colors.red,
+                      //       // margin: const EdgeInsets.fromLTRB(100, 10, 100, 0),
+                      //       // title: 'Email',
+                      //       message: 'Not found username',
+                      //       barBlur: 20,
+                      //     ).show(context);
+                      //     print("Error ${error.toString()}");
+                      //   });
+                      // }
+                      // return;
                     },
                   ),
                 ],
@@ -251,8 +232,9 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 onPressed: () {},
                 child: Text(
                   'Forget Password?',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         color: Theme.of(context).hintColor,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                       ),
                 ),
               ),
@@ -273,6 +255,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                       'Or',
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).hintColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.047,
                           ),
                     ),
                     Container(
@@ -288,8 +271,9 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
               ),
               Text(
                 'Social Media Login',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: Theme.of(context).hintColor,
+                      fontSize: MediaQuery.of(context).size.width * 0.035,
                     ),
               ),
               SizedBox(
@@ -300,11 +284,11 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 children: [
                   InkWell(
                     onTap: () {
-                      final provider = Provider.of<GoogleSignInProvider>(
-                        context,
-                        listen: false,
-                      );
-                      provider.googleLogIn();
+                      // final provider = Provider.of<GoogleSignInProvider>(
+                      //   context,
+                      //   listen: false,
+                      // );
+                      // provider.googleLogIn();
                     },
                     child: Image.asset(
                       'assets/img/google.png',
@@ -326,14 +310,18 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 children: [
                   Text(
                     'Don’t have any account?',
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           color: Theme.of(context).hintColor,
-                          fontSize: 14,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                         ),
                   ),
                   TextButton(
-                    child: const Text(
+                    child: Text(
                       'Sign Up',
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: Colors.blue,
+                            fontSize: MediaQuery.of(context).size.width * 0.035,
+                          ),
                     ),
                     onPressed: () {
                       Get.toNamed(RoutesClass.signupRoute());
@@ -346,5 +334,16 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
         ],
       ),
     );
+
+    return LayoutBuilder(builder: (ctx, constraints) {
+      final width = constraints.maxWidth;
+      Widget child;
+      if (width >= 600) {
+        child = _loginScreen;
+      } else {
+        child = _loginScreen;
+      }
+      return child;
+    });
   }
 }
