@@ -4,13 +4,8 @@ import '../features/add_Report/presentation/addReport_Screen.dart';
 import '../features/add_member/presentation/addMember_Screen.dart';
 import '../features/all_Project/presentation/projectDetails_Screen.dart';
 import '../features/create_Project/presentation/createProject_Screen.dart';
-import '../features/dashboard/presentation/home_screen.dart';
-import '../features/drawer/presentation/all_project.dart';
-import '../features/drawer/presentation/help.dart';
-import '../features/drawer/presentation/project_list.dart';
-import '../features/drawer/presentation/project_permission.dart';
-import '../features/drawer/presentation/todo_list.dart';
 import '../features/login/presentation/login_Screen.dart';
+import '../features/profile/presentation/profile_screen.dart';
 import '../features/signup/presentation/signup_Screen.dart';
 import '../features/task_detalis/presentation/component/chatBox_Screen.dart';
 import '../features/task_detalis/presentation/taskDetails_Screen.dart';
@@ -46,6 +41,8 @@ class RoutesClass {
   static String taskdetailsRoute() => taskdetails;
   static String chatbox = '/chatbox';
   static String chatboxRoute() => chatbox;
+  static String profile = '/drawer/profile';
+  static String profileRoute() => profile;
 
   static List<GetPage> routes = [
     GetPage(
@@ -60,19 +57,19 @@ class RoutesClass {
     ),
     GetPage(
       name: drawer,
-      page: () => MainPage(),
+      page: () => const MainPage(),
     ),
     GetPage(
       transition: Transition.leftToRight,
       transitionDuration: const Duration(milliseconds: 500),
       name: project_details,
-      page: () => projectDetails_Screen(),
+      page: () => const projectDetails_Screen(),
     ),
     GetPage(
       transition: Transition.downToUp,
       transitionDuration: const Duration(milliseconds: 500),
       name: Createproject,
-      page: () => Createproject_Screen(),
+      page: () => const Createproject_Screen(),
     ),
     GetPage(
       transition: Transition.downToUp,
@@ -97,6 +94,12 @@ class RoutesClass {
       transitionDuration: const Duration(milliseconds: 500),
       name: chatbox,
       page: () => chatBox_Screen(),
+    ),
+    GetPage(
+      transition: Transition.upToDown,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: profile,
+      page: () => const ProfileScreen(),
     ),
   ];
 }

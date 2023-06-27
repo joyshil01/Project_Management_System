@@ -10,6 +10,8 @@ import 'data/drawer_items.dart';
 import 'widget/drawerWidget.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
   State<MainPage> createState() => _MainPageState();
 }

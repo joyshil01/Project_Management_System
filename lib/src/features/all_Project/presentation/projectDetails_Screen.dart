@@ -6,11 +6,15 @@ import '../../../../constans.dart';
 import '../../../routing/app_router.dart';
 import '../../../utils/media-query.dart';
 
+// ignore: camel_case_types
 class projectDetails_Screen extends StatefulWidget {
+  const projectDetails_Screen({super.key});
+
   @override
   State<projectDetails_Screen> createState() => _projectDetails_ScreenState();
 }
 
+// ignore: camel_case_types
 class _projectDetails_ScreenState extends State<projectDetails_Screen> {
   @override
   Widget build(BuildContext context) {
@@ -186,7 +190,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
                 ],
               ),
             ),
-            Projects_Detalis(),
+            const Projects_Detalis(),
           ],
         ),
       ),

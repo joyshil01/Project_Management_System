@@ -6,11 +6,15 @@ import '../../../common_widgets/containerStyle.dart';
 import '../../../common_widgets/line_Chart.dart';
 import '../../../common_widgets/pie_chart.dart';
 
+// ignore: camel_case_types
 class Projects_Detalis extends StatefulWidget {
+  const Projects_Detalis({super.key});
+
   @override
   State<Projects_Detalis> createState() => _Projects_DetalisState();
 }
 
+// ignore: camel_case_types
 class _Projects_DetalisState extends State<Projects_Detalis> {
   final _circle = PageController();
   double _currentValue = 0;
@@ -28,6 +32,27 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
       child: Text(text, style: roundTextStyle),
     );
   }
+
+  final List<Map<String, dynamic>> _data = [
+    {
+      'image': 'assets/img/team.jpg',
+    },
+    {
+      'image': 'assets/img/user_2.png',
+    },
+    {
+      'image': 'assets/img/user_3.png',
+    },
+    {
+      'image': 'assets/img/user_4.png',
+    },
+    {
+      'image': 'assets/img/user_5.png',
+    },
+    {
+      'image': 'assets/img/user.png',
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -421,15 +446,15 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                       child: ListView.builder(
                         controller: _circle,
                         scrollDirection: Axis.horizontal,
-                        itemCount: 13,
+                        itemCount: _data.length,
                         itemBuilder: (context, index) => Padding(
                           padding: const EdgeInsets.all(5),
                           child: InkWell(
                             onTap: () {},
                             child: CircleAvatar(
                               radius: SizeVariables.getHeight(context) * 0.04,
-                              backgroundImage: const AssetImage(
-                                'assets/img/team.jpg',
+                              backgroundImage: AssetImage(
+                                _data[index]!['image'],
                               ),
                             ),
                           ),
@@ -444,13 +469,13 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                       children: [
                         SmoothPageIndicator(
                           controller: _circle,
-                          count: 3,
+                          count: 2,
                           effect: const ExpandingDotsEffect(
                             dotColor: Color(0xfffD9D9D9),
                             activeDotColor: Colors.blue,
                             dotHeight: 10,
                             dotWidth: 10,
-                            strokeWidth: 5,
+                            strokeWidth: 10,
                           ),
                         ),
                       ],

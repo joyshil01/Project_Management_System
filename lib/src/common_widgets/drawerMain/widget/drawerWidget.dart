@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../../routing/app_router.dart';
 import '../data/drawerItem.dart';
 import '../data/drawer_items.dart';
 
@@ -26,37 +28,42 @@ class DrawerWidget extends StatelessWidget {
 
   Widget buildDrawerProfile(BuildContext context) => Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundImage: const AssetImage(
-                'assets/profile.png',
+        child: GestureDetector(
+          onTap: () {
+            Get.toNamed(RoutesClass.profileRoute());
+          },
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundImage: const AssetImage(
+                  'assets/profile.png',
+                ),
+                radius: MediaQuery.of(context).size.width * 0.075,
               ),
-              radius: MediaQuery.of(context).size.width * 0.075,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 5),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Joy Shil',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
+              Padding(
+                padding: const EdgeInsets.only(left: 5),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      'Joy Shil',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
                     ),
-                  ),
-                  Text(
-                    'Application Devoloper',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                    Text(
+                      'Application Devoloper',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
 

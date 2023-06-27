@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../constans.dart';
 import '../../../utils/media-query.dart';
 
+// ignore: camel_case_types
 class ProjectPermission_Screen extends StatefulWidget {
   const ProjectPermission_Screen({super.key});
 
@@ -10,13 +11,32 @@ class ProjectPermission_Screen extends StatefulWidget {
       _ProjectPermission_ScreenState();
 }
 
+// ignore: camel_case_types
 class _ProjectPermission_ScreenState extends State<ProjectPermission_Screen> {
+  final List<Map<String, dynamic>> _data = [
+    {
+      'name': 'Joy Shil',
+      'permission': 'User',
+    },
+    {
+      'name': 'Rachhel Sekh',
+      'permission': 'User',
+    },
+    {
+      'name': 'Shaikh Salim Akhtar',
+      'permission': 'Admin',
+    },
+    {
+      'name': 'Srijon Das',
+      'permission': 'User',
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
       height: SizeVariables.getHeight(context) * 0.8,
       child: ListView.builder(
-        itemCount: 30,
+        itemCount: _data.length,
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -30,7 +50,7 @@ class _ProjectPermission_ScreenState extends State<ProjectPermission_Screen> {
                       left: 10,
                     ),
                     child: Text(
-                      'Joy Shil',
+                      _data[index]['name'],
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
                             fontSize: 14,
@@ -47,7 +67,7 @@ class _ProjectPermission_ScreenState extends State<ProjectPermission_Screen> {
                       left: SizeVariables.getWidth(context) * 0.08,
                     ),
                     child: Text(
-                      'User',
+                      _data[index]['permission'],
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
                             fontSize: 14,
