@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import '../../../common_widgets/alertDialog.dart';
 import '../../../common_widgets/buttonStyle.dart';
@@ -122,7 +123,7 @@ class _CustomProjectDialogState extends State<CustomProjectDialog> {
                         child: AppButtonStyle(
                           height: SizeVariables.getHeight(context) * 0.035,
                           width: SizeVariables.getWidth(context) * 0.18,
-                          label: 'Ok',
+                          label: 'Ok'.hardcoded,
                           onPressed: () {
                             Get.back();
                           },

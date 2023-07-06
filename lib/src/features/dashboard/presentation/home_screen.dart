@@ -1,19 +1,41 @@
 import 'package:analog_clock/analog_clock.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_management_system/src/common_widgets/showCase.dart';
 import 'package:project_management_system/src/features/dashboard/presentation/homepage_Card.dart';
 import 'package:project_management_system/src/features/dashboard/presentation/velocity.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
+import 'package:showcaseview/showcaseview.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/drawerMain/widget/drawerMenu_widget.dart';
 
-class Homepage_Screen extends StatelessWidget {
+class Homepage_Screen extends StatefulWidget {
   final VoidCallback openDrawer;
   const Homepage_Screen({
     required this.openDrawer,
     super.key,
   });
+
+  @override
+  State<Homepage_Screen> createState() => _Homepage_ScreenState();
+}
+
+class _Homepage_ScreenState extends State<Homepage_Screen> {
+  final GlobalKey _globalKeyOne = GlobalKey();
+  final GlobalKey _globalKeyTwo = GlobalKey();
+  final GlobalKey _globalKeyThree = GlobalKey();
+  final GlobalKey _globalKeyFour = GlobalKey();
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ShowCaseWidget.of(context).startShowCase(
+        [_globalKeyOne, _globalKeyTwo, _globalKeyThree, _globalKeyFour],
+      );
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +62,13 @@ class Homepage_Screen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                DrawerMenuWidget(
-                  onClicked: openDrawer,
+                ShowcaseView(
+                  globalKey: _globalKeyOne,
+                  title: 'Menu',
+                  description: '',
+                  child: DrawerMenuWidget(
+                    onClicked: widget.openDrawer,
+                  ),
                 ),
                 GestureDetector(
                   onTap: () {},
@@ -59,7 +86,6 @@ class Homepage_Screen extends StatelessWidget {
                 ),
               ],
             ),
-            
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
@@ -120,313 +146,110 @@ class Homepage_Screen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        end: Alignment.bottomLeft,
-                        begin: Alignment.topLeft,
-                        colors: [
-                          Color(0xfff55CDE8),
-                          Color(0xfff2750C0),
-                        ],
-                      ),
-                      borderRadius: BorderRadius.circular(28),
-                      boxShadow: const [
-                        BoxShadow(
-                          offset: Offset(2, 1),
-                          blurRadius: 6,
-                          spreadRadius: 0,
-                          color: Color(0xfffA0A0A0),
+                ShowcaseView(
+                  globalKey: _globalKeyTwo,
+                  title: 'Weather',
+                  description: '',
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          end: Alignment.bottomLeft,
+                          begin: Alignment.topLeft,
+                          colors: [
+                            Color(0xfff55CDE8),
+                            Color(0xfff2750C0),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset(
-                          'assets/img/sun.png',
-                          // height: maxHeight < 900 ? 50 : 70,
-                          // width: maxWidth < 600 ? 70 : 100,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 16, 20, 16),
-                          child: SizedBox(
-                            child: Column(
-                              children: [
-                                Column(
-                                  // crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      'Monday',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color: Theme.of(context).hintColor,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.05,
-                                          ),
-                                    ),
-                                    Text(
-                                      'Kolkata',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color: Theme.of(context).hintColor,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.04,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                const Spacer(),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          '22',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                color:
-                                                    Theme.of(context).hintColor,
-                                                fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.04,
-                                              ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            bottom: 10,
-                                          ),
-                                          child: Text(
-                                            '0',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .copyWith(
-                                                  color: Theme.of(context)
-                                                      .hintColor,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width *
-                                                          0.02,
-                                                ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'c',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                color:
-                                                    Theme.of(context).hintColor,
-                                                fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.04,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Text(
-                                          '71.6',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                color:
-                                                    Theme.of(context).hintColor,
-                                                fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.042,
-                                              ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                            bottom: 10,
-                                          ),
-                                          child: Text(
-                                            '0',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .copyWith(
-                                                  color: Theme.of(context)
-                                                      .hintColor,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .width *
-                                                          0.02,
-                                                ),
-                                          ),
-                                        ),
-                                        Text(
-                                          'F',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                color:
-                                                    Theme.of(context).hintColor,
-                                                fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .width *
-                                                    0.042,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                        borderRadius: BorderRadius.circular(28),
+                        boxShadow: const [
+                          BoxShadow(
+                            offset: Offset(2, 1),
+                            blurRadius: 6,
+                            spreadRadius: 0,
+                            color: Color(0xfffA0A0A0),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomLeft,
-                        colors: [
-                          Color(0xfff8B10B6),
-                          Color(0xfff0A0023),
                         ],
                       ),
-                      borderRadius: BorderRadius.circular(28),
-                      boxShadow: const [
-                        BoxShadow(
-                          offset: Offset(2, 1),
-                          blurRadius: 6,
-                          spreadRadius: 0,
-                          color: Color(0xfffA0A0A0),
-                        ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                        top: SizeVariables.getHeight(context) * 0.01,
-                        bottom: SizeVariables.getHeight(context) * 0.01,
-                      ),
-                      child: SizedBox(
-                        child: Column(
-                          children: [
-                            Text(
-                              'Progress',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.045,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image.asset(
+                            'assets/img/sun.png',
+                            // height: maxHeight < 900 ? 50 : 70,
+                            // width: maxWidth < 600 ? 70 : 100,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 16, 20, 16),
+                            child: SizedBox(
+                              child: Column(
+                                children: [
+                                  Column(
+                                    // crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        'Monday',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .copyWith(
+                                              color:
+                                                  Theme.of(context).hintColor,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.05,
+                                            ),
+                                      ),
+                                      Text(
+                                        'Kolkata',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .copyWith(
+                                              color:
+                                                  Theme.of(context).hintColor,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.04,
+                                            ),
+                                      ),
+                                    ],
                                   ),
-                            ),
-                            const SizedBox(height: 10),
-                            Expanded(
-                              child: Container(
-                                child: SfRadialGauge(
-                                  enableLoadingAnimation: true,
-                                  animationDuration: 2500,
-                                  axes: <RadialAxis>[
-                                    RadialAxis(
-                                      minimum: 0,
-                                      maximum: 100,
-                                      ranges: <GaugeRange>[
-                                        GaugeRange(
-                                          label: '50',
-                                          labelStyle: GaugeTextStyle(
-                                            color: Colors.white,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.034,
+                                  const Spacer(),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            '22',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .copyWith(
+                                                  color: Theme.of(context)
+                                                      .hintColor,
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.04,
+                                                ),
                                           ),
-                                          startValue: 0,
-                                          endValue: 50,
-                                          color: Colors.green,
-                                        ),
-                                        GaugeRange(
-                                          label: '25',
-                                          labelStyle: GaugeTextStyle(
-                                            color: Colors.white,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.034,
-                                          ),
-                                          startValue: 50,
-                                          endValue: 75,
-                                          color: Colors.orange,
-                                        ),
-                                        GaugeRange(
-                                          label: '25',
-                                          labelStyle: GaugeTextStyle(
-                                            color: Colors.white,
-                                            fontSize: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.034,
-                                          ),
-                                          startValue: 75,
-                                          endValue: 100,
-                                          color: Colors.red,
-                                        ),
-                                      ],
-                                      pointers: const <GaugePointer>[
-                                        NeedlePointer(
-                                          animationType:
-                                              AnimationType.easeInCirc,
-                                          enableAnimation: true,
-                                          animationDuration: 500,
-                                          value: 70,
-                                          needleColor: Colors.red,
-                                        ),
-                                      ],
-                                      axisLabelStyle: const GaugeTextStyle(
-                                        color: Colors.white,
-                                        fontSize: 5,
-                                      ),
-                                      majorTickStyle: const MajorTickStyle(
-                                        color: Colors.amber,
-                                      ),
-                                      endAngle: 40,
-                                      startAngle: 140,
-                                      showLastLabel: true,
-                                      annotations: <GaugeAnnotation>[
-                                        GaugeAnnotation(
-                                          widget: Container(
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              bottom: 10,
+                                            ),
                                             child: Text(
-                                              '11:42',
+                                              '0',
                                               style: Theme.of(context)
                                                   .textTheme
-                                                  .bodySmall!
+                                                  .bodyMedium!
                                                   .copyWith(
                                                     color: Theme.of(context)
                                                         .hintColor,
@@ -434,20 +257,241 @@ class Homepage_Screen extends StatelessWidget {
                                                         MediaQuery.of(context)
                                                                 .size
                                                                 .width *
-                                                            0.046,
+                                                            0.02,
                                                   ),
                                             ),
                                           ),
-                                          angle: 90,
-                                          positionFactor: 0.8,
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
+                                          Text(
+                                            'c',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .copyWith(
+                                                  color: Theme.of(context)
+                                                      .hintColor,
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.04,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            '71.6',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .copyWith(
+                                                  color: Theme.of(context)
+                                                      .hintColor,
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.042,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              bottom: 10,
+                                            ),
+                                            child: Text(
+                                              '0',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodyMedium!
+                                                  .copyWith(
+                                                    color: Theme.of(context)
+                                                        .hintColor,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.02,
+                                                  ),
+                                            ),
+                                          ),
+                                          Text(
+                                            'F',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .copyWith(
+                                                  color: Theme.of(context)
+                                                      .hintColor,
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .size
+                                                              .width *
+                                                          0.042,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                ShowcaseView(
+                  globalKey: _globalKeyThree,
+                  title: 'Progress',
+                  description: '',
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomLeft,
+                          colors: [
+                            Color(0xfff8B10B6),
+                            Color(0xfff0A0023),
                           ],
+                        ),
+                        borderRadius: BorderRadius.circular(28),
+                        boxShadow: const [
+                          BoxShadow(
+                            offset: Offset(2, 1),
+                            blurRadius: 6,
+                            spreadRadius: 0,
+                            color: Color(0xfffA0A0A0),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: SizeVariables.getHeight(context) * 0.01,
+                          bottom: SizeVariables.getHeight(context) * 0.01,
+                        ),
+                        child: SizedBox(
+                          child: Column(
+                            children: [
+                              Text(
+                                'Progress',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      color: Theme.of(context).hintColor,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.045,
+                                    ),
+                              ),
+                              const SizedBox(height: 10),
+                              Expanded(
+                                child: Container(
+                                  child: SfRadialGauge(
+                                    enableLoadingAnimation: true,
+                                    animationDuration: 2500,
+                                    axes: <RadialAxis>[
+                                      RadialAxis(
+                                        minimum: 0,
+                                        maximum: 100,
+                                        ranges: <GaugeRange>[
+                                          GaugeRange(
+                                            label: '50',
+                                            labelStyle: GaugeTextStyle(
+                                              color: Colors.white,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.034,
+                                            ),
+                                            startValue: 0,
+                                            endValue: 50,
+                                            color: Colors.green,
+                                          ),
+                                          GaugeRange(
+                                            label: '25',
+                                            labelStyle: GaugeTextStyle(
+                                              color: Colors.white,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.034,
+                                            ),
+                                            startValue: 50,
+                                            endValue: 75,
+                                            color: Colors.orange,
+                                          ),
+                                          GaugeRange(
+                                            label: '25',
+                                            labelStyle: GaugeTextStyle(
+                                              color: Colors.white,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.034,
+                                            ),
+                                            startValue: 75,
+                                            endValue: 100,
+                                            color: Colors.red,
+                                          ),
+                                        ],
+                                        pointers: const <GaugePointer>[
+                                          NeedlePointer(
+                                            animationType:
+                                                AnimationType.easeInCirc,
+                                            enableAnimation: true,
+                                            animationDuration: 500,
+                                            value: 70,
+                                            needleColor: Colors.red,
+                                          ),
+                                        ],
+                                        axisLabelStyle: const GaugeTextStyle(
+                                          color: Colors.white,
+                                          fontSize: 5,
+                                        ),
+                                        majorTickStyle: const MajorTickStyle(
+                                          color: Colors.amber,
+                                        ),
+                                        endAngle: 40,
+                                        startAngle: 140,
+                                        showLastLabel: true,
+                                        annotations: <GaugeAnnotation>[
+                                          GaugeAnnotation(
+                                            widget: Container(
+                                              child: Text(
+                                                '11:42',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .hintColor,
+                                                      fontSize:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .width *
+                                                              0.046,
+                                                    ),
+                                              ),
+                                            ),
+                                            angle: 90,
+                                            positionFactor: 0.8,
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -507,7 +551,12 @@ class Homepage_Screen extends StatelessWidget {
             SizedBox(
               height: SizeVariables.getHeight(context) * 0.02,
             ),
-            HomepageCard(),
+            ShowcaseView(
+              globalKey: _globalKeyFour,
+              title: 'Project',
+              description: 'All projects status',
+              child: HomepageCard(),
+            ),
             SizedBox(
               height: SizeVariables.getHeight(context) * 0.02,
             ),
@@ -517,16 +566,18 @@ class Homepage_Screen extends StatelessWidget {
       ),
     );
 
-    return LayoutBuilder(builder: (ctx, constraints) {
-      final maxWidth = constraints.maxWidth;
-      final maxHeight = constraints.maxHeight;
-      Widget child;
-      if (maxWidth >= 600) {
-        child = _homeScreen;
-      } else {
-        child = _homeScreen;
-      }
-      return child;
-    });
+    return LayoutBuilder(
+      builder: (ctx, constraints) {
+        final maxWidth = constraints.maxWidth;
+        final maxHeight = constraints.maxHeight;
+        Widget child;
+        if (maxWidth >= 600) {
+          child = _homeScreen;
+        } else {
+          child = _homeScreen;
+        }
+        return child;
+      },
+    );
   }
 }

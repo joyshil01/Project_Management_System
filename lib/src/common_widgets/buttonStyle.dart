@@ -206,3 +206,53 @@ class LoginButton extends StatelessWidget {
     );
   }
 }
+class EditButtonStyle extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+  final double width;
+  final double height;
+  EditButtonStyle({
+    required this.label,
+    required this.onPressed,
+    required this.width,
+    required this.height,
+  });
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          // color: Color(0xfff1E1E1E),
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(
+            color: Color(0xfff50BFE3),
+            width: 2,
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              label,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                    color: Color(0xfff50BFE3),
+                    fontSize: 16,
+                  ),
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+            const Icon(
+              Icons.edit,
+              size: 14,
+              color: Color(0xfff50BFE3),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}

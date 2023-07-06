@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/common_widgets/buttonStyle.dart';
 import '../../../../constans.dart';
-import '../../../common_widgets/quillText.dart';
 import '../../../utils/media-query.dart';
 
 class AddReport_Screen extends StatefulWidget {
@@ -11,7 +10,7 @@ class AddReport_Screen extends StatefulWidget {
 }
 
 class _AddReport_ScreenState extends State<AddReport_Screen> {
-  TextEditingController _searchAddStory = new TextEditingController();
+  final _searchAddStory = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,21 +92,17 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                 ),
               ),
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Text(
-                      'Add Your Project Story',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: Theme.of(context).hintColor,
-                            fontSize: 23,
-                          ),
-                    ),
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Add Your Project Story',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: Theme.of(context).hintColor,
+                        fontSize: 23,
+                      ),
+                ),
+              ],
             ),
             SizedBox(
               height: SizeVariables.getHeight(context) * 0.008,
@@ -219,19 +214,18 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                       ),
                       child: Row(
                         children: [
-                          Container(
-                            child: Flexible(
-                              flex: 7,
-                              fit: FlexFit.tight,
-                              child: Text(
-                                'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                        color: Theme.of(context).hintColor,
-                                        fontSize: 14),
-                              ),
+                          Flexible(
+                            flex: 7,
+                            fit: FlexFit.tight,
+                            child: Text(
+                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    color: Theme.of(context).hintColor,
+                                    fontSize: 14,
+                                  ),
                             ),
                           ),
                           Container(
@@ -240,7 +234,7 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                               fit: FlexFit.tight,
                               child: Container(
                                 margin: EdgeInsets.only(
-                                  left: SizeVariables.getWidth(context) * 0.06,
+                                  left: SizeVariables.getWidth(context) * 0.05,
                                 ),
                                 child: Text(
                                   '03-May-2023',
@@ -249,6 +243,7 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                                       .bodyMedium!
                                       .copyWith(
                                         color: Theme.of(context).hintColor,
+                                        fontSize: 12,
                                       ),
                                 ),
                               ),

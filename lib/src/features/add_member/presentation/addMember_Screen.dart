@@ -4,6 +4,7 @@ import 'package:timeline_tile/timeline_tile.dart';
 import '../../../../constans.dart';
 import '../../../utils/media-query.dart';
 import 'customProjectDialog.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 
 class Addmember_Screen extends StatefulWidget {
   @override
@@ -130,7 +131,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                 size: 18,
                               ),
                               Text(
-                                'Back',
+                                'Back'.hardcoded,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -169,7 +170,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                 children: [
                   Container(
                     child: Text(
-                      'Project Assigning',
+                      'Project Assigning'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
                             fontSize: 24,
@@ -188,7 +189,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                 children: [
                   Container(
                     child: Text(
-                      'Select team member',
+                      'Select team member'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
                             fontSize: 14,
@@ -227,7 +228,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                               Icons.mic,
                             ),
                           ),
-                          hintText: 'Search Project List',
+                          hintText: 'Search Project List'.hardcoded,
                           hintStyle:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Color(0xfff000000).withAlpha(67),
@@ -418,7 +419,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                   children: [
                                     Container(
                                       child: Text(
-                                        'Joy Shil',
+                                        'Joy Shil'.hardcoded,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodySmall!
@@ -444,7 +445,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                       ),
                                       child: Center(
                                         child: Text(
-                                          '100%',
+                                          '100%'.hardcoded,
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodyMedium!
@@ -461,7 +462,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                               ),
                               Container(
                                 child: Text(
-                                  'Frontend Developer',
+                                  'Frontend Developer'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -516,7 +517,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                 children: [
                                   Container(
                                     child: Text(
-                                      'Claimz',
+                                      'Claimz'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -531,7 +532,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'Busy. Not free at the moment',
+                                      'Busy. Not free at the moment'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall!
@@ -587,7 +588,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                 children: [
                                   Container(
                                     child: Text(
-                                      'Claimz',
+                                      'Claimz'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -602,7 +603,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'Busy. Not free at the moment',
+                                      'Busy. Not free at the moment'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall!
@@ -658,7 +659,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                 children: [
                                   Container(
                                     child: Text(
-                                      'Claimz',
+                                      'Claimz'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -673,7 +674,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'Busy. Not free at the moment',
+                                      'Busy. Not free at the moment'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall!
@@ -729,7 +730,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                 children: [
                                   Container(
                                     child: Text(
-                                      'Claimz',
+                                      'Claimz'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -744,7 +745,7 @@ class _Addmember_ScreenState extends State<Addmember_Screen> {
                                   ),
                                   Container(
                                     child: Text(
-                                      'Busy. Not free at the moment',
+                                      'Busy. Not free at the moment'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall!

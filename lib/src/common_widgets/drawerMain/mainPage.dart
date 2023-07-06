@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:showcaseview/showcaseview.dart';
 import '../../features/dashboard/presentation/home_screen.dart';
 import '../../features/drawer/presentation/all_project.dart';
 import '../../features/drawer/presentation/help.dart';
@@ -120,7 +121,11 @@ class _MainPageState extends State<MainPage> {
       //   return LogoutScreen(openDrawer: openDrawer);
       case DrawerItems.home:
       default:
-        return Homepage_Screen(openDrawer: openDrawer);
+        return ShowCaseWidget(
+          builder: Builder(
+            builder: (context) => Homepage_Screen(openDrawer: openDrawer),
+          ),
+        );
     }
   }
 }
