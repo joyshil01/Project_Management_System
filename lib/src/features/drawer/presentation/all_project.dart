@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/drawerMain/widget/drawerMenu_widget.dart';
 import '../../../routing/app_router.dart';
@@ -40,7 +41,7 @@ class All_Project_Screen extends StatelessWidget {
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
               child: Text(
-                'Create Project',
+                'Create Project'.hardcoded,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 16,

@@ -1,10 +1,11 @@
 import 'package:analog_clock/analog_clock.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_management_system/src/common_widgets/showCase.dart';
-import 'package:project_management_system/src/features/dashboard/presentation/homepage_Card.dart';
-import 'package:project_management_system/src/features/dashboard/presentation/velocity.dart';
-import 'package:project_management_system/src/utils/media-query.dart';
+import '../../../common_widgets/string_hardcoded.dart';
+import '../../../common_widgets/showCase.dart';
+import '../../../features/dashboard/presentation/homepage_Card.dart';
+import '../../../features/dashboard/presentation/velocity.dart';
+import '../../../utils/media-query.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import '../../../../constans.dart';
@@ -64,8 +65,8 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
               children: [
                 ShowcaseView(
                   globalKey: _globalKeyOne,
-                  title: 'Menu',
-                  description: '',
+                  title: 'Menu'.hardcoded,
+                  description: ''.hardcoded,
                   child: DrawerMenuWidget(
                     onClicked: widget.openDrawer,
                   ),
@@ -93,7 +94,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'How can i help you?',
+                      'How can i help you?'.hardcoded,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: MediaQuery.of(context).size.width * 0.055,
@@ -101,7 +102,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                       ),
                     ),
                     Text(
-                      'Hey Joy,',
+                      'Hey Joy,'.hardcoded,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: MediaQuery.of(context).size.width * 0.055,
@@ -148,7 +149,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                 ),
                 ShowcaseView(
                   globalKey: _globalKeyTwo,
-                  title: 'Weather',
+                  title: 'Weather'.hardcoded,
                   description: '',
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -189,7 +190,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                     // crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
-                                        'Monday',
+                                        'Monday'.hardcoded,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium!
@@ -203,7 +204,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                             ),
                                       ),
                                       Text(
-                                        'Kolkata',
+                                        'Kolkata'.hardcoded,
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium!
@@ -227,7 +228,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                             MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            '22',
+                                            '22'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodySmall!
@@ -246,7 +247,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                               bottom: 10,
                                             ),
                                             child: Text(
-                                              '0',
+                                              '0'.hardcoded,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodyMedium!
@@ -283,7 +284,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                             MainAxisAlignment.end,
                                         children: [
                                           Text(
-                                            '71.6',
+                                            '71.6'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodySmall!
@@ -302,7 +303,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                               bottom: 10,
                                             ),
                                             child: Text(
-                                              '0',
+                                              '0'.hardcoded,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodyMedium!
@@ -318,7 +319,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                             ),
                                           ),
                                           Text(
-                                            'F',
+                                            'F'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -347,7 +348,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                 ),
                 ShowcaseView(
                   globalKey: _globalKeyThree,
-                  title: 'Progress',
+                  title: 'Progress'.hardcoded,
                   description: '',
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
@@ -380,7 +381,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                           child: Column(
                             children: [
                               Text(
-                                'Progress',
+                                'Progress'.hardcoded,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -403,7 +404,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                         maximum: 100,
                                         ranges: <GaugeRange>[
                                           GaugeRange(
-                                            label: '50',
+                                            label: '50'.hardcoded,
                                             labelStyle: GaugeTextStyle(
                                               color: Colors.white,
                                               fontSize: MediaQuery.of(context)
@@ -416,7 +417,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                             color: Colors.green,
                                           ),
                                           GaugeRange(
-                                            label: '25',
+                                            label: '25'.hardcoded,
                                             labelStyle: GaugeTextStyle(
                                               color: Colors.white,
                                               fontSize: MediaQuery.of(context)
@@ -429,7 +430,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                             color: Colors.orange,
                                           ),
                                           GaugeRange(
-                                            label: '25',
+                                            label: '25'.hardcoded,
                                             labelStyle: GaugeTextStyle(
                                               color: Colors.white,
                                               fontSize: MediaQuery.of(context)
@@ -466,7 +467,7 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
                                           GaugeAnnotation(
                                             widget: Container(
                                               child: Text(
-                                                '11:42',
+                                                '11:42'.hardcoded,
                                                 style: Theme.of(context)
                                                     .textTheme
                                                     .bodySmall!
@@ -553,8 +554,8 @@ class _Homepage_ScreenState extends State<Homepage_Screen> {
             ),
             ShowcaseView(
               globalKey: _globalKeyFour,
-              title: 'Project',
-              description: 'All projects status',
+              title: 'Project'.hardcoded,
+              description: 'All projects status'.hardcoded,
               child: HomepageCard(),
             ),
             SizedBox(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'common_widgets/string_hardcoded.dart';
 import 'routing/app_router.dart';
 
 class MyApp extends StatelessWidget {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           getPages: RoutesClass.routes,
           initialRoute: RoutesClass.login,
-          onGenerateTitle: (BuildContext context) => 'PMS',
+          onGenerateTitle: (BuildContext context) => 'PMS'.hardcoded,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             unselectedWidgetColor: Colors.grey,

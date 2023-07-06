@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:project_management_system/src/common_widgets/containerStyle.dart';
+import '../../../common_widgets/string_hardcoded.dart';
+import '../../../common_widgets/containerStyle.dart';
 
 class Velocitygraph extends StatefulWidget {
   // const BarChartSample7({super.key});
@@ -194,7 +195,7 @@ class _IconWidgetState extends AnimatedWidgetBaseState<_IconWidget> {
   Widget build(BuildContext context) {
     final scale = 1 + _rotationTween!.evaluate(animation) * 0.5;
     return Text(
-      '01-05',
+      '01-05'.hardcoded,
       style: Theme.of(context).textTheme.bodySmall!.copyWith(
             color: const Color(0xfff2B5CC4),
             fontSize: 10,

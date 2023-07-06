@@ -1,8 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:project_management_system/constans.dart';
-
+import '../../../../common_widgets/string_hardcoded.dart';
 import 'ExpandedListAnimationWidget.dart';
 
 class clients_Textfeild extends StatefulWidget {
@@ -22,7 +21,7 @@ List<String> _list = ['A', "B", "C", 'D', 'E'];
 class _clients_TextfeildState extends State<clients_Textfeild> {
   bool isStrechedDropDown = false;
   var groupValue;
-  String title = 'Select Client';
+  String title = 'Select Client'.hardcoded;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +30,7 @@ class _clients_TextfeildState extends State<clients_Textfeild> {
         children: [
           Container(
             child: Text(
-              'Clients',
+              'Clients'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,

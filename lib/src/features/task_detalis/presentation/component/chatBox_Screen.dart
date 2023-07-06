@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import '../../../../utils/media-query.dart';
 import 'chatBody.dart';
 
@@ -36,14 +37,14 @@ class _chatBox_ScreenState extends State<chatBox_Screen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Rachhel Sekh",
+                  "Rachhel Sekh".hardcoded,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: 16,
                       ),
                 ),
                 Text(
-                  "Active 3m ago",
+                  "Active 3m ago".hardcoded,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: 10,

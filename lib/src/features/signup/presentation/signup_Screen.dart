@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_management_system/src/features/signup/presentation/textfieldSignup.dart';
+import '../../../features/signup/presentation/textfieldSignup.dart';
 import '../../../../constans.dart';
 
 class Signup_Screen extends StatefulWidget {

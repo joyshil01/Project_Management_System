@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../common_widgets/containerStyle.dart';
@@ -81,7 +82,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                           : SizeVariables.getHeight(context) * 0.09,
                     ),
                     Text(
-                      'Pending',
+                      'Pending'.hardcoded,
                       style: width < 600
                           ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 color: const Color(0xfff7E4CF9),
@@ -99,7 +100,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                       : SizeVariables.getHeight(context) * 0.008,
                 ),
                 Text(
-                  'UI Bug problem is not fix perfectly. Try to fix them.',
+                  'UI Bug problem is not fix perfectly. Try to fix them.'.hardcoded,
                   style: width < 600
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
@@ -116,7 +117,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                       : SizeVariables.getHeight(context) * 0.015,
                 ),
                 Text(
-                  '* CRM    * Lead    * Customer    * VRM',
+                  '* CRM    * Lead    * Customer    * VRM'.hardcoded,
                   style: width < 600
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
@@ -133,7 +134,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                       : SizeVariables.getHeight(context) * 0.015,
                 ),
                 Text(
-                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the',
+                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the'.hardcoded,
                   style: width < 600
                       ? Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
@@ -150,7 +151,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                       : SizeVariables.getHeight(context) * 0.02,
                 ),
                 Text(
-                  'Employee List',
+                  'Employee List'.hardcoded,
                   style: width < 600
                       ? Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).hintColor,
@@ -187,7 +188,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                               width: SizeVariables.getWidth(context) * 0.02,
                             ),
                             Text(
-                              'UI/UX Designer',
+                              'UI/UX Designer'.hardcoded,
                               style: width < 600
                                   ? Theme.of(context)
                                       .textTheme
@@ -224,7 +225,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                               width: SizeVariables.getWidth(context) * 0.02,
                             ),
                             Text(
-                              'Front-end',
+                              'Front-end'.hardcoded,
                               style: width < 600
                                   ? Theme.of(context)
                                       .textTheme
@@ -261,7 +262,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                               width: SizeVariables.getWidth(context) * 0.02,
                             ),
                             Text(
-                              'Back-end',
+                              'Back-end'.hardcoded,
                               style: width < 600
                                   ? Theme.of(context)
                                       .textTheme
@@ -298,7 +299,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                               width: SizeVariables.getWidth(context) * 0.02,
                             ),
                             Text(
-                              'Marketing',
+                              'Marketing'.hardcoded,
                               style: width < 600
                                   ? Theme.of(context)
                                       .textTheme
@@ -329,7 +330,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                   height: SizeVariables.getHeight(context) * 0.02,
                 ),
                 Text(
-                  'Project Status',
+                  'Project Status'.hardcoded,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: 16,
@@ -342,14 +343,14 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '07-Mar-2023',
+                      '07-Mar-2023'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Color(0xfff588B75),
                             fontSize: 12,
                           ),
                     ),
                     Text(
-                      '15-Sep-2023',
+                      '15-Sep-2023'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Color(0xfffEE7777),
                             fontSize: 12,
@@ -378,7 +379,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                           animatedDuration: const Duration(milliseconds: 300),
                           direction: Axis.horizontal,
                           verticalDirection: VerticalDirection.up,
-                          displayText: '%',
+                          displayText: '%'.hardcoded,
                           formatValueFixed: 2,
                         ),
                       ),
@@ -411,7 +412,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                 ),
                 Container(
                   child: Text(
-                    'Project Progress Bar',
+                    'Project Progress Bar'.hardcoded,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           color: Theme.of(context).hintColor,
                           fontSize: 16,
@@ -427,7 +428,7 @@ class _Projects_DetalisState extends State<Projects_Detalis> {
                 ),
                 Container(
                   child: Text(
-                    'Team Member',
+                    'Team Member'.hardcoded,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
                           color: Theme.of(context).hintColor,
                           fontSize: 16,

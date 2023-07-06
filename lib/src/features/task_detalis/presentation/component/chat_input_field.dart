@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import '../../../../../constans.dart';
 
 class ChatInputField extends StatelessWidget {
@@ -48,7 +49,7 @@ class ChatInputField extends StatelessWidget {
                       child: TextFormField(
                         maxLines: 2,
                         decoration: InputDecoration(
-                          hintText: "Type message",
+                          hintText: "Type message".hardcoded,
                           hintStyle:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,

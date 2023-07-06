@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../routing/app_router.dart';
@@ -50,7 +51,7 @@ class _Project_ListState extends State<Project_List> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Project Diagram',
+                'Project Diagram'.hardcoded,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 23,
@@ -67,7 +68,6 @@ class _Project_ListState extends State<Project_List> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  // height: SizeVariables.getHeight(context) * 0.04,
                   width: SizeVariables.getWidth(context) * 0.8,
                   decoration: BoxDecoration(
                       color: const Color(0xfffFFFFFF),
@@ -86,10 +86,10 @@ class _Project_ListState extends State<Project_List> {
                           Icons.mic,
                         ),
                       ),
-                      hintText: 'Search Project List',
+                      hintText: 'Search Project List'.hardcoded,
                       hintStyle:
                           Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                color: Color(0xfff000000).withAlpha(67),
+                                color: const Color(0xfff000000).withAlpha(67),
                                 fontSize: 14,
                               ),
                     ),
@@ -101,7 +101,7 @@ class _Project_ListState extends State<Project_List> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'All Projects',
+              'All Projects'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 18,
@@ -164,7 +164,7 @@ class _Project_ListState extends State<Project_List> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Doing Projects',
+              'Doing Projects'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 18,
@@ -222,7 +222,7 @@ class _Project_ListState extends State<Project_List> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'On Hold Projects',
+              'On Hold Projects'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 18,
@@ -277,7 +277,7 @@ class _Project_ListState extends State<Project_List> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Done Projects',
+              'Done Projects'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 18,
@@ -285,10 +285,8 @@ class _Project_ListState extends State<Project_List> {
             ),
           ),
           Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                // color: Colors.white,
                 height: SizeVariables.getHeight(context) * 0.15,
                 child: ListView.builder(
                   controller: _doneProjects,

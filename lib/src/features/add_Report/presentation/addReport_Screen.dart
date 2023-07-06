@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_management_system/src/common_widgets/buttonStyle.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../utils/media-query.dart';
 
@@ -60,7 +61,7 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                                 size: 18,
                               ),
                               Text(
-                                'Back',
+                                'Back'.hardcoded,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -96,7 +97,7 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Add Your Project Story',
+                  'Add Your Project Story'.hardcoded,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: 23,
@@ -109,41 +110,39 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      // height: SizeVariables.getHeight(context) * 0.04,
-                      width: SizeVariables.getWidth(context) * 0.8,
-                      decoration: BoxDecoration(
-                          color: Color(0xfffFFFFFF),
-                          borderRadius: BorderRadius.circular(20)),
-                      child: TextFormField(
-                        controller: _searchAddStory,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: const Icon(
-                            Icons.search,
-                          ),
-                          prefixIconColor: Colors.grey,
-                          suffixIcon: InkWell(
-                            onTap: () {},
-                            child: const Icon(
-                              Icons.mic,
-                            ),
-                          ),
-                          hintText: 'Search Project List',
-                          hintStyle:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    color: Color(0xfff000000).withAlpha(67),
-                                    fontSize: 14,
-                                  ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    // height: SizeVariables.getHeight(context) * 0.04,
+                    width: SizeVariables.getWidth(context) * 0.8,
+                    decoration: BoxDecoration(
+                        color: Color(0xfffFFFFFF),
+                        borderRadius: BorderRadius.circular(20)),
+                    child: TextFormField(
+                      controller: _searchAddStory,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        prefixIcon: const Icon(
+                          Icons.search,
                         ),
+                        prefixIconColor: Colors.grey,
+                        suffixIcon: InkWell(
+                          onTap: () {},
+                          child: const Icon(
+                            Icons.mic,
+                          ),
+                        ),
+                        hintText: 'Search Project List'.hardcoded,
+                        hintStyle:
+                            Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: Color(0xfff000000).withAlpha(67),
+                                  fontSize: 14,
+                                ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             SizedBox(
@@ -154,9 +153,9 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
               child: Container(
                 height: SizeVariables.getHeight(context) * 0.05,
                 decoration: BoxDecoration(
-                  color: Color(0xfff000000).withAlpha(24),
+                  color: const Color(0xfff000000).withAlpha(24),
                   border: Border.all(
-                    color: Color.fromARGB(255, 83, 82, 82),
+                    color: const Color.fromARGB(255, 83, 82, 82),
                   ),
                 ),
                 child: Row(
@@ -166,30 +165,24 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                       padding: EdgeInsets.only(
                         left: SizeVariables.getWidth(context) * 0.05,
                       ),
-                      child: Container(
-                        child: Text(
-                          'Story',
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize: 16,
-                                  ),
-                        ),
+                      child: Text(
+                        'Story'.hardcoded,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).hintColor,
+                              fontSize: 16,
+                            ),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
                         right: SizeVariables.getWidth(context) * 0.05,
                       ),
-                      child: Container(
-                        child: Text(
-                          'Add Story On',
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize: 16,
-                                  ),
-                        ),
+                      child: Text(
+                        'Add Story On'.hardcoded,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).hintColor,
+                              fontSize: 16,
+                            ),
                       ),
                     ),
                   ],
@@ -218,7 +211,8 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                             flex: 7,
                             fit: FlexFit.tight,
                             child: Text(
-                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                              'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
+                                  .hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -228,24 +222,22 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
                                   ),
                             ),
                           ),
-                          Container(
-                            child: Flexible(
-                              flex: 3,
-                              fit: FlexFit.tight,
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                  left: SizeVariables.getWidth(context) * 0.05,
-                                ),
-                                child: Text(
-                                  '03-May-2023',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(
-                                        color: Theme.of(context).hintColor,
-                                        fontSize: 12,
-                                      ),
-                                ),
+                          Flexible(
+                            flex: 3,
+                            fit: FlexFit.tight,
+                            child: Container(
+                              margin: EdgeInsets.only(
+                                left: SizeVariables.getWidth(context) * 0.05,
+                              ),
+                              child: Text(
+                                '03-May-2023'.hardcoded,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                      color: Theme.of(context).hintColor,
+                                      fontSize: 12,
+                                    ),
                               ),
                             ),
                           ),
@@ -292,117 +284,87 @@ class _AddReport_ScreenState extends State<AddReport_Screen> {
             padding: EdgeInsets.only(
               top: SizeVariables.getHeight(context) * 0.03,
             ),
-            child: Container(
-              child: Column(
-                children: [
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            'Write about your project',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Theme.of(context).hintColor,
-                                  fontSize: 24,
-                                ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Write about your project'.hardcoded,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context).hintColor,
+                            fontSize: 24,
                           ),
-                        ),
-                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: SizeVariables.getHeight(context) * 0.005,
-                  ),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          child: Text(
-                            'Write something about your project',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  color: Theme.of(context).hintColor,
-                                  fontSize: 14,
-                                ),
+                  ],
+                ),
+                SizedBox(
+                  height: SizeVariables.getHeight(context) * 0.005,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Write something about your project'.hardcoded,
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: Theme.of(context).hintColor,
+                            fontSize: 14,
                           ),
-                        ),
-                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: SizeVariables.getHeight(context) * 0.03,
-                  ),
-                  Container(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
+                  ],
+                ),
+                SizedBox(
+                  height: SizeVariables.getHeight(context) * 0.03,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: SizeVariables.getHeight(context) * 0.2,
+                      decoration: BoxDecoration(
+                        color: const Color(0xfff000000).withAlpha(35),
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                       child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: SizeVariables.getHeight(context) * 0.2,
-                          // color: Color(0xfff000000).withAlpha(35),
-                          decoration: BoxDecoration(
-                            color: Color(0xfff000000).withAlpha(35),
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 8,
-                            ),
-                            child: TextFormField(
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
+                        padding: const EdgeInsets.only(
+                          left: 8,
+                        ),
+                        child: TextFormField(
+                          style:
+                              Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
                                     fontSize: 14,
                                   ),
-                              maxLines: 10,
-                              // textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                              ),
-                            ),
+                          maxLines: 10,
+                          decoration: const InputDecoration(
+                            border: InputBorder.none,
                           ),
                         ),
                       ),
                     ),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: AddProjects_Text(),
-                  // ),
-                  SizedBox(
-                    height: SizeVariables.getHeight(context) * 0.02,
+                ),
+                SizedBox(
+                  height: SizeVariables.getHeight(context) * 0.02,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    right: SizeVariables.getWidth(context) * 0.06,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      right: SizeVariables.getWidth(context) * 0.06,
-                    ),
-                    child: Container(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Container(
-                            child: AddButton(
-                              label: 'Add',
-                              onPressed: () {},
-                              width: SizeVariables.getWidth(context) * 0.2,
-                              height: SizeVariables.getHeight(context) * 0.045,
-                            ),
-                          ),
-                        ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      AddButton(
+                        label: 'Add'.hardcoded,
+                        onPressed: () {},
+                        width: SizeVariables.getWidth(context) * 0.2,
+                        height: SizeVariables.getHeight(context) * 0.045,
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

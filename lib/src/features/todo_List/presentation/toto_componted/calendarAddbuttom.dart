@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import '../../../../../constans.dart';
 import '../../../../utils/media-query.dart';
@@ -35,7 +36,7 @@ class CalenderAddButton extends StatelessWidget {
               right: SizeVariables.getWidth(context) * 0.03,
             ),
             child: Text(
-              'Event',
+              'Event'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,
@@ -62,7 +63,7 @@ class CalenderAddButton extends StatelessWidget {
               right: SizeVariables.getWidth(context) * 0.03,
             ),
             child: Text(
-              'Task',
+              'Task'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,
@@ -89,7 +90,7 @@ class CalenderAddButton extends StatelessWidget {
               right: SizeVariables.getWidth(context) * 0.03,
             ),
             child: Text(
-              'Remainder',
+              'Remainder'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,
@@ -141,7 +142,7 @@ class CalenderAddButton extends StatelessWidget {
                         ),
                         child: SizedBox(
                           child: Text(
-                            'Reminders',
+                            'Reminders'.hardcoded,
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
                                       fontSize: 26,
@@ -156,7 +157,7 @@ class CalenderAddButton extends StatelessWidget {
                     children: [
                       SizedBox(
                         child: Text(
-                          'Reminders',
+                          'Reminders'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 18,
@@ -206,7 +207,7 @@ class CalenderAddButton extends StatelessWidget {
                                       color: Color(0xfff7B7B7B),
                                     ),
                                   ),
-                                  hintText: 'Remind me to',
+                                  hintText: 'Remind me to'.hardcoded,
                                   hintStyle: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -236,7 +237,7 @@ class CalenderAddButton extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Remind me to',
+                                  'Remind me to'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -246,7 +247,7 @@ class CalenderAddButton extends StatelessWidget {
                                       ),
                                 ),
                                 Text(
-                                  'jshil@vitwo.in',
+                                  'jshil@vitwo.in'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -289,7 +290,7 @@ class CalenderAddButton extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'All Day',
+                                            'All Day'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -299,7 +300,7 @@ class CalenderAddButton extends StatelessWidget {
                                                 ),
                                           ),
                                           Text(
-                                            'Tue, Mar28, 2023',
+                                            'Tue, Mar28, 2023'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -339,7 +340,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Doesn’t repeat',
+                              'Doesn’t repeat'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -378,7 +379,7 @@ class CalenderAddButton extends StatelessWidget {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      'Save',
+                                      'Save'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -478,7 +479,7 @@ class CalenderAddButton extends StatelessWidget {
                               Get.back();
                             },
                             child: Text(
-                              "Cancle",
+                              "Cancle".hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -493,7 +494,7 @@ class CalenderAddButton extends StatelessWidget {
                               Get.back();
                             },
                             child: Text(
-                              "ok",
+                              "ok".hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -549,7 +550,7 @@ class CalenderAddButton extends StatelessWidget {
                         ),
                         child: SizedBox(
                           child: Text(
-                            'Task Remind',
+                            'Task Remind'.hardcoded,
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
                                       fontSize: 22,
@@ -564,7 +565,7 @@ class CalenderAddButton extends StatelessWidget {
                     children: [
                       SizedBox(
                         child: Text(
-                          'Reminders',
+                          'Reminders'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 18,
@@ -614,7 +615,7 @@ class CalenderAddButton extends StatelessWidget {
                                       color: Color(0xfff7B7B7B),
                                     ),
                                   ),
-                                  hintText: 'Add title',
+                                  hintText: 'Add title'.hardcoded,
                                   hintStyle: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -661,7 +662,7 @@ class CalenderAddButton extends StatelessWidget {
                                       color: Color(0xfff7B7B7B),
                                     ),
                                   ),
-                                  hintText: 'Add details',
+                                  hintText: 'Add details'.hardcoded,
                                   hintStyle: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -704,7 +705,7 @@ class CalenderAddButton extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'All Day',
+                                            'All Day'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -714,7 +715,7 @@ class CalenderAddButton extends StatelessWidget {
                                                 ),
                                           ),
                                           Text(
-                                            'Tue, Mar28, 2023',
+                                            'Tue, Mar28, 2023'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -754,7 +755,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Doesn’t repeat',
+                              'Doesn’t repeat'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -793,7 +794,7 @@ class CalenderAddButton extends StatelessWidget {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      'Save',
+                                      'Save'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!
@@ -856,7 +857,7 @@ class CalenderAddButton extends StatelessWidget {
                         ),
                         child: SizedBox(
                           child: Text(
-                            'Task Remind',
+                            'Task Remind'.hardcoded,
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
                                       fontSize: 22,
@@ -871,7 +872,7 @@ class CalenderAddButton extends StatelessWidget {
                     children: [
                       SizedBox(
                         child: Text(
-                          'Reminders',
+                          'Reminders'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 18,
@@ -921,7 +922,7 @@ class CalenderAddButton extends StatelessWidget {
                                       color: Color(0xfff7B7B7B),
                                     ),
                                   ),
-                                  hintText: 'Add event',
+                                  hintText: 'Add event'.hardcoded,
                                   hintStyle: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -964,7 +965,7 @@ class CalenderAddButton extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'All Day',
+                                            'All Day'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -974,7 +975,7 @@ class CalenderAddButton extends StatelessWidget {
                                                 ),
                                           ),
                                           Text(
-                                            'Tue, Mar28, 2023',
+                                            'Tue, Mar28, 2023'.hardcoded,
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodyMedium!
@@ -1014,12 +1015,12 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'India Standard Time',
+                              'India Standard Time'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
                                   .copyWith(
-                                    color: Color(0xfff7B7B7B),
+                                    color: const Color(0xfff7B7B7B),
                                     fontSize: 18,
                                   ),
                             ),
@@ -1039,12 +1040,12 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Doesn’t repeat',
+                              'Doesn’t repeat'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
                                   .copyWith(
-                                    color: Color(0xfff7B7B7B),
+                                    color: const Color(0xfff7B7B7B),
                                     fontSize: 18,
                                   ),
                             ),
@@ -1064,7 +1065,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Add People',
+                              'Add People'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -1089,7 +1090,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Add video conferencing',
+                              'Add video conferencing'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -1114,7 +1115,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Add location',
+                              'Add location'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -1139,7 +1140,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Add notification',
+                              'Add notification'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -1163,12 +1164,12 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.06,
                             ),
                             Text(
-                              'Doesn’t repeat',
+                              'Doesn’t repeat'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
                                   .copyWith(
-                                    color: Color(0xfff7B7B7B),
+                                    color: const Color(0xfff7B7B7B),
                                     fontSize: 18,
                                   ),
                             ),
@@ -1208,12 +1209,12 @@ class CalenderAddButton extends StatelessWidget {
                                       color: Color(0xfff7B7B7B),
                                     ),
                                   ),
-                                  hintText: 'Add description',
+                                  hintText: 'Add description'.hardcoded,
                                   hintStyle: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
                                       .copyWith(
-                                        color: Color(0xfff7B7B7B),
+                                        color: const Color(0xfff7B7B7B),
                                         fontSize: 18,
                                       ),
                                 ),
@@ -1235,7 +1236,7 @@ class CalenderAddButton extends StatelessWidget {
                               width: SizeVariables.getWidth(context) * 0.05,
                             ),
                             Text(
-                              'Add attachment',
+                              'Add attachment'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -1274,7 +1275,7 @@ class CalenderAddButton extends StatelessWidget {
                                   ),
                                   child: Center(
                                     child: Text(
-                                      'Save',
+                                      'Save'.hardcoded,
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium!

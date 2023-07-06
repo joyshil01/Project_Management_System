@@ -29,29 +29,27 @@ class Help_Screen extends StatelessWidget {
             SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      DrawerMenuWidget(
-                        onClicked: openDrawer,
-                      ),
-                      GestureDetector(
-                        onTap: () {},
-                        child: Container(
-                          padding: EdgeInsets.only(
-                            top: SizeVariables.getHeight(context) * 0.005,
-                            right: SizeVariables.getWidth(context) * 0.02,
-                          ),
-                          child: Image.asset(
-                            'assets/drawer/bell.png',
-                            height: 30,
-                            width: 30,
-                          ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    DrawerMenuWidget(
+                      onClicked: openDrawer,
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        padding: EdgeInsets.only(
+                          top: SizeVariables.getHeight(context) * 0.005,
+                          right: SizeVariables.getWidth(context) * 0.02,
+                        ),
+                        child: Image.asset(
+                          'assets/drawer/bell.png',
+                          height: 30,
+                          width: 30,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

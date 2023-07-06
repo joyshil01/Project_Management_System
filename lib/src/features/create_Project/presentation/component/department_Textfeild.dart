@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../constans.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import 'ExpandedListAnimationWidget.dart';
 
 class department_Textfield extends StatefulWidget {
@@ -29,7 +28,7 @@ List<String> _list = [
 class _department_TextfieldState extends State<department_Textfield> {
   bool isStrechedDropDown = false;
   var groupValue;
-  String title = 'Select Department';
+  String title = 'Select Department'.hardcoded;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +38,7 @@ class _department_TextfieldState extends State<department_Textfield> {
         children: [
           Container(
             child: Text(
-              'Department',
+              'Department'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,

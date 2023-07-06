@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/containerStyle.dart';
 import '../../../utils/media-query.dart';
@@ -61,7 +62,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   size: 18,
                                 ),
                                 Text(
-                                  'Back',
+                                  'Back'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyMedium!
@@ -129,7 +130,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'Dark mode',
+                          'Dark mode'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -157,7 +158,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'Notifications',
+                          'Notifications'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -181,7 +182,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         title: Row(
                           children: [
                             Text(
-                              'Icon',
+                              'Icon'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -206,7 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               },
                             ),
                             Text(
-                              'Blue',
+                              'Blue'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -229,7 +230,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               },
                             ),
                             Text(
-                              'Purple',
+                              'Purple'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -252,7 +253,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               },
                             ),
                             Text(
-                              'Green',
+                              'Green'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodySmall!
@@ -288,7 +289,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'Security & Privacy',
+                          'Security & Privacy'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -318,7 +319,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'Text Size',
+                          'Text Size'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -348,7 +349,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'Languages',
+                          'Languages'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -390,7 +391,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'Send us a message',
+                          'Send us a message'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -420,7 +421,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'About Us',
+                          'About Us'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -450,7 +451,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ),
                         title: Text(
-                          'FAQs',
+                          'FAQs'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -490,7 +491,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                     title: Text(
-                      'Log-out',
+                      'Log-out'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).hintColor,
                             fontSize: 16,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../routing/app_router.dart';
 import '../../../utils/media-query.dart';
@@ -60,7 +61,7 @@ class _TaskDetails_ScreenState extends State<TaskDetails_Screen> {
                                 size: 18,
                               ),
                               Text(
-                                'Back',
+                                'Back'.hardcoded,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!

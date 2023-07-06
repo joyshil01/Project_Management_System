@@ -1,8 +1,7 @@
-import 'package:another_flushbar/flushbar.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../constans.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../common_widgets/buttonStyle.dart';
 import '../../../routing/app_router.dart';
 import '../../../utils/media-query.dart';
@@ -52,7 +51,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Hi!',
+            'Hi!'.hardcoded,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
                   fontFamily: 'PT Serif',
@@ -63,7 +62,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
             height: SizeVariables.getHeight(context) * 0.005,
           ),
           Text(
-            'Create a new account',
+            'Create a new account'.hardcoded,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
                   fontSize: 18,
@@ -81,11 +80,11 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                     controller: _email,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "please enter email";
+                        return "please enter email".hardcoded;
                       }
                       if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
                           .hasMatch(value)) {
-                        return "Please enter a vaild email";
+                        return "Please enter a vaild email".hardcoded;
                       }
                       return null;
                     },
@@ -110,7 +109,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                           color: Color(0xfffD9D9D9),
                         ),
                       ),
-                      hintText: 'ex@gmail.com',
+                      hintText: 'ex@gmail.com'.hardcoded,
                       hintStyle:
                           Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 color: Color(0xfff7B7B7B),
@@ -138,9 +137,10 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                     validator: (value) {
                       confirmPass = value;
                       if (value!.isEmpty) {
-                        return "Please Enter New Password";
+                        return "Please Enter New Password".hardcoded;
                       } else if (value!.length < 8) {
-                        return "Password must be atleast 8 characters long";
+                        return "Password must be atleast 8 characters long"
+                            .hardcoded;
                       } else {
                         return null;
                       }
@@ -156,7 +156,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                           color: Color(0xfffD9D9D9),
                         ),
                       ),
-                      hintText: 'password',
+                      hintText: 'password'.hardcoded,
                       hintStyle:
                           Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 color: Color(0xfff7B7B7B),
@@ -177,11 +177,12 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                     obscureText: true,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "Please Re-Enter New Password";
+                        return "Please Re-Enter New Password".hardcoded;
                       } else if (value.length < 8) {
-                        return "Password must be atleast 8 characters long";
+                        return "Password must be atleast 8 characters long"
+                            .hardcoded;
                       } else if (value != confirmPass) {
-                        return "Password must be same as above";
+                        return "Password must be same as above".hardcoded;
                       } else {
                         return null;
                       }
@@ -204,7 +205,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                           color: Color(0xfffD9D9D9),
                         ),
                       ),
-                      hintText: 'Confirm password',
+                      hintText: 'Confirm password'.hardcoded,
                       hintStyle:
                           Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 color: Color(0xfff7B7B7B),
@@ -231,7 +232,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                   LoginButton(
                     height: SizeVariables.getHeight(context) * 0.04,
                     width: SizeVariables.getWidth(context) * 0.78,
-                    label: 'Sign Up',
+                    label: 'Sign Up'.hardcoded,
                     onPressed: () {
                       // if (_sformkey.currentState!.validate()) {
                       //   FirebaseAuth.instance
@@ -279,7 +280,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                       color: Color(0xfffD9D9D9),
                     ),
                     Text(
-                      'Or',
+                      'Or'.hardcoded,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).hintColor,
                           ),
@@ -296,7 +297,7 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                 height: SizeVariables.getHeight(context) * 0.05,
               ),
               Text(
-                'Social Media Login',
+                'Social Media Login'.hardcoded,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).hintColor,
                     ),
@@ -325,15 +326,15 @@ class _TextFieldSignupState extends State<TextFieldSignup> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Already have a account?',
+                    'Already have a account?'.hardcoded,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).hintColor,
                           fontSize: 14,
                         ),
                   ),
                   TextButton(
-                    child: const Text(
-                      'Sign in',
+                    child: Text(
+                      'Sign in'.hardcoded,
                     ),
                     onPressed: () {
                       Get.toNamed(RoutesClass.loginRoute());

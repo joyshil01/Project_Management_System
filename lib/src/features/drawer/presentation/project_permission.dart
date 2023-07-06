@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_management_system/src/utils/media-query.dart';
+import '../../../common_widgets/string_hardcoded.dart';
+import '../../../utils/media-query.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/drawerMain/widget/drawerMenu_widget.dart';
 import '../../project_permission/presentation/projectPermission_screen.dart';
@@ -50,30 +51,28 @@ class Project_Permission_Screen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Text(
-                      'Project Permission',
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            color: Theme.of(context).hintColor,
-                            fontSize: 24,
-                          ),
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text(
+                    'Project Permission'.hardcoded,
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: Theme.of(context).hintColor,
+                          fontSize: 24,
+                        ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
                 height: SizeVariables.getHeight(context) * 0.05,
                 decoration: BoxDecoration(
-                  color: Color(0xfff000000).withAlpha(24),
+                  color: const Color(0xfff000000).withAlpha(24),
                   border: Border.all(
-                    color: Color.fromARGB(255, 94, 94, 94),
+                    color: const Color.fromARGB(255, 94, 94, 94),
                     width: 1,
                   ),
                 ),
@@ -87,7 +86,7 @@ class Project_Permission_Screen extends StatelessWidget {
                           left: 10,
                         ),
                         child: Text(
-                          'Name',
+                          'Name'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodySmall!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -103,7 +102,7 @@ class Project_Permission_Screen extends StatelessWidget {
                           left: 10,
                         ),
                         child: Text(
-                          'Permissions',
+                          'Permissions'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodySmall!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -114,14 +113,12 @@ class Project_Permission_Screen extends StatelessWidget {
                     Flexible(
                       flex: 1,
                       fit: FlexFit.tight,
-                      child: Container(
-                        child: Text(
-                          'Action',
-                          style:
-                              Theme.of(context).textTheme.bodySmall!.copyWith(
-                                    color: Theme.of(context).hintColor,
-                                  ),
-                        ),
+                      child: Text(
+                        'Action'.hardcoded,
+                        style:
+                            Theme.of(context).textTheme.bodySmall!.copyWith(
+                                  color: Theme.of(context).hintColor,
+                                ),
                       ),
                     ),
                   ],

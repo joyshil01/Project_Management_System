@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import '../../../../../constans.dart';
 import '../../../../common_widgets/containerStyle.dart';
 import '../../../../routing/app_router.dart';
@@ -53,7 +54,7 @@ class _CompleteTabviewState extends State<CompleteTabview> {
                       ),
                       child: Center(
                         child: Text(
-                          'Ui not fix',
+                          'Ui not fix'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontSize: 10,
@@ -65,7 +66,7 @@ class _CompleteTabviewState extends State<CompleteTabview> {
                       height: SizeVariables.getHeight(context) * 0.01,
                     ),
                     Text(
-                      'Claimz PI - II',
+                      'Claimz PI - II'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Color(0xfffFFFFFF),
                             fontSize: 20,
@@ -75,9 +76,9 @@ class _CompleteTabviewState extends State<CompleteTabview> {
                       height: SizeVariables.getHeight(context) * 0.01,
                     ),
                     Text(
-                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'.hardcoded,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: Color(0xfffFFFFFF),
+                            color: const Color(0xfffFFFFFF),
                             fontSize: 14,
                           ),
                     ),
@@ -114,7 +115,7 @@ class _CompleteTabviewState extends State<CompleteTabview> {
                           ),
                         ),
                         Text(
-                          '3 hr ago',
+                          '3 hr ago'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Color(0xfffFFFFFF),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_management_system/src/common_widgets/containerStyle.dart';
-import 'package:project_management_system/src/utils/media-query.dart';
+import '../../../common_widgets/containerStyle.dart';
+import '../../../utils/media-query.dart';
 
 class HomepageCard extends StatefulWidget {
   @override

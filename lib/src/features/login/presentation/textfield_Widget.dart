@@ -2,6 +2,7 @@
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import 'package:project_management_system/src/utils/media-query.dart';
 import '../../../common_widgets/buttonStyle.dart';
 import '../../../routing/app_router.dart';
@@ -50,7 +51,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Welcome!',
+            'Welcome!'.hardcoded,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
                   fontFamily: 'PT Serif',
@@ -61,7 +62,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
             height: SizeVariables.getHeight(context) * 0.005,
           ),
           Text(
-            'Sign in to continue',
+            'Sign in to continue'.hardcoded,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
                   fontSize: MediaQuery.of(context).size.width * 0.045,
@@ -79,11 +80,11 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                   enableSuggestions: true,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "please enter email";
+                      return "please enter email".hardcoded;
                     }
                     if (!RegExp("^[a-zA-z0-9+_.-]+@[a-zA-z0-9.-]+.[a-z]")
                         .hasMatch(value)) {
-                      return "Please enter a vaild email";
+                      return "Please enter a vaild email".hardcoded;
                     }
                     return null;
                   },
@@ -108,7 +109,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                         color: Color(0xfffD9D9D9),
                       ),
                     ),
-                    hintText: 'ex@gmail.com',
+                    hintText: 'ex@gmail.com'.hardcoded,
                     hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                           color: const Color(0xfff7B7B7B),
                           fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -134,9 +135,9 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                   keyboardType: TextInputType.visiblePassword,
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return "Please Enter Password";
+                      return "Please Enter Password".hardcoded;
                     } else if (value!.length < 8) {
-                      return "Password must be atleast 8 characters long";
+                      return "Password must be atleast 8 characters long".hardcoded;
                     } else {
                       return null;
                     }
@@ -152,7 +153,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                         color: const Color(0xfffD9D9D9),
                       ),
                     ),
-                    hintText: 'password',
+                    hintText: 'password'.hardcoded,
                     hintStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
                           color: const Color(0xfff7B7B7B),
                           fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -185,7 +186,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                             Orientation.portrait
                         ? SizeVariables.getWidth(context) * 0.78
                         : SizeVariables.getWidth(context) * 0.83,
-                    label: 'Login',
+                    label: 'Login'.hardcoded,
                     onPressed: () async {
                       Get.toNamed(RoutesClass.drawerRoute());
                       // if (_formkey.currentState!.validate()) {
@@ -231,7 +232,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
               TextButton(
                 onPressed: () {},
                 child: Text(
-                  'Forget Password?',
+                  'Forget Password?'.hardcoded,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: MediaQuery.of(context).size.width * 0.035,
@@ -252,7 +253,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                       color: Color(0xfffD9D9D9),
                     ),
                     Text(
-                      'Or',
+                      'Or'.hardcoded,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).hintColor,
                             fontSize: MediaQuery.of(context).size.width * 0.047,
@@ -270,7 +271,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 height: SizeVariables.getHeight(context) * 0.06,
               ),
               Text(
-                'Social Media Login',
+                'Social Media Login'.hardcoded,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: MediaQuery.of(context).size.width * 0.035,
@@ -309,7 +310,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Don’t have any account?',
+                    'Don’t have any account?'.hardcoded,
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           color: Theme.of(context).hintColor,
                           fontSize: MediaQuery.of(context).size.width * 0.035,
@@ -317,7 +318,7 @@ class _TextFieldLoginState extends State<TextFieldLogin> {
                   ),
                   TextButton(
                     child: Text(
-                      'Sign Up',
+                      'Sign Up'.hardcoded,
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             color: Colors.blue,
                             fontSize: MediaQuery.of(context).size.width * 0.035,

@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import '../common_widgets/string_hardcoded.dart';
 
 class PieChartScreen extends StatefulWidget {
   const PieChartScreen({super.key});
@@ -59,7 +60,7 @@ class PieChartScreenState extends State {
                         FittedBox(
                           fit: BoxFit.contain,
                           child: Text(
-                            '70 %',
+                            '70 %'.hardcoded,
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
                                       fontSize: 20,

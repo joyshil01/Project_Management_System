@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_management_system/constans.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import 'ChatMessage.dart';
 
 class AudioMessage extends StatelessWidget {
@@ -10,13 +11,13 @@ class AudioMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.55,
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 20 * 0.75,
         vertical: 20 / 2.5,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Color(0xfff000000).withAlpha(12).withOpacity(message!.isSender ? 1 : 0.1),
+        color: const Color(0xfff000000).withAlpha(12).withOpacity(message!.isSender ? 1 : 0.1),
       ),
       child: Row(
         children: [
@@ -54,7 +55,7 @@ class AudioMessage extends StatelessWidget {
             ),
           ),
           Text(
-            "0.37",
+            "0.37".hardcoded,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: Theme.of(context).hintColor,
                 ),

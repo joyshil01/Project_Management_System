@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../../common_widgets/string_hardcoded.dart';
 import 'ExpandedListAnimationWidget.dart';
 
 class project_Priority extends StatefulWidget {
@@ -22,7 +23,7 @@ List<String> _list = [
 class _project_PriorityState extends State<project_Priority> {
   bool isStrechedDropDown = false;
   var groupValue;
-  String title = 'Select Priority';
+  String title = 'Select Priority'.hardcoded;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,7 +32,7 @@ class _project_PriorityState extends State<project_Priority> {
         children: [
           Container(
             child: Text(
-              'Project Priority',
+              'Project Priority'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,

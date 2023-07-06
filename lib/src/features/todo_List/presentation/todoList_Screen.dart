@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_management_system/src/features/todo_List/presentation/toto_componted/calendarAddbuttom.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../utils/media-query.dart';
 import '../data/edit.dart';
@@ -8,6 +8,7 @@ import 'component_todo/board_Widget.dart';
 import 'component_todo/calender_Widget.dart';
 import 'component_todo/files_Widget.dart';
 import 'component_todo/list_Widget.dart';
+import '../../../features/todo_List/presentation/toto_componted/calendarAddbuttom.dart';
 
 class TodoList_Screen extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
             : _selection == 1
                 ? Container()
                 : _selection == 2
-                    ? CalenderAddButton()
+                    ? const CalenderAddButton()
                     : _selection == 3
                         ? Container()
                         : Container(),
@@ -60,7 +61,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
             children: [
               Container(
                 child: Text(
-                  'My Task',
+                  'My Task'.hardcoded,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: 23,
@@ -109,7 +110,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                                   width: 3,
                                 ),
                                 Text(
-                                  'List',
+                                  'List'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
@@ -160,7 +161,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                                   width: 3,
                                 ),
                                 Text(
-                                  'Board',
+                                  'Board'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
@@ -211,7 +212,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                                   width: 3,
                                 ),
                                 Text(
-                                  'Calender',
+                                  'Calender'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
@@ -262,7 +263,7 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                                   width: 3,
                                 ),
                                 Text(
-                                  'Files',
+                                  'Files'.hardcoded,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
@@ -286,22 +287,18 @@ class _TodoList_ScreenState extends State<TodoList_Screen> {
                   ],
                 ),
               ),
-              Container(
-                child: Column(
-                  children: [
-                    _selection == 0
-                        ?
-                        // NewList_Widget()
-                        List_widget()
-                        : _selection == 1
-                            ? Board_Widget()
-                            : _selection == 2
-                                ? Calender_Widget()
-                                : _selection == 3
-                                    ? Files_Widget()
-                                    : Container(),
-                  ],
-                ),
+              Column(
+                children: [
+                  _selection == 0
+                      ? List_widget()
+                      : _selection == 1
+                          ? Board_Widget()
+                          : _selection == 2
+                              ? Calender_Widget()
+                              : _selection == 3
+                                  ? Files_Widget()
+                                  : Container(),
+                ],
               ),
             ],
           ),

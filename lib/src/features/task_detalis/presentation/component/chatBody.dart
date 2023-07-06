@@ -18,7 +18,7 @@ class Body extends StatelessWidget {
             ),
           ),
         ),
-        ChatInputField(),
+       const ChatInputField(),
       ],
     );
   }

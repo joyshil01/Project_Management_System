@@ -3,6 +3,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../common_widgets/buttonStyle.dart';
 import '../../../utils/media-query.dart';
@@ -104,7 +105,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                 size: 18,
                               ),
                               Text(
-                                'Back',
+                                'Back'.hardcoded,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -140,7 +141,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Create new Project',
+                  'Create new Project'.hardcoded,
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: Theme.of(context).hintColor,
                         fontSize: 23,
@@ -165,7 +166,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Project Name',
+                            'Project Name'.hardcoded,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -193,7 +194,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                   color: Color(0xfff7B7B7B),
                                 ),
                               ),
-                              hintText: 'Enter Project Name',
+                              hintText: 'Enter Project Name'.hardcoded,
                               hintStyle: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -216,7 +217,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Project Website',
+                          'Project Website'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -240,7 +241,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                 color: Color(0xfff7B7B7B),
                               ),
                             ),
-                            hintText: 'Enter Project Website Name',
+                            hintText: 'Enter Project Website Name'.hardcoded,
                             hintStyle: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -263,7 +264,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                       children: [
                         Container(
                           child: Text(
-                            'Project Type',
+                            'Project Type'.hardcoded,
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -290,7 +291,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                 color: Color(0xfff7B7B7B),
                               ),
                             ),
-                            hintText: 'Enter Project type',
+                            hintText: 'Enter Project type'.hardcoded,
                             hintStyle: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
@@ -320,7 +321,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Company Logo',
+                          'Company Logo'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -344,7 +345,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                 primary: const Color(0xfff000000).withAlpha(12),
                               ),
                               child: Text(
-                                'Choose file',
+                                'Choose file'.hardcoded,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -380,7 +381,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                                   ),
                                   hintText: _platformFile != null
                                       ? _platformFile?.name
-                                      : 'No file choosen',
+                                      : 'No file choosen'.hardcoded,
                                   hintStyle: _platformFile != null
                                       ? Theme.of(context)
                                           .textTheme
@@ -416,7 +417,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Project Priority',
+                          'Project Priority'.hardcoded,
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: Theme.of(context).hintColor,
@@ -460,7 +461,7 @@ class _Createproject_ScreenState extends State<Createproject_Screen>
                           children: [
                             SubmitButton(
                               onPressed: () {},
-                              label: 'Submit',
+                              label: 'Submit'.hardcoded,
                             ),
                           ],
                         ),

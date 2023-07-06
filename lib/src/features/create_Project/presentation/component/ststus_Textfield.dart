@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../../../common_widgets/string_hardcoded.dart';
 import 'ExpandedListAnimationWidget.dart';
 
 class status_Textfield extends StatefulWidget {
@@ -25,7 +25,7 @@ List<String> _list = [
 class _status_TextfieldState extends State<status_Textfield> {
   bool isStrechedDropDown = false;
   var groupValue;
-  String title = 'Select Status';
+  String title = 'Select Status'.hardcoded;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +34,7 @@ class _status_TextfieldState extends State<status_Textfield> {
         children: [
           Container(
             child: Text(
-              'Status',
+              'Status'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 16,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 
 class profileWidget extends StatelessWidget {
   const profileWidget({
@@ -21,7 +22,7 @@ class profileWidget extends StatelessWidget {
             ),
             const SizedBox(height: 3),
             Text(
-              'Joy Shil',
+              'Joy Shil'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 18,
@@ -30,7 +31,7 @@ class profileWidget extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              'Application developer',
+              'Application developer'.hardcoded,
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: Theme.of(context).hintColor,
                     fontSize: 14,
@@ -49,7 +50,7 @@ class profileWidget extends StatelessWidget {
                 size: 16,
               ),
               label: Text(
-                'Edit Profile',
+                'Edit Profile'.hardcoded,
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       color: Theme.of(context).hintColor,
                     ),

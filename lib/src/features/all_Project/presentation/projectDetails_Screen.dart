@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get/get.dart';
-import 'package:project_management_system/src/features/all_Project/presentation/projects_Details.dart';
+import '../../../common_widgets/string_hardcoded.dart';
 import '../../../../constans.dart';
 import '../../../routing/app_router.dart';
 import '../../../utils/media-query.dart';
+import '../presentation/projects_Details.dart';
 
 // ignore: camel_case_types
 class projectDetails_Screen extends StatefulWidget {
@@ -42,7 +43,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
               child: Text(
-                'Edit Project',
+                'Edit Project'.hardcoded,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 16,
@@ -67,7 +68,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
               child: Text(
-                'Add Member',
+                'Add Member'.hardcoded,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 16,
@@ -94,7 +95,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
                 right: SizeVariables.getWidth(context) * 0.03,
               ),
               child: Text(
-                'Add Reports',
+                'Add Reports'.hardcoded,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Theme.of(context).hintColor,
                       fontSize: 16,
@@ -144,7 +145,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
                               size: 18,
                             ),
                             Text(
-                              'Back',
+                              'Back'.hardcoded,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!
@@ -181,7 +182,7 @@ class _projectDetails_ScreenState extends State<projectDetails_Screen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Project Diagram',
+                    'Project Diagram'.hardcoded,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: Theme.of(context).hintColor,
                           fontSize: 23,
