@@ -1,5 +1,9 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../common_widgets/string_hardcoded.dart';
+import '../../../routing/app_router.dart';
 
 class profileWidget extends StatelessWidget {
   const profileWidget({
@@ -55,7 +59,9 @@ class profileWidget extends StatelessWidget {
                       color: Theme.of(context).hintColor,
                     ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.toNamed(RoutesClass.profileEdit);
+              },
             ),
           ],
         ),

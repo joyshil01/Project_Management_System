@@ -36,6 +36,7 @@ dependencies:
   google_sign_in:
   provider:
   showcaseview:
+  http:
 
 flutter_icons:
   image_path: "assets/logo/pmsLogo.png"

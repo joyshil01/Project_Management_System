@@ -5,6 +5,7 @@ import '../features/add_member/presentation/addMember_Screen.dart';
 import '../features/all_Project/presentation/projectDetails_Screen.dart';
 import '../features/create_Project/presentation/createProject_Screen.dart';
 import '../features/login/presentation/login_Screen.dart';
+import '../features/profile/presentation/editScree.dart';
 import '../features/profile/presentation/profile_screen.dart';
 import '../features/signup/presentation/signup_Screen.dart';
 import '../features/task_detalis/presentation/component/chatBox_Screen.dart';
@@ -17,18 +18,6 @@ class RoutesClass {
   static String signupRoute() => signup;
   static String drawer = '/login/drawer';
   static String drawerRoute() => drawer;
-  static String home = '/home';
-  static String getHomeRoute() => home;
-  static String all_project = '/all_project';
-  static String all_projectRoute() => all_project;
-  static String project_permission = '/project_permission';
-  static String project_permissionRoute() => project_permission;
-  static String todo_list = '/todo_list';
-  static String todo_listRoute() => todo_list;
-  static String project_list = '/project_list';
-  static String project_listRoute() => project_list;
-  static String help = '/help';
-  static String helpRoute() => help;
   static String project_details = '/all_project/project_details';
   static String project_detailsRoute() => project_details;
   static String Createproject = '/create_project';
@@ -43,6 +32,8 @@ class RoutesClass {
   static String chatboxRoute() => chatbox;
   static String profile = '/drawer/profile';
   static String profileRoute() => profile;
+  static String profileEdit = '/drawer/profile/edit-profile';
+  static String profileEditRoute() => profileEdit;
 
   static List<GetPage> routes = [
     GetPage(
@@ -100,6 +91,12 @@ class RoutesClass {
       transitionDuration: const Duration(milliseconds: 500),
       name: profile,
       page: () => const ProfileScreen(),
+    ),
+    GetPage(
+      transition: Transition.upToDown,
+      transitionDuration: const Duration(milliseconds: 500),
+      name: profileEdit,
+      page: () => const EditProfile_Screen(),
     ),
   ];
 }
